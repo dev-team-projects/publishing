@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자 대시보드</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/css/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/admin.css"
+    />
+
+    <script src="./assets/js/main.js"></script>
+  </head>
+  <body>
+    <!-- <a
+      href="#main"
+      class="skip-link"
+      >본문 바로가기</a
+    > -->
+    <header class="header">
+      <div class="header__logo">
+        <h1>
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS
+        </h1>
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 관리자 > 대시보드"
+      >
+        <span>관리자</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">대시보드</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li>
+            <button
+              class="header__btn header__btn--alarm"
+              aria-label="알림"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside>
+      <nav
+        class="sidebar"
+        aria-label="사이드바 메뉴"
+      >
+        <ul class="sidebar__menu">
+          <!-- sidebar item (with submenu) -->
+          <li class="sidebar__item">
+            <div class="sidebar__main">
+              <div class="sidebar__left">
+                <span aria-hidden="true"
+                  ><i class="fa-solid fa-building-user"></i
+                ></span>
+                <a
+                  href="#"
+                  class="sidebar__link"
+                  >업체 관리</a
+                >
+              </div>
+              <div class="sidebar__right">
+                <button
+                  class="sidebar__toggle-btn"
+                  type="button"
+                  aria-label="서브메뉴 토글"
+                  aria-expanded="false"
+                  aria-controls="submenu-business-users"
+                >
+                  <i
+                    class="fa-solid fa-chevron-down"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="submenu-business-users"
+              class="sidebar__submenu-wrapper"
+              role="region"
+              aria-hidden="true"
+              aria-label="업체 관리 하위 메뉴"
+            >
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">업체 목록</a>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">업체가입요청 목록</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="sidebar__item">
+            <div class="sidebar__main">
+              <div class="sidebar__left">
+                <span aria-hidden="true"
+                  ><i class="fa-solid fa-utensils"></i
+                ></span>
+                <a
+                  href="#"
+                  class="sidebar__link"
+                  >메뉴 관리</a
+                >
+              </div>
+              <div class="sidebar__right">
+                <button
+                  class="sidebar__toggle-btn"
+                  type="button"
+                  aria-label="서브메뉴 토글"
+                  aria-expanded="false"
+                  aria-controls="submenu-menus"
+                >
+                  <i
+                    class="fa-solid fa-chevron-down"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="submenu-menus"
+              class="sidebar__submenu-wrapper"
+              role="region"
+              aria-hidden="true"
+              aria-label="메뉴 관리 하위 메뉴"
+            >
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">메뉴 목록</a>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">메뉴 업로드</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="sidebar__item">
+            <div class="sidebar__main">
+              <div class="sidebar__left">
+                <span aria-hidden="true"
+                  ><i class="fa-solid fa-users"></i
+                ></span>
+                <a
+                  href="#"
+                  class="sidebar__link"
+                  >회원 관리</a
+                >
+              </div>
+              <div class="sidebar__right">
+                <button
+                  class="sidebar__toggle-btn"
+                  type="button"
+                  aria-label="서브메뉴 토글"
+                  aria-expanded="false"
+                  aria-controls="submenu-users"
+                >
+                  <i
+                    class="fa-solid fa-chevron-down"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="submenu-users"
+              class="sidebar__submenu-wrapper"
+              role="region"
+              aria-hidden="true"
+              aria-label="회원 관리 하위 메뉴"
+            >
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">회원 목록</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="sidebar__item">
+            <div class="sidebar__main">
+              <div class="sidebar__left">
+                <span aria-hidden="true"><i class="fa-solid fa-flag"></i></span>
+                <a
+                  href="#"
+                  class="sidebar__link"
+                  >신고 관리</a
+                >
+              </div>
+              <div class="sidebar__right">
+                <button
+                  class="sidebar__toggle-btn"
+                  type="button"
+                  aria-label="서브메뉴 토글"
+                  aria-expanded="false"
+                  aria-controls="submenu-reports"
+                >
+                  <i
+                    class="fa-solid fa-chevron-down"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="submenu-reports"
+              class="sidebar__submenu-wrapper"
+              role="region"
+              aria-hidden="true"
+              aria-label="신고 관리 하위 메뉴"
+            >
+              <ul class="sidebar__submenu">
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">신고요청 목록</a>
+                </li>
+                <li class="sidebar__submenu-item">
+                  <span class="sidebar__submenu-item--bar"></span>
+                  <a href="#">신고내역</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main></main>
+  </body>
+</html>

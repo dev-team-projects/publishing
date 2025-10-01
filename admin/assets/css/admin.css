@@ -1,0 +1,190 @@
+/* =========================
+   HEADER (block: header)
+   ========================= */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 0.1rem solid #ccc;
+}
+
+.header__logo {
+  font-family: '학교안심 알림장', sans-serif;
+  text-decoration: none;
+}
+
+.header__logo h1 {
+  font-size: 1.3rem;
+}
+
+.header__icon {
+  /* 기존 .header-icon */
+  width: 100%;
+}
+.header__icon i {
+  /* 기존 .header-logo i */
+  color: blue;
+}
+
+.header__path {
+  /* 기존 .header-path */
+  width: 50%;
+  color: #525252;
+}
+
+.header__current-path {
+  /* 기존 .current-path */
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.header__nav {
+  width: 10%;
+}
+
+.header__menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__menu button,
+.header__btn {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.header__menu button:hover,
+.header__btn:hover {
+  /* 기존 .header-menu button:hover */
+  cursor: pointer;
+  color: blue;
+}
+
+/* =========================
+   SIDEBAR (block: sidebar)
+   ========================= */
+.sidebar {
+  width: 15%;
+  height: 100vh;
+  background-color: #f4f6fa;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  font-size: 0.7rem;
+}
+
+.sidebar__menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar__item {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.sidebar__main {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.sidebar__left {
+  /* 기존 .sidebar-item-left */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar__submenu-wrapper {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  will-change: height, opacity;
+  padding: 0.5rem 0.5rem 0;
+}
+
+/* 열림 상태 (클래스 방식도 유지 호환) */
+.sidebar__submenu-wrapper.is-open {
+  opacity: 1;
+}
+
+.sidebar__submenu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar__submenu-item {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar__submenu-item:hover {
+  background-color: #fff;
+  cursor: pointer;
+  border-left: 0.2rem solid blue;
+}
+
+/* 토글 버튼 */
+.sidebar__toggle-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar__toggle-btn:hover {
+  cursor: pointer;
+}
+
+/* 체브론 회전 (접근성: aria-expanded) */
+.sidebar__toggle-btn[aria-expanded='true'] .fa-chevron-down {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+
+/* 모션 최소화 선호 존중 */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar__submenu-wrapper {
+    /* 기존 .sidebar-submenu-wrapper */
+    transition: none;
+  }
+  .sidebar__toggle-btn .fa-chevron-down {
+    /* 기존 .btn-toggle-submenu .fa-chevron-down */
+    transition: none;
+  }
+}

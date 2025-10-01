@@ -1,0 +1,36 @@
+/* selfhosted-fonts.css */
+@layer base {
+  /* SUIT (Variable) */
+  @font-face {
+    font-family: 'SUIT';
+    src: url('../fonts/SUIT_Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-024F, U+1100-11FF, U+3130-318F, U+AC00-D7AF; /* 라틴+한글 */
+  }
+
+  /* 학교안심 알림장 (정적 웨이트 예시) */
+  @font-face {
+    font-family: '학교안심 알림장';
+    src: url('../fonts/Hakgyoansim_Allimjang_TTF_R.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* 사천항공체 (정적 웨이트 예시) */
+  @font-face {
+    font-family: '사천항공체';
+    src: url('../fonts/SacheonHangGong_Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: '사천항공체';
+    src: url('../fonts/Pretendard_Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+}
