@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자 대시보드</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/css/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/css/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/admin.css"
+    />
+
+    <!-- 이 페이지 css -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/bisMemReqList.css"
+    />
+
+    <script src="./assets/js/main.js"></script>
+  </head>
+  <body>
+    <!-- <a
+      href="#main"
+      class="skip-link"
+      >본문 바로가기</a
+    > -->
+    <header class="header">
+      <div class="header__logo">
+        <a
+          href="index.html"
+          class="header__logo-link"
+        >
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS</a
+        >
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 관리자 > 대시보드"
+      >
+        <span>음식업체</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">음식업체 회원가입 요청 목록</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li>
+            <button
+              class="btn header__btn header__btn--alarm"
+              aria-label="알림"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <aside
+        id="sidebar-content"
+        class="sidebar-container"
+      >
+        <nav
+          class="sidebar"
+          aria-label="사이드바 메뉴"
+        >
+          <ul class="sidebar__menu">
+            <!-- sidebar item (with submenu) -->
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-building-user"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >업체 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-business-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-business-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="업체 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">업체 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">업체가입요청 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >메뉴 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-menus"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-menus"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="메뉴 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">메뉴 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">메뉴 업로드</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-users"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >회원 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="회원 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">회원 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-flag"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >신고 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-reports"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-reports"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="신고 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">신고요청 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">신고내역</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main
+        id="main-content"
+        class="main-container"
+      >
+        <div class="main-header">
+          <div class="main-header__info">
+            <h3 class="main-header__title">음식업체 회원가입 요청 목록</h3>
+            <p class="main-header__desc">
+              신규 음식업체의 회원가입 요청을 관리합니다.
+            </p>
+          </div>
+
+          <div class="main-header__actions">
+            <button
+              class="btn btn--download btn--excel"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-file-excel"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">Excel 양식 다운로드</span>
+            </button>
+
+            <button
+              class="btn btn--export"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-download"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">내보내기</span>
+            </button>
+          </div>
+        </div>
+
+        <ul
+          class="status-card"
+          aria-label="음식업체 가입 요청 현황"
+        >
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--pending"
+              aria-hidden="true"
+            >
+              <i
+                class="fa-solid fa-clock"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">대기 중</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--approved"
+              aria-hidden="true"
+            >
+              <i class="fa-solid fa-square-check"></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">승인</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--rejected"
+              aria-hidden="true"
+            >
+              <i class="fa-solid fa-square-xmark"></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">반려</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--total"
+              aria-hidden="true"
+            >
+              <i
+                class="fa-solid fa-layer-group"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">전체</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+        </ul>
+        <section
+          class="data-table-wrapper"
+          aria-labelledby="음식업체 가입 요청 목록"
+        >
+          <div class="data-table__header">
+            <div class="data-table__search-wrapper">
+              <input
+                type="search"
+                class="data-table__search-input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
+                placeholder="업체명 혹은 사업자등록번호를 검색하세요"
+                aria-label="검색어 입력"
+              />
+              <button
+                class="btn btn--search"
+                type="button"
+                aria-label="검색"
+              >
+                <span>
+                  <i
+                    class="fa-solid fa-magnifying-glass"
+                    aria-hidden="true"
+                  ></i>
+                </span>
+              </button>
+            </div>
+            <div class="data-table__action-group">
+              <button class="btn btn--approve">
+                <span><i class="fa-solid fa-check"></i></span><span>승인</span>
+              </button>
+              <button class="btn btn--reject">
+                <span><i class="fa-solid fa-xmark"></i></span><span>반려</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="data-table">
+            <table class="data-table__table">
+              <caption class="sr-only">
+                음식업체 가입 요청 목록
+              </caption>
+
+              <!-- (선택) 컬럼 폭 제어 -->
+              <colgroup>
+                <col style="width: 2.5rem" />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+
+              <thead class="data-table__head">
+                <tr class="data-table__row data-table__row--head">
+                  <th
+                    scope="col"
+                    class="data-table__cell data-table__cell--select"
+                  >
+                    <input
+                      id="select-all"
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="전체 선택"
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    업체명
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    사업자등록번호
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    대표자명
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    연락처
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    이메일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    주소
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    상태
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    요청일
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="data-table__body">
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-1-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-1-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-2-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-3-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-4-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-5-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-6-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-7-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-8-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+
+                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
+                  <th
+                    scope="row"
+                    id="row-9-label"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    맛있는 음식점
+                  </th>
+
+                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">010-1234-5678</td>
+
+                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="이메일 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="주소 없음"
+                      >—</span
+                    >
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+
+                  <td class="data-table__cell">
+                    <span
+                      class="data-table__empty"
+                      aria-label="요청일 없음"
+                      >—</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

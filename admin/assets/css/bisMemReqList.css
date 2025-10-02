@@ -1,0 +1,224 @@
+/* =========================
+   bisMemReqList.css (page)
+   ========================= */
+
+/* -------- Status Card -------- */
+.status-card {
+  width: 100%;
+  display: flex;
+  gap: var(--space-4, 1rem);
+}
+
+.status-card__item {
+  flex: 1;
+  background-color: var(--surface-alt, #fff);
+  border-radius: var(--radius-md, 0.5rem);
+  padding: 2rem var(--space-4, 1rem);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4, 1rem);
+  box-shadow: var(--elevation-1, 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1));
+  color: var(--text, #171717);
+}
+
+/* 아이콘/메타 */
+.status-card__icon {
+  font-size: 2rem;
+  padding: var(--space-2, 0.5rem);
+  color: var(--accent, currentColor); /* 아이템 모디파이어가 주입 */
+}
+.status-card__meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.3rem;
+  gap: var(--space-2, 0.5rem);
+}
+.status-card__label {
+  font-size: 1rem;
+  color: var(--text-subtle, #737373);
+}
+.status-card__count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text, #171717);
+}
+
+/* 상태 모디파이어 (권장) */
+.status-card__item--pending {
+  --accent: #f1a40f;
+} /* 대기 */
+.status-card__item--approved {
+  --accent: #1ea97c;
+} /* 승인 */
+.status-card__item--rejected {
+  --accent: #e65656;
+} /* 반려 */
+.status-card__item--total {
+  --accent: #546de5;
+} /* 전체 */
+
+/* (하위 호환) 기존 아이콘 모디파이어 유지 */
+.status-card__icon--pending {
+  color: #f1a40f;
+}
+.status-card__icon--approved {
+  color: #1ea97c;
+}
+.status-card__icon--rejected {
+  color: #e65656;
+}
+.status-card__icon--total {
+  color: #546de5;
+}
+
+/* -------- Data Table -------- */
+.data-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  background-color: var(--surface-alt, #fff);
+  border-radius: var(--radius-md, 0.5rem);
+  padding: var(--space-4, 1rem) calc(var(--space-4, 1rem) * 2);
+  box-shadow: var(--elevation-1, 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1));
+}
+
+.data-table__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4, 1rem);
+}
+
+.data-table__search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  flex: 0.5;
+}
+
+.data-table__search-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border, #d4d4d4);
+  border-radius: var(--radius-md, 0.5rem);
+  font-size: 1rem;
+  background: #ffffff;
+  color: var(--text, #171717);
+}
+
+.data-table__action-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+}
+
+/* -------- Data Table: table styles -------- */
+.data-table {
+  /* (선택) 컨테이너 훅 */
+}
+
+.data-table-wrapper {
+  overflow: auto; /* sticky header/가로 스크롤 지원 */
+}
+
+/* 기본 테이블 */
+.data-table__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--surface-alt, #fff);
+  color: var(--text, #0f172a);
+  min-width: 960px; /* 좁은 화면에서 스크롤 */
+}
+
+/* 헤더 */
+.data-table__head th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface, #f9fafb);
+  color: var(--text, #0f172a);
+  text-align: left;
+  font-weight: 600;
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  border-bottom: 1px solid var(--border, #d4d4d4);
+}
+
+/* 셀 공통 */
+.data-table__row .data-table__cell,
+.data-table__row th.data-table__cell {
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  border-bottom: 1px solid var(--border, #d4d4d4);
+  vertical-align: middle;
+  background: var(--surface-alt, #fff);
+}
+
+/* 선택 컬럼/체크박스 */
+.data-table__cell--select {
+  width: 2.5rem;
+  text-align: center;
+  padding-left: var(--space-2, 0.5rem);
+  padding-right: var(--space-2, 0.5rem);
+}
+.data-table__checkbox {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* 행 머리글(첫 컬럼) 고정 선택 시 사용 가능 */
+.data-table__cell--row-header {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--surface-alt, #fff);
+  font-weight: 600;
+}
+
+/* 정렬/줄바꿈 유틸 모디파이어 */
+.data-table__cell--right {
+  text-align: right;
+}
+.data-table__cell--center {
+  text-align: center;
+}
+.data-table__cell--nowrap {
+  white-space: nowrap;
+}
+.data-table__cell--truncate {
+  max-width: 24ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 빈 값 표시 */
+.data-table__empty {
+  color: var(--text-subtle, #525252);
+}
+
+/* hover/선택 상태 */
+.data-table__body tr:hover td,
+.data-table__body tr:hover th.data-table__cell {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.data-table__row.is-selected td,
+.data-table__row.is-selected th.data-table__cell {
+  background-color: rgba(59, 130, 246, 0.08); /* brand-blue-500 투명도 */
+}
+
+/* 정렬 가능한 헤더(아이콘/화살표는 아이콘 폰트로 대체 가능) */
+.data-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.data-table__sort[aria-sort='ascending']::after {
+  content: '▲';
+  font-size: 0.75em;
+}
+.data-table__sort[aria-sort='descending']::after {
+  content: '▼';
+  font-size: 0.75em;
+}
