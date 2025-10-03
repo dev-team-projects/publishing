@@ -10,6 +10,17 @@
   --brand-green-600: #0b8200;
   --brand-green-700: #0a6e00;
 
+  /* status */
+  --status-approved: #1ea97c;
+  --status-pending: #f1a40f;
+  --status-rejected: #e65656;
+  --status-info: #546de5;
+
+  --status-approved-hover: #15875e;
+  --status-pending-hover: #d18b0c;
+  --status-rejected-hover: #c23b3b;
+  --status-info-hover: #435bbd;
+
   /* focus ring */
   --focus-ring: #3b82f6;
   --focus-ring-offset: 2px;
@@ -32,11 +43,11 @@
   /* Neumorphism-ish base (defaults ok) */
 }
 [data-theme='vendor'] {
-  --surface: #fff;
+  --surface: #ffffff;
   --elevation-1: none;
 }
 [data-theme='user'] {
-  --surface: #fff;
+  --surface: #ffffff;
   --elevation-1: 0 0 0 3px #000;
 }
 
@@ -102,6 +113,7 @@
   width: 100%;
   display: flex;
   align-items: flex-start;
+  background-color: #f4f6fa;
 }
 
 .sidebar-container {
@@ -115,6 +127,33 @@
   flex-direction: column;
   gap: var(--space-4);
   background-color: var(--surface);
+}
+
+/* ---------- Badge ---------- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.badge--pending {
+  background-color: var(--status-pending);
+  color: var(--surface-alt);
+}
+
+.badge--approve {
+  background-color: #10b981;
+  color: var(--surface-alt);
+}
+
+.badge--rejected {
+  background-color: var(--status-rejected);
+  color: var(--surface-alt);
 }
 
 /* ---------- Buttons (BEM: .btn, modifiers, elements) ---------- */
@@ -150,7 +189,7 @@
 /* variants (kept as-is + tokenized) */
 .btn--excel {
   background-color: var(--brand-green-600);
-  color: #fff;
+  color: var(--surface-alt);
   padding: 0.5rem 1rem;
 }
 .btn--excel:hover {
@@ -160,7 +199,7 @@
 .btn--export,
 .btn--search {
   background-color: var(--brand-blue-500);
-  color: #fff;
+  color: var(--surface-alt);
   padding: 0.5rem 1rem;
 }
 .btn--export:hover {
@@ -168,17 +207,17 @@
 }
 
 .btn--approve {
-  background-color: #1e40af;
-  color: #fff;
+  background-color: var(--status-approved);
+  color: var(--surface-alt);
   padding: 0.5rem 1rem;
 }
 .btn--approve:hover {
-  background-color: #1e3a8a;
+  background-color: var(--status-approved-hover);
 }
 
 .btn--reject {
   background-color: #dc2626;
-  color: #fff;
+  color: var(--surface-alt);
   padding: 0.5rem 1rem;
 }
 .btn--reject:hover {
@@ -247,8 +286,6 @@
 
 /* ---------- Sidebar (block: sidebar) ---------- */
 .sidebar {
-  height: 100vh;
-  background-color: #f4f6fa;
   color: var(--text);
   display: flex;
   flex-direction: column;
@@ -325,7 +362,7 @@
   transition: all 0.3s ease-in-out;
 }
 .sidebar__submenu-item:hover {
-  background-color: #fff;
+  background-color: var(--surface-alt);
   cursor: pointer;
   border-left: 0.2rem solid blue;
 }
@@ -346,5 +383,111 @@
   }
 }
 
-/* ---------- Inputs: Focus UX (apply via utility classes) ---------- */
-/* Example: <input class="u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"> */
+/* ===== Pagination (BEM) ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+}
+
+.pagination__status {
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+}
+
+/* nav + list */
+.pagination__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* items & links */
+.pagination__item {
+  /* li */
+  list-style: none;
+}
+
+.pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem; /* 터치 타깃 확보 */
+  height: 2.25rem;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.pagination__link:hover {
+  background: var(--surface);
+}
+
+.pagination__link:focus-visible {
+  outline: var(--focus-ring-size) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* current page */
+.pagination__link--current,
+.pagination__link[aria-current='page'] {
+  background: var(--brand-blue-600);
+  border-color: var(--brand-blue-600);
+  color: var(--surface-alt);
+  cursor: default;
+}
+
+/* disabled */
+.pagination__link[aria-disabled='true'] {
+  opacity: 0.45;
+  pointer-events: none; /* 키보드/마우스 비활성 */
+}
+
+.pagination__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ellipsis */
+.pagination__ellipsis {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-subtle);
+}
+
+/* 고대비 모드 보조 */
+@media (forced-colors: active) {
+  .pagination__link {
+    border: 1px solid ButtonBorder;
+    background: Canvas;
+    color: CanvasText;
+  }
+  .pagination__link--current,
+  .pagination__link[aria-current='page'] {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+}
