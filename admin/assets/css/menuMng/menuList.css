@@ -1,0 +1,19 @@
+/* 카테고리 */
+.search-form__group-item--menu-category {
+  flex: 0 0 20%;
+}
+
+/* 상태 */
+.search-form__group-item--menu-status {
+  flex: 0 0 20%;
+}
+
+/* 가격대 */
+.search-form__group-item--menu-price-range {
+  flex: 0 0 25%;
+}
+
+/* 메뉴명 */
+.search-form__group-item--menu-name {
+  flex: 0 0 25%;
+}

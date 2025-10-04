@@ -36,6 +36,10 @@
   /* shadows */
   --elevation-1: 6px 6px 12px rgba(0, 0, 0, 0.06),
     -6px -6px 12px rgba(255, 255, 255, 0.9);
+
+  /* table head (new) */
+  --table-head-bg: #f4f6fa; /* soft light blue, 어울리는 중립 계열 */
+  --table-head-text: #171717;
 }
 
 /* Optional page themes */
@@ -193,13 +197,12 @@
   background-color: var(--brand-green-700);
 }
 
-.btn--export,
-.btn--search {
+.btn--primary {
   background-color: var(--brand-blue-500);
   color: var(--surface-alt);
   padding: 0.5rem 1rem;
 }
-.btn--export:hover {
+.btn--primary:hover {
   background-color: var(--brand-blue-600);
 }
 
@@ -424,23 +427,6 @@
   gap: 0.375rem;
 }
 
-/* Width 설정을 더 효율적으로 - CSS Grid 사용 */
-.search-form__group-item--name {
-  flex: 0 0 25%; /* 이름 */
-}
-
-.search-form__group-item--reg {
-  flex: 0 0 20%; /* 이메일 */
-}
-
-.search-form__group-item--category {
-  flex: 0 0 25%; /* 주소 */
-}
-
-.search-form__group-item--region {
-  flex: 0 0 20%; /* 연령대 */
-}
-
 .search-form__label {
   font-size: 0.875rem;
   font-weight: 700;
@@ -623,22 +609,25 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  background: var(--surface-alt);
   color: var(--text);
   min-width: 960px; /* 좁은 화면에서 스크롤 */
+}
+.data-table__head {
+  background-color: var(--table-head-bg);
+  color: var(--table-head-text);
 }
 
 /* 헤더 */
 .data-table__head th {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background: var(--surface);
   color: var(--text, #0f172a);
   text-align: center;
   font-weight: 600;
   padding: var(--space-3) var(--space-4);
   border-bottom: 0.1rem solid var(--border);
+}
+
+.data-table-body {
+  background-color: var(--surface-alt);
 }
 
 /* 셀 공통 */
@@ -648,7 +637,6 @@
   padding: var(--space-3) var(--space-4);
   border-bottom: 0.1rem solid var(--border);
   vertical-align: middle;
-  background: var(--surface-alt);
 }
 
 /* 선택 컬럼/체크박스 */
