@@ -17,29 +17,29 @@
     <!-- Base resets & fonts -->
     <link
       rel="stylesheet"
-      href="./assets/css/reset.css"
+      href="../../assets/css/reset.css"
     />
     <link
       rel="stylesheet"
-      href="./assets/css/common.css"
+      href="../../assets/css/common.css"
     />
     <link
       rel="stylesheet"
-      href="./assets/css/fonts.css"
+      href="../../assets/css/fonts.css"
     />
 
     <link
       rel="stylesheet"
-      href="./assets/css/admin.css"
+      href="../../assets/css/admin.css"
     />
 
     <!-- 이 페이지 css -->
     <link
       rel="stylesheet"
-      href="./assets/css/bisMemReqList.css"
+      href="../../assets/css/bisMem/bisMemReqList.css"
     />
 
-    <script src="./assets/js/main.js"></script>
+    <script src="../../assets/js/main.js"></script>
   </head>
   <body>
     <!-- <a
@@ -50,7 +50,7 @@
     <header class="header">
       <div class="header__logo">
         <a
-          href="index.html"
+          href="../../index.html"
           class="header__logo-link"
         >
           <span class="header__icon"
@@ -116,7 +116,7 @@
                     ><i class="fa-solid fa-building-user"></i
                   ></span>
                   <a
-                    href="#"
+                    href="./bisMemList.html"
                     class="sidebar__link"
                     >업체 관리</a
                   >
@@ -147,11 +147,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="#">업체 목록</a>
+                    <a href="./bisMemList.html">업체 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="#">업체가입요청 목록</a>
+                    <a href="./bisMemReqList.html">업체가입요청 목록</a>
                   </li>
                 </ul>
               </div>
@@ -212,7 +212,7 @@
                     ><i class="fa-solid fa-users"></i
                   ></span>
                   <a
-                    href="#"
+                    href="../member/memMngList.html"
                     class="sidebar__link"
                     >회원 관리</a
                   >
@@ -243,7 +243,7 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="#">회원 목록</a>
+                    <a href="../member/memMngList.html">회원 목록</a>
                   </li>
                 </ul>
               </div>
@@ -425,14 +425,15 @@
           </li>
         </ul>
         <section
-          class="data-table-wrapper"
+          class="content-wrapper"
           aria-labelledby="음식업체 가입 요청 목록"
         >
           <div class="data-table__header">
             <div class="data-table__search-wrapper">
               <input
+                id="search-keyword"
                 type="search"
-                class="data-table__search-input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
+                class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
                 placeholder="업체명 혹은 사업자등록번호를 검색하세요"
                 aria-label="검색어 입력"
               />
@@ -1075,49 +1076,103 @@
                 </tr>
               </tbody>
             </table>
-            <div class="pagination" role="region" aria-label="목록 하단 페이지 정보 및 이동">
+            <div
+              class="pagination"
+              role="region"
+              aria-label="목록 하단 페이지 정보 및 이동"
+            >
               <!-- (5) 상태 텍스트 -->
-              <p class="pagination__status" role="status" aria-live="polite">
+              <p
+                class="pagination__status"
+                role="status"
+                aria-live="polite"
+              >
                 총 65개 중 1–10개 표시
               </p>
 
               <!-- (6) 페이지 네비게이션 -->
-              <nav class="pagination__nav" aria-label="페이지네이션">
+              <nav
+                class="pagination__nav"
+                aria-label="페이지네이션"
+              >
                 <ul class="pagination__list list-reset">
                   <!-- (6-1) 처음, 이전 : 첫 페이지에서는 비활성 -->
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=1"
-                      aria-label="첫 페이지" aria-disabled="true" tabindex="-1">
-                      <span class="pagination__icon" aria-hidden="true">«</span>
+                    <a
+                      class="pagination__link"
+                      href="?page=1"
+                      aria-label="첫 페이지"
+                      aria-disabled="true"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >«</span
+                      >
                       <span class="sr-only">첫 페이지</span>
                     </a>
                   </li>
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=0"
-                      aria-label="이전 페이지" aria-disabled="true" tabindex="-1" rel="prev">
-                      <span class="pagination__icon" aria-hidden="true">‹</span>
+                    <a
+                      class="pagination__link"
+                      href="?page=0"
+                      aria-label="이전 페이지"
+                      aria-disabled="true"
+                      tabindex="-1"
+                      rel="prev"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >‹</span
+                      >
                       <span class="sr-only">이전 페이지</span>
                     </a>
                   </li>
 
                   <!-- 숫자 페이지 -->
                   <li class="pagination__item">
-                    <a class="pagination__link pagination__link--current"
-                      href="?page=1" aria-current="page" aria-label="현재 페이지 1">
+                    <a
+                      class="pagination__link pagination__link--current"
+                      href="?page=1"
+                      aria-current="page"
+                      aria-label="현재 페이지 1"
+                    >
                       1
                     </a>
                   </li>
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=2" aria-label="2페이지">2</a>
+                    <a
+                      class="pagination__link"
+                      href="?page=2"
+                      aria-label="2페이지"
+                      >2</a
+                    >
                   </li>
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=3" aria-label="3페이지">3</a>
+                    <a
+                      class="pagination__link"
+                      href="?page=3"
+                      aria-label="3페이지"
+                      >3</a
+                    >
                   </li>
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=4" aria-label="4페이지">4</a>
+                    <a
+                      class="pagination__link"
+                      href="?page=4"
+                      aria-label="4페이지"
+                      >4</a
+                    >
                   </li>
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=5" aria-label="5페이지">5</a>
+                    <a
+                      class="pagination__link"
+                      href="?page=5"
+                      aria-label="5페이지"
+                      >5</a
+                    >
                   </li>
 
                   <!-- 필요 시 생략 부호 -->
@@ -1127,20 +1182,38 @@
 
                   <!-- (6-1) 다음, 마지막 -->
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=2" aria-label="다음 페이지" rel="next">
-                      <span class="pagination__icon" aria-hidden="true">›</span>
+                    <a
+                      class="pagination__link"
+                      href="?page=2"
+                      aria-label="다음 페이지"
+                      rel="next"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >›</span
+                      >
                       <span class="sr-only">다음 페이지</span>
                     </a>
                   </li>
                   <li class="pagination__item">
-                    <a class="pagination__link" href="?page=7" aria-label="마지막 페이지">
-                      <span class="pagination__icon" aria-hidden="true">»</span>
+                    <a
+                      class="pagination__link"
+                      href="?page=7"
+                      aria-label="마지막 페이지"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >»</span
+                      >
                       <span class="sr-only">마지막 페이지</span>
                     </a>
                   </li>
                 </ul>
               </nav>
             </div>
+          </div>
         </section>
       </main>
     </div>
