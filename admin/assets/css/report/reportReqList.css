@@ -1,0 +1,56 @@
+/* 신고자 */
+.search-form__group-item--report-user {
+  flex: 0 0 15%;
+}
+
+/* 이메일 */
+.search-form__group-item--report-email {
+  flex: 0 0 20%;
+}
+
+/* 신고대상 */
+.search-form__group-item--report-subject {
+  flex: 0 0 10%;
+}
+
+/* 처리 상태 */
+.search-form__group-item--report-status {
+  flex: 0 0 10%;
+}
+
+/* 접수기간 */
+.search-form__group-item--application-period {
+  flex: 0 0 30%;
+}
+
+/* 접수기간(날짜 범위) — 수평 정렬 */
+.search-form__group-item--application-period > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  flex-wrap: nowrap;
+}
+
+.search-form__group-item--application-period
+  > div
+  .search-form__input[type='date'] {
+  flex: 1 1 0;
+  min-width: 0; /* overflow 방지 */
+}
+
+/* 구분자 스타일 */
+.date-separator {
+  display: inline-block;
+  padding: 0 0.5rem;
+  color: var(--text-subtle, #737373);
+  white-space: nowrap;
+}
+
+/* 작은 화면에서는 세로 스택 */
+@media (max-width: 576px) {
+  .search-form__group-item--application-period > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2, 0.5rem);
+  }
+}

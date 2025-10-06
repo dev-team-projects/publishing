@@ -637,6 +637,7 @@
   padding: var(--space-3) var(--space-4);
   border-bottom: 0.1rem solid var(--border);
   vertical-align: middle;
+  text-overflow: ellipsis;
 }
 
 /* 선택 컬럼/체크박스 */
