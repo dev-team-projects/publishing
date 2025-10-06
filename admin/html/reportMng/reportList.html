@@ -40,7 +40,6 @@
     />
 
     <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/reportReqList.js"></script>
   </head>
   <body>
     <!-- <a
@@ -64,10 +63,10 @@
       </div>
       <div
         class="header__path"
-        aria-label="현재 위치: 신고관리 > 신고요청 목록"
+        aria-label="현재 위치: 신고관리 > 신고내역 목록"
       >
         <span>신고관리</span><span>&nbsp;&gt;&nbsp;</span
-        ><span class="header__current-path">신고요청 목록</span>
+        ><span class="header__current-path">신고내역 목록</span>
       </div>
       <nav
         class="header__nav"
@@ -288,7 +287,7 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./reportReqList.html">신고요청 목록</a>
+                    <a href="./reportReqList.html">신고내역 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
@@ -306,8 +305,8 @@
       >
         <div class="main-header">
           <div class="main-header__info">
-            <h3 class="main-header__title">신고요청 목록</h3>
-            <p class="main-header__desc">음식업체 신고요청 목록입니다.</p>
+            <h3 class="main-header__title">신고내역 목록</h3>
+            <p class="main-header__desc">음식업체 신고내역 목록입니다.</p>
           </div>
 
           <div class="main-header__actions">
@@ -354,7 +353,7 @@
             id="search-heading"
             class="sr-only"
           >
-            음식업체 신고요청 검색조건 영역
+            음식업체 신고내역 검색조건 영역
           </h2>
 
           <form
@@ -364,7 +363,7 @@
             role="search"
           >
             <fieldset class="search-form__fieldset">
-              <legend class="sr-only">음식업체 신고요청 검색조건</legend>
+              <legend class="sr-only">음식업체 신고내역 검색조건</legend>
 
               <!-- 검색조건 영역 (Top) -->
               <div class="search-form__top">
@@ -387,32 +386,32 @@
                       autocomplete="off"
                     />
                   </div>
-                  <!-- 이메일 -->
+                  <!-- 대상업체 -->
                   <div
                     class="search-form__group-item search-form__group-item--report-email"
                   >
                     <label
                       for="report-email"
                       class="search-form__label"
-                      >이메일</label
+                      >대상업체</label
                     >
                     <input
                       type="email"
                       id="report-email"
                       name="reportEmail"
                       class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="이메일을 입력하세요"
+                      placeholder="대상업체을 입력하세요"
                       autocomplete="off"
                     />
                   </div>
-                  <!-- 신고대상 -->
+                  <!-- 처리자 -->
                   <div
                     class="search-form__group-item search-form__group-item--report-subject"
                   >
                     <label
                       for="report-subject"
                       class="search-form__label"
-                      >신고대상</label
+                      >처리자</label
                     >
                     <select
                       id="report-subject"
@@ -420,7 +419,7 @@
                       class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
                     >
                       <option value="">전체</option>
-                      <!-- 실제 신고대상 리스트 주입 -->
+                      <!-- 실제 처리자 리스트 주입 -->
                     </select>
                   </div>
                   <!-- 처리 상태 -->
@@ -512,38 +511,125 @@
           </form>
         </section>
 
-        <!-- 신고요청 목록 -->
+        <ul
+          class="status-card"
+          aria-label="음식업체 가입 요청 현황"
+        >
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--total"
+              aria-hidden="true"
+            >
+              <i
+                class="fa-solid fa-layer-group"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">전체</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--approve"
+              aria-hidden="true"
+            >
+              <i class="fa-solid fa-square-check"></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">승인</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--pending"
+              aria-hidden="true"
+            >
+              <i
+                class="fa-solid fa-clock"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">대기 중</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
+              class="status-card__icon status-card__icon--rejected"
+              aria-hidden="true"
+            >
+              <i class="fa-solid fa-square-xmark"></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">반려</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+        </ul>
+
+        <!-- 신고내역 목록 -->
         <section
           class="content-wrapper"
-          aria-labelledby="음식업체 신고요청 목록"
+          aria-labelledby="음식업체 신고내역 목록"
         >
           <div class="data-table__header">
             <div class="data-table__search-wrapper">
-              <h3>신고요청 목록</h3>
+              <h3>신고내역 목록</h3>
             </div>
           </div>
 
           <div class="data-table">
             <table class="data-table__table">
               <caption class="sr-only">
-                신고요청 목록
+                신고내역 목록
               </caption>
 
               <!-- (선택) 컬럼 폭 제어 -->
               <colgroup>
                 <!-- 체크박스 -->
                 <col width="5%" />
+                <!-- 신고ID -->
+                <col width="10%" />
                 <!-- 신고자 -->
                 <col width="10%" />
                 <!-- 이메일 -->
-                <col width="20%" />
+                <col width="10%" />
                 <!-- 신고대상업체명 -->
-                <col width="20%" />
+                <col width="15%" />
                 <!-- 첨부파일 -->
                 <col width="5%" />
                 <!-- 신고사유 -->
-                <col width="25%" />
+                <col width="10%" />
+                <!-- 결과 -->
+                <col width="5%" />
                 <!-- 신고일 -->
+                <col width="10%" />
+                <!-- 처리일 -->
+                <col width="10%" />
+                <!-- 담당자 -->
                 <col width="10%" />
               </colgroup>
 
@@ -559,6 +645,12 @@
                       class="data-table__checkbox"
                       aria-label="전체 선택"
                     />
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    신고ID
                   </th>
                   <th
                     scope="col"
@@ -594,7 +686,25 @@
                     scope="col"
                     class="data-table__cell"
                   >
+                    결과
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
                     신고일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    처리일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    담당자
                   </th>
                 </tr>
               </thead>
@@ -608,12 +718,18 @@
                       aria-labelledby="row-1-label"
                     />
                   </td>
+                  <td class="data-table__cell">REPORT_01</td>
                   <td class="data-table__cell">홍길동</td>
                   <td class="data-table__cell">test@test.com</td>
                   <td class="data-table__cell">A대상업체</td>
                   <td class="data-table__cell">Y</td>
-                  <td class="data-table__cell">테스트신고사유</td>
+                  <td class="data-table__cell">음식 문제</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--rejected">반려</span>
+                  </td>
                   <td class="data-table__cell">2025-10-06</td>
+                  <td class="data-table__cell">2025-10-06</td>
+                  <td class="data-table__cell">admin1</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -623,17 +739,18 @@
                       aria-labelledby="row-2-label"
                     />
                   </td>
-                  <td class="data-table__cell">김영희</td>
-                  <td class="data-table__cell">young@test.com</td>
+                  <td class="data-table__cell">REPORT_02</td>
+                  <td class="data-table__cell">김철수</td>
+                  <td class="data-table__cell">kim@test.com</td>
                   <td class="data-table__cell">B대상업체</td>
                   <td class="data-table__cell">N</td>
-                  <td
-                    class="data-table__cell"
-                    title="위생상태가 불량하여 신고합니다."
-                  >
-                    위생상태가 불량하여 신고합니다.
+                  <td class="data-table__cell">서비스 불만</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--approve">승인</span>
                   </td>
                   <td class="data-table__cell">2025-10-05</td>
+                  <td class="data-table__cell">2025-10-07</td>
+                  <td class="data-table__cell">admin2</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -643,17 +760,18 @@
                       aria-labelledby="row-3-label"
                     />
                   </td>
-                  <td class="data-table__cell">이철수</td>
-                  <td class="data-table__cell">chulsoo@test.com</td>
+                  <td class="data-table__cell">REPORT_03</td>
+                  <td class="data-table__cell">이영희</td>
+                  <td class="data-table__cell">lee@test.com</td>
                   <td class="data-table__cell">C대상업체</td>
                   <td class="data-table__cell">Y</td>
-                  <td
-                    class="data-table__cell"
-                    title="불친절한 서비스로 인해 신고합니다."
-                  >
-                    불친절한 서비스로 인해 신고합니다.
+                  <td class="data-table__cell">위생 문제</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
                   </td>
                   <td class="data-table__cell">2025-10-04</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -663,17 +781,18 @@
                       aria-labelledby="row-4-label"
                     />
                   </td>
+                  <td class="data-table__cell">REPORT_04</td>
                   <td class="data-table__cell">박민수</td>
-                  <td class="data-table__cell">minsoo@test.com</td>
+                  <td class="data-table__cell">park@test.com</td>
                   <td class="data-table__cell">D대상업체</td>
                   <td class="data-table__cell">N</td>
-                  <td
-                    class="data-table__cell"
-                    title="가격이 메뉴판과 달라 신고합니다."
-                  >
-                    가격이 메뉴판과 달라 신고합니다.
+                  <td class="data-table__cell">가격 문제</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--approve">승인</span>
                   </td>
                   <td class="data-table__cell">2025-10-03</td>
+                  <td class="data-table__cell">2025-10-08</td>
+                  <td class="data-table__cell">admin3</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -683,17 +802,18 @@
                       aria-labelledby="row-5-label"
                     />
                   </td>
+                  <td class="data-table__cell">REPORT_05</td>
                   <td class="data-table__cell">최수정</td>
-                  <td class="data-table__cell">soojung@test.com</td>
+                  <td class="data-table__cell">choi@test.com</td>
                   <td class="data-table__cell">E대상업체</td>
                   <td class="data-table__cell">Y</td>
-                  <td
-                    class="data-table__cell"
-                    title="음식에서 이물질이 나와 신고합니다."
-                  >
-                    음식에서 이물질이 나와 신고합니다.
+                  <td class="data-table__cell">불친절</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
                   </td>
                   <td class="data-table__cell">2025-10-02</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -703,17 +823,18 @@
                       aria-labelledby="row-6-label"
                     />
                   </td>
-                  <td class="data-table__cell">정하늘</td>
-                  <td class="data-table__cell">sky@test.com</td>
+                  <td class="data-table__cell">REPORT_06</td>
+                  <td class="data-table__cell">오세훈</td>
+                  <td class="data-table__cell">oh@test.com</td>
                   <td class="data-table__cell">F대상업체</td>
                   <td class="data-table__cell">N</td>
-                  <td
-                    class="data-table__cell"
-                    title="주문한 음식이 너무 늦게 나와 신고합니다."
-                  >
-                    주문한 음식이 너무 늦게 나와 신고합니다.
+                  <td class="data-table__cell">이물질 발견</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--rejected">반려</span>
                   </td>
                   <td class="data-table__cell">2025-10-01</td>
+                  <td class="data-table__cell">2025-10-09</td>
+                  <td class="data-table__cell">admin4</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -723,17 +844,18 @@
                       aria-labelledby="row-7-label"
                     />
                   </td>
-                  <td class="data-table__cell">한가람</td>
-                  <td class="data-table__cell">garam@test.com</td>
+                  <td class="data-table__cell">REPORT_07</td>
+                  <td class="data-table__cell">정다은</td>
+                  <td class="data-table__cell">jung@test.com</td>
                   <td class="data-table__cell">G대상업체</td>
                   <td class="data-table__cell">Y</td>
-                  <td
-                    class="data-table__cell"
-                    title="직원이 마스크를 착용하지 않아 신고합니다."
-                  >
-                    직원이 마스크를 착용하지 않아 신고합니다.
+                  <td class="data-table__cell">지연 제공</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--approve">승인</span>
                   </td>
                   <td class="data-table__cell">2025-09-30</td>
+                  <td class="data-table__cell">2025-10-10</td>
+                  <td class="data-table__cell">admin5</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -743,17 +865,18 @@
                       aria-labelledby="row-8-label"
                     />
                   </td>
-                  <td class="data-table__cell">오세훈</td>
-                  <td class="data-table__cell">sehoon@test.com</td>
+                  <td class="data-table__cell">REPORT_08</td>
+                  <td class="data-table__cell">한지민</td>
+                  <td class="data-table__cell">han@test.com</td>
                   <td class="data-table__cell">H대상업체</td>
                   <td class="data-table__cell">N</td>
-                  <td
-                    class="data-table__cell"
-                    title="영업시간이 안내와 달라 신고합니다."
-                  >
-                    영업시간이 안내와 달라 신고합니다.
+                  <td class="data-table__cell">불량 식재료</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
                   </td>
                   <td class="data-table__cell">2025-09-29</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -763,17 +886,18 @@
                       aria-labelledby="row-9-label"
                     />
                   </td>
-                  <td class="data-table__cell">유지민</td>
-                  <td class="data-table__cell">jimin@test.com</td>
+                  <td class="data-table__cell">REPORT_09</td>
+                  <td class="data-table__cell">유재석</td>
+                  <td class="data-table__cell">yoo@test.com</td>
                   <td class="data-table__cell">I대상업체</td>
                   <td class="data-table__cell">Y</td>
-                  <td
-                    class="data-table__cell"
-                    title="음식이 상해 있어 신고합니다."
-                  >
-                    음식이 상해 있어 신고합니다.
+                  <td class="data-table__cell">과다 청구</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--rejected">반려</span>
                   </td>
                   <td class="data-table__cell">2025-09-28</td>
+                  <td class="data-table__cell">2025-10-11</td>
+                  <td class="data-table__cell">admin6</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -783,17 +907,39 @@
                       aria-labelledby="row-10-label"
                     />
                   </td>
-                  <td class="data-table__cell">장동건</td>
-                  <td class="data-table__cell">donggun@test.com</td>
+                  <td class="data-table__cell">REPORT_10</td>
+                  <td class="data-table__cell">장도연</td>
+                  <td class="data-table__cell">jang@test.com</td>
                   <td class="data-table__cell">J대상업체</td>
                   <td class="data-table__cell">N</td>
-                  <td
-                    class="data-table__cell"
-                    title="주문과 다른 음식이 나와 신고합니다."
-                  >
-                    주문과 다른 음식이 나와 신고합니다.
+                  <td class="data-table__cell">불친절</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--approve">승인</span>
                   </td>
                   <td class="data-table__cell">2025-09-27</td>
+                  <td class="data-table__cell">2025-10-12</td>
+                  <td class="data-table__cell">admin7</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-11-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">REPORT_11</td>
+                  <td class="data-table__cell">서현진</td>
+                  <td class="data-table__cell">seo@test.com</td>
+                  <td class="data-table__cell">K대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">음식 문제</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+                  <td class="data-table__cell">2025-09-26</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
                 </tr>
               </tbody>
             </table>
