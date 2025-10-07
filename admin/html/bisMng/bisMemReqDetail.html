@@ -36,7 +36,7 @@
     <!-- 이 페이지 css -->
     <link
       rel="stylesheet"
-      href="../../assets/css/report/reportDetailList.css"
+      href="../../assets/css/bisMem/bisMemReqDetail.css"
     />
 
     <script src="../../assets/js/main.js"></script>
@@ -63,11 +63,11 @@
       </div>
       <div
         class="header__path"
-        aria-label="현재 위치: 신고관리 > 신고요청 목록"
+        aria-label="현재 위치: 업체관리 > 음식업체 목록 > 음식업체 상세"
       >
-        <span>신고관리</span><span>&nbsp;&gt;&nbsp;</span
-        ><span>신고요청 목록</span><span>&nbsp;&gt;&nbsp;</span>
-        <span class="header__current-path">신고요청 상세</span>
+        <span>업체관리</span><span>&nbsp;&gt;&nbsp;</span
+        ><span>음식업체 목록</span><span>&nbsp;&gt;&nbsp;</span>
+        <span class="header__current-path">음식업체 상세</span>
       </div>
       <nav
         class="header__nav"
@@ -117,7 +117,7 @@
                     ><i class="fa-solid fa-building-user"></i
                   ></span>
                   <a
-                    href="../bisMng/bisMemList.html"
+                    href="./bisMemList.html"
                     class="sidebar__link"
                     >업체 관리</a
                   >
@@ -148,11 +148,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../bisMng/bisMemList.html">업체 목록</a>
+                    <a href="./bisMemList.html">업체 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../bisMng/bisMemReqList.html">업체가입요청 목록</a>
+                    <a href="./bisMemReqList.html">업체가입요청 목록</a>
                   </li>
                 </ul>
               </div>
@@ -257,7 +257,7 @@
                     ><i class="fa-solid fa-flag"></i
                   ></span>
                   <a
-                    href="./reportReqList.html"
+                    href="../reportMng/reportReqList.html"
                     class="sidebar__link"
                     >신고 관리</a
                   >
@@ -288,11 +288,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./reportReqList.html">신고요청 목록</a>
+                    <a href="../reportMng/reportReqList.html">신고요청 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./reportDetailList.html">신고내역</a>
+                    <a href="../reportMng/reportDetailList.html">신고내역</a>
                   </li>
                 </ul>
               </div>
@@ -300,320 +300,254 @@
           </ul>
         </nav>
       </aside>
-      <main
-        id="main-content"
-        class="main-container"
-      >
-        <div class="main-header">
-          <div class="main-header__info">
-            <h3 class="main-header__title">신고요청 상세</h3>
-            <p class="main-header__desc">음식업체 신고요청 상세입니다.</p>
-          </div>
-
-          <div class="main-header__actions">
-            <button
-              class="btn btn--download btn--excel"
-              type="button"
+      <main class="main-container">
+        <!-- 페이지 헤더 -->
+        <header
+          class="page-header"
+          aria-labelledby="page-title"
+        >
+          <div class="page-header__left">
+            <h1
+              id="page-title"
+              class="page-title"
             >
+              가입 요청 상세
+            </h1>
+            <div class="page-meta">
               <span
-                class="btn__icon"
-                aria-hidden="true"
+                class="badge badge--pending"
+                aria-live="polite"
+                >검토 대기</span
               >
-                <i
-                  class="fa-solid fa-file-excel"
-                  aria-hidden="true"
-                ></i>
-              </span>
-              <span class="btn__label">Excel 양식 다운로드</span>
-            </button>
-
-            <button
-              class="btn btn--primary"
-              type="button"
-            >
               <span
-                class="btn__icon"
-                aria-hidden="true"
+                class="page-meta__date"
+                aria-label="요청일"
+                >요청일: 2025-01-15</span
               >
-                <i
-                  class="fa-solid fa-download"
-                  aria-hidden="true"
-                ></i>
-              </span>
-              <span class="btn__label">내보내기</span>
-            </button>
+            </div>
           </div>
-        </div>
-        <div class="rd-container">
-          <div class="rd__col rd__col--main">
+        </header>
+
+        <!-- 본문 2컬럼 레이아웃 (좌: 상세, 우: 처리 패널) -->
+        <section class="page-body">
+          <!-- 좌측 상세영역 -->
+          <div
+            class="detail-column"
+            role="region"
+            aria-label="가입 요청 상세 정보"
+          >
+            <!-- 1. 신청자 정보 -->
             <section
-              class="card rd-info"
-              aria-labelledby="rd-info-title"
+              class="card"
+              aria-labelledby="applier-title"
             >
               <header class="card__header">
                 <h2
-                  id="rd-info-title"
+                  id="applier-title"
                   class="card__title"
                 >
-                  신고 정보
-                </h2>
-                <span
-                  class="badge badge--pending"
-                  role="status"
-                  aria-live="polite"
-                  >처리중</span
-                >
-              </header>
-
-              <div class="card__body">
-                <dl class="rd-info__list">
-                  <div class="rd-info__item">
-                    <div
-                      class="rd-info__icon"
-                      aria-hidden="true"
-                    >
-                      #
-                    </div>
-                    <div class="rd-info__meta">
-                      <dt class="rd-info__term">신고 ID</dt>
-                      <dd class="rd-info__desc">
-                        <span class="rd-info__value">1</span>
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div class="rd-info__item">
-                    <div
-                      class="rd-info__icon"
-                      aria-hidden="true"
-                    >
-                      <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="rd-info__meta">
-                      <dt class="rd-info__term">신고자</dt>
-                      <dd class="rd-info__desc">
-                        <span class="rd-info__value">리뷰어 (user_12345)</span>
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div class="rd-info__item">
-                    <div
-                      class="rd-info__icon"
-                      aria-hidden="true"
-                    >
-                      <i class="fa-solid fa-calendar"></i>
-                    </div>
-                    <div class="rd-info__meta">
-                      <dt class="rd-info__term">접수일</dt>
-                      <dd class="rd-info__desc">
-                        <time
-                          class="rd-info__value"
-                          datetime="2025-01-15T14:30:25"
-                          >2025-01-15 14:30:25</time
-                        >
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div class="rd-info__item">
-                    <div
-                      class="rd-info__icon"
-                      aria-hidden="true"
-                    >
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="rd-info__meta">
-                      <dt class="rd-info__term">신고 대상</dt>
-                      <dd class="rd-info__desc">
-                        <span class="rd-info__value">리뷰 (맛집 리뷰)</span>
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div class="rd-info__item">
-                    <div
-                      class="rd-info__icon"
-                      aria-hidden="true"
-                    >
-                      <i class="fa-solid fa-triangle-exclamation"></i>
-                    </div>
-                    <div class="rd-info__meta">
-                      <dt class="rd-info__term">신고 사유</dt>
-                      <dd class="rd-info__desc">
-                        <p class="rd-info__value">부적절한 언어 사용</p>
-                        <p class="rd-info__value rd-info__value--sub">
-                          욕설과 비방이 포함된 리뷰 내용으로 신고합니다.
-                        </p>
-                      </dd>
-                    </div>
-                  </div>
-                </dl>
-              </div>
-            </section>
-
-            <!-- (3) 첨부 자료 -->
-            <section
-              class="card rd-attachments"
-              aria-labelledby="rd-att-title"
-            >
-              <header class="card__header">
-                <h2
-                  id="rd-att-title"
-                  class="card__title"
-                >
-                  첨부 자료
+                  신청자 정보
                 </h2>
               </header>
-
-              <div class="card__body">
-                <ul
-                  class="rd-attachments__list list-reset"
-                  role="list"
-                >
-                  <li class="rd-attachments__item">
-                    <button
-                      type="button"
-                      class="rd-attachments__file"
-                      aria-label="스크린샷1.png 보기"
-                    >
-                      <i
-                        class="fa-regular fa-image"
-                        aria-hidden="true"
-                      ></i>
-                      <span class="rd-attachments__name">스크린샷1.png</span>
-                    </button>
+              <div class="card__content">
+                <ul class="info-list list-reset">
+                  <li class="info-row">
+                    <div class="info-item">
+                      <span class="info-label">업체명</span>
+                      <span class="info-value">맛있는 한식당</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">대표자</span>
+                      <span class="info-value">김대표</span>
+                    </div>
                   </li>
-                  <li class="rd-attachments__item">
-                    <button
-                      type="button"
-                      class="rd-attachments__file"
-                      aria-label="증거자료.jpg 보기"
-                    >
-                      <i
-                        class="fa-regular fa-image"
-                        aria-hidden="true"
-                      ></i>
-                      <span class="rd-attachments__name">증거자료.jpg</span>
-                    </button>
-                  </li>
-                  <li class="rd-attachments__item">
-                    <button
-                      type="button"
-                      class="rd-attachments__file"
-                      aria-label="신고서.pdf 보기"
-                    >
-                      <i
-                        class="fa-regular fa-file-lines"
-                        aria-hidden="true"
-                      ></i>
-                      <span class="rd-attachments__name">신고서.pdf</span>
-                    </button>
+                  <li class="info-row">
+                    <div class="info-item">
+                      <span class="info-label">연락처</span>
+                      <span class="info-value">010-1234-5678</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">이메일</span>
+                      <span class="info-value">contact@restaurant.com</span>
+                    </div>
                   </li>
                 </ul>
               </div>
             </section>
+
+            <!-- 2. 사업자 정보 -->
+            <section
+              class="card"
+              aria-labelledby="biz-title"
+            >
+              <header class="card__header">
+                <h2
+                  id="biz-title"
+                  class="card__title"
+                >
+                  사업자 정보
+                </h2>
+              </header>
+              <div class="card__content">
+                <ul class="info-list list-reset">
+                  <li class="info-row">
+                    <div class="info-item">
+                      <span class="info-label">사업자등록번호</span>
+                      <span class="info-value">123-45-67890</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">업종</span>
+                      <span class="info-value">일반음식점업</span>
+                    </div>
+                  </li>
+                  <li class="info-row">
+                    <div class="info-item info-item--full">
+                      <span class="info-label">사업장 주소</span>
+                      <span class="info-value"
+                        >서울특별시 강남구 테헤란로 123, 1층</span
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 3. 첨부서류 -->
+            <section
+              class="card"
+              aria-labelledby="attach-title"
+            >
+              <header class="card__header">
+                <h2
+                  id="attach-title"
+                  class="card__title"
+                >
+                  첨부서류
+                </h2>
+              </header>
+              <div class="card__content">
+                <ul
+                  class="file-list list-reset"
+                  role="list"
+                >
+                  <!-- 파일 1 -->
+                  <li
+                    class="file-row"
+                    role="listitem"
+                  >
+                    <div class="file-meta">
+                      <span
+                        class="file-name"
+                        title="사업자등록증.pdf"
+                        >사업자등록증.pdf</span
+                      >
+                      <span class="file-sub">2.4 MB · 2025-01-15</span>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn--sm btn--ghost"
+                      aria-label="사업자등록증 미리보기"
+                    >
+                      <span class="btn__label">미리보기</span>
+                    </button>
+                  </li>
+
+                  <!-- 파일 2 (이미지) -->
+                  <li
+                    class="file-row"
+                    role="listitem"
+                  >
+                    <div class="file-meta">
+                      <span
+                        class="file-name"
+                        title="영업신고증.jpg"
+                        >영업신고증.jpg</span
+                      >
+                      <span class="file-sub">1.8 MB · 2025-01-15</span>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn--sm btn--ghost"
+                      aria-label="영업신고증 미리보기"
+                    >
+                      <span class="btn__label">미리보기</span>
+                    </button>
+                  </li>
+                </ul>
+
+                <!-- 큰 미리보기 박스 (PDF) -->
+                <div
+                  class="preview-box"
+                  aria-label="첨부서류 미리보기"
+                >
+                  <div class="preview-ghost">
+                    <span
+                      class="preview-ghost__icon"
+                      aria-hidden="true"
+                      >PDF</span
+                    >
+                    <span class="preview-ghost__text">문서 미리보기</span>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
 
-          <!-- 우측 사이드(5) 처리 액션 -->
+          <!-- 우측 처리 패널 -->
           <aside
-            class="card rd-action"
-            aria-labelledby="rd-action-title"
+            class="action-column"
+            aria-label="처리 액션"
           >
-            <header class="card__header">
-              <h2
-                id="rd-action-title"
-                class="card__title"
-              >
-                처리 액션
-              </h2>
-            </header>
+            <section class="panel">
+              <header class="panel__header">
+                <h2 class="panel__title">처리 액션</h2>
+              </header>
 
-            <div class="card__body">
-              <form
-                class="rd-action__form"
-                novalidate
-              >
-                <div class="rd-action__field">
-                  <label
-                    for="rd-state"
-                    class="rd-action__label"
-                    >상태 변경</label
-                  >
-                  <select
-                    id="rd-state"
-                    class="rd-action__select"
-                    aria-describedby="rd-state-help"
-                  >
-                    <option
-                      value="processing"
-                      selected
-                    >
-                      처리중
-                    </option>
-                    <option value="approved">승인</option>
-                    <option value="rejected">반려</option>
-                  </select>
-                  <p
-                    id="rd-state-help"
-                    class="rd-action__help"
-                  >
-                    상태를 선택하세요.
-                  </p>
-                </div>
-
-                <div class="rd-action__field">
-                  <label
-                    for="rd-result"
-                    class="rd-action__label"
-                    >처리 결과</label
-                  >
-                  <textarea
-                    id="rd-result"
-                    class="rd-action__textarea"
-                    placeholder="처리 결과를 입력하세요…"
-                    rows="6"
-                  ></textarea>
-                </div>
-
-                <div
-                  class="rd-action__notice"
-                  role="note"
+              <!-- 기존 segmented fieldset 삭제하고 아래로 교체 -->
+              <div class="panel__group">
+                <button
+                  type="button"
+                  class="btn btn--primary btn--block btn-seg"
+                  aria-pressed="true"
+                  aria-label="승인"
                 >
-                  <i
-                    class="fa-solid fa-bell"
+                  <span
+                    class="segbtn__icon"
                     aria-hidden="true"
-                  ></i>
-                  <p class="rd-action__note-text">
-                    신고 누적 알림 — 동일 사유로 3회 신고 누적일 때: 1회 더 누적
-                    시 자동 정지 처리됩니다.
-                  </p>
-                </div>
+                    ><i class="fa-solid fa-check"></i
+                  ></span>
+                  <span class="segbtn__label">승인</span>
+                </button>
+              </div>
 
-                <div class="rd-action__submit">
-                  <button
-                    type="submit"
-                    class="btn btn--primary btn--lg rd-action__btn"
-                    aria-live="polite"
-                  >
-                    <i
-                      class="fa-solid fa-floppy-disk btn__icon"
-                      aria-hidden="true"
-                    ></i>
-                    <span class="btn__label">처리 결과 저장</span>
-                  </button>
-                </div>
+              <!-- 반려 사유 박스 -->
+              <div class="panel__field panel__field--boxed">
+                <label
+                  for="rejectReason"
+                  class="panel__label"
+                  >반려 사유</label
+                >
+                <textarea
+                  id="rejectReason"
+                  class="panel__textarea u-focus-reset u-focus-ring u-no-tap-highlight"
+                  rows="6"
+                  placeholder="반려 사유를 입력해주세요"
+                ></textarea>
+              </div>
 
-                <div
-                  class="sr-only"
-                  role="status"
-                  aria-live="polite"
-                  id="rd-form-status"
-                ></div>
-              </form>
-            </div>
+              <!-- 하단 액션: 반려 버튼만(가이드와 동일) -->
+              <div class="panel__actions panel__actions--stack">
+                <button
+                  type="button"
+                  class="btn btn--md btn--reject btn--block"
+                  aria-label="반려 처리"
+                >
+                  반려
+                </button>
+              </div>
+            </section>
           </aside>
-        </div>
+        </section>
       </main>
     </div>
   </body>
