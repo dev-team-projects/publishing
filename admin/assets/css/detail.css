@@ -1,0 +1,71 @@
+/* 공통: detail 레이아웃, 카드(BEM) 스타일 */
+.rd {
+  padding: var(--space-4) calc(var(--space-4) * 2);
+}
+.rd__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.rd__actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.rd-container {
+  width: 100%;
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.rd__col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Card (공통) */
+.card {
+  background-color: var(--surface-alt);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+  color: var(--text);
+}
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-3);
+  margin: 0 var(--space-4) 0;
+}
+.card__title {
+  font-size: 1.0625rem;
+  margin: var(--space-4) 0 var(--space-3);
+}
+.card__body {
+  padding: var(--space-4);
+}
+
+/* 접근성/공통 반응형 보조 */
+@media (forced-colors: active) {
+  .card {
+    box-shadow: none;
+    border: 0.1rem solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rd-attachments__file {
+    transition: none;
+  }
+}
+@media (max-width: 992px) {
+  .rd-container {
+    flex-direction: column;
+  }
+}

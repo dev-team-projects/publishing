@@ -62,6 +62,8 @@
   padding: var(--space-4);
 }
 
+/* report 전용: rd-info, attachments, history, action form 등 */
+
 /* ===== 신고 정보 (rd-info) ===== */
 .rd-info__list {
   display: flex;
@@ -77,7 +79,6 @@
   padding: var(--space-2) 0;
   justify-content: flex-start;
 }
-
 .rd-info__icon {
   width: 2.5rem;
   height: 2.5rem;
@@ -90,11 +91,6 @@
 }
 .rd-info__icon i {
   font-size: 1rem;
-}
-.rd-info__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .rd-info__term {
   margin: 0;
@@ -295,12 +291,5 @@
   .rd__top {
     flex-direction: column;
     align-items: flex-start;
-  }
-  .rd__actions {
-    width: 100%;
-  }
-  .rd__action {
-    flex: 1;
-    justify-content: center;
   }
 }

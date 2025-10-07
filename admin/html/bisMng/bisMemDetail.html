@@ -25,6 +25,10 @@
     />
     <link
       rel="stylesheet"
+      href="../../assets/css/detail.css"
+    />
+    <link
+      rel="stylesheet"
       href="../../assets/css/fonts.css"
     />
 
@@ -33,7 +37,13 @@
       href="../../assets/css/admin.css"
     />
 
-    <!-- 이 페이지 css -->
+    <!-- 공통 detail 스타일 -->
+    <link
+      rel="stylesheet"
+      href="../../assets/css/detail.css"
+    />
+
+    <!-- 페이지 전용 스타일 -->
     <link
       rel="stylesheet"
       href="../../assets/css/bisMem/bisMemDetail.css"
@@ -292,7 +302,7 @@
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../reportMng/reportDetailList.html">신고내역</a>
+                    <a href="../reportMng/reportList.html">신고내역</a>
                   </li>
                 </ul>
               </div>
@@ -300,7 +310,6 @@
           </ul>
         </nav>
       </aside>
-      <!-- ===== 메인 컨텐츠 : 음식업체 상세 ===== -->
       <main
         id="main"
         class="main-container"
@@ -348,202 +357,206 @@
           </div>
         </div>
 
-        <!-- ===== (2) 업체 기본정보 ===== -->
-        <section
-          class="card"
-          aria-labelledby="sec-basic"
-        >
-          <header class="card-head">
-            <span
-              class="card-icon"
-              aria-hidden="true"
-              >🏷️</span
+        <!-- 통일된 컬럼 레이아웃: rd-container / rd__col -->
+        <div class="rd-container">
+          <div class="rd__col rd__col--main">
+            <!-- 업체 기본정보 카드 -->
+            <section
+              class="card"
+              aria-labelledby="sec-basic"
             >
-            <div>
-              <h2
-                id="sec-basic"
-                class="card-title"
-              >
-                업체 기본정보
-              </h2>
-              <p class="card-desc">사업자 등록 및 연락처 정보</p>
-            </div>
-          </header>
-
-          <div
-            class="fields"
-            role="group"
-            aria-labelledby="sec-basic"
-          >
-            <div class="field">
-              <span class="field-label">업체명</span>
-              <div class="field-value">맛있는 치킨하우스</div>
-            </div>
-
-            <div class="field">
-              <span class="field-label">전화번호</span>
-              <div class="field-value">02-1234-5678</div>
-            </div>
-
-            <div class="field">
-              <span class="field-label">사업자번호</span>
-              <div class="field-value">123-45-67890</div>
-            </div>
-
-            <div class="field">
-              <span class="field-label">주소</span>
-              <div class="field-value">
-                서울특별시 강남구 테헤란로 123<br />1층 101호
-              </div>
-            </div>
-
-            <div class="field">
-              <span class="field-label">카테고리</span>
-              <div class="field-value field-value--tag">
-                <span class="chip">치킨</span>
-                <span class="chip">닭강정</span>
-              </div>
-            </div>
-
-            <div class="field">
-              <span class="field-label">현재 상태</span>
-              <div class="field-value">
+              <header class="card__header card-head">
                 <span
-                  class="status-dot"
+                  class="card-icon"
                   aria-hidden="true"
-                ></span
-                >활성
-              </div>
-            </div>
-          </div>
-        </section>
+                  ><i class="fa-solid fa-circle-info"></i
+                ></span>
+                <div>
+                  <h2
+                    id="sec-basic"
+                    class="card__title"
+                  >
+                    업체 기본정보
+                  </h2>
+                  <p class="card-desc">사업자 등록 및 연락처 정보</p>
+                </div>
+              </header>
 
-        <!-- ===== (3) 운영 정보 ===== -->
-        <section
-          class="card"
-          aria-labelledby="sec-oper"
-        >
-          <header class="card-head">
-            <span
-              class="card-icon"
-              aria-hidden="true"
-              >🔧</span
+              <div class="card__body card__list">
+                <div class="card__item-container">
+                  <div class="card__item">
+                    <span class="card__item-label">업체명</span>
+                    <div class="card__item-value">맛있는 치킨하우스</div>
+                  </div>
+
+                  <div class="card__item">
+                    <span class="card__item-label">전화번호</span>
+                    <div class="card__item-value">02-1234-5678</div>
+                  </div>
+
+                  <div class="card__item">
+                    <span class="card__item-label">사업자번호</span>
+                    <div class="card__item-value">123-45-67890</div>
+                  </div>
+                </div>
+
+                <div class="card__item-container">
+                  <div class="card__item">
+                    <span class="card__item-label">주소</span>
+                    <div class="card__item-value">
+                      서울특별시 강남구 테헤란로 123<br />1층 101호
+                    </div>
+                  </div>
+
+                  <div class="card__item">
+                    <span class="card__item-label">카테고리</span>
+                    <div class="card__item-value card__item-value--tag">
+                      <span class="chip">치킨</span>
+                      <span class="chip">닭강정</span>
+                    </div>
+                  </div>
+
+                  <div class="card__item">
+                    <span class="card__item-label">현재 상태</span>
+                    <div class="card__item-value">
+                      <span
+                        class="status-dot active"
+                        aria-hidden="true"
+                      ></span
+                      >활성
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 운영 정보 카드 -->
+            <section
+              class="card"
+              aria-labelledby="sec-oper"
             >
-            <div>
-              <h2
-                id="sec-oper"
-                class="card-title"
-              >
-                운영 정보
-              </h2>
-              <p class="card-desc">영업시간 및 주문 조건</p>
-            </div>
-          </header>
-
-          <div
-            class="stats"
-            role="group"
-            aria-label="운영 요약"
-          >
-            <!-- 영업시간 -->
-            <div class="stat">
-              <div class="stat-label">
+              <header class="card__header card-head">
                 <span
-                  class="stat-ico"
+                  class="card-icon"
                   aria-hidden="true"
-                  >🕒</span
-                >영업시간
+                  ><i class="fa-solid fa-clock"></i
+                ></span>
+                <div>
+                  <h2
+                    id="sec-oper"
+                    class="card__title"
+                  >
+                    운영 정보
+                  </h2>
+                  <p class="card-desc">영업시간 및 주문 조건</p>
+                </div>
+              </header>
+
+              <div class="card__body">
+                <div
+                  class="stats"
+                  role="group"
+                  aria-label="운영 요약"
+                >
+                  <div class="stat">
+                    <div class="stat-label">
+                      <span
+                        class="stat-ico"
+                        aria-hidden="true"
+                        >🕒</span
+                      >영업시간
+                    </div>
+                    <div
+                      class="stat-value"
+                      style="font-size: 1rem; font-weight: 700"
+                    >
+                      <div>월~금 &nbsp;&nbsp;10:00 ~ 22:00</div>
+                      <div>주말 &nbsp;&nbsp;&nbsp;11:00 ~ 21:00</div>
+                    </div>
+                    <div class="stat-sub">휴무일: 매주 일요일</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">
+                      <span
+                        class="stat-ico"
+                        aria-hidden="true"
+                        >₩</span
+                      >최소주문금액
+                    </div>
+                    <div class="stat-value">15,000원</div>
+                    <div class="stat-sub">이상 주문시</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">
+                      <span
+                        class="stat-ico"
+                        aria-hidden="true"
+                        >🚚</span
+                      >배달비
+                    </div>
+                    <div class="stat-value">3,000원</div>
+                    <div class="stat-sub">3km 이내</div>
+                  </div>
+                </div>
+
+                <p class="extra">
+                  <span
+                    class="info-dot"
+                    aria-hidden="true"
+                    >i</span
+                  >
+                  배달 가능 지역: 강남구, 서초구 일부 / 예상 배달시간: 30~45분
+                </p>
               </div>
+            </section>
+            <div class="card__body">
               <div
-                class="stat-value"
-                style="font-size: 1rem; font-weight: 700"
+                class="actionbar"
+                role="group"
+                aria-label="업체 작업"
               >
-                <div>월~금 &nbsp;&nbsp;10:00 ~ 22:00</div>
-                <div>주말 &nbsp;&nbsp;&nbsp;11:00 ~ 21:00</div>
+                <button
+                  type="button"
+                  class="btn btn--secondary btn--md"
+                  aria-label="업체 정보 수정"
+                >
+                  <span><i class="fa-solid fa-pen-to-square"></i></span>업체
+                  정보 수정
+                </button>
+                <button
+                  type="button"
+                  class="btn btn--excel btn--md"
+                  aria-label="엑셀 등록 양식 다운로드"
+                >
+                  Excel 등록 양식 다운로드
+                </button>
+                <button
+                  type="button"
+                  class="btn btn--primary btn--md"
+                  aria-label="메뉴 목록"
+                >
+                  메뉴 목록
+                </button>
+                <button
+                  type="button"
+                  class="btn btn--primary btn--md"
+                  aria-label="메뉴 등록"
+                >
+                  <span><i class="fa-solid fa-plus"></i></span>메뉴 등록
+                </button>
+                <button
+                  type="button"
+                  class="btn btn--secondary btn--md"
+                  aria-label="비활성화"
+                >
+                  <span><i class="fa-solid fa-pause"></i></span> 비활성화
+                </button>
               </div>
-              <div class="stat-sub">휴무일: 매주 일요일</div>
-            </div>
-
-            <!-- 최소주문금액 -->
-            <div class="stat">
-              <div class="stat-label">
-                <span
-                  class="stat-ico"
-                  aria-hidden="true"
-                  >₩</span
-                >최소주문금액
-              </div>
-              <div class="stat-value">15,000원</div>
-              <div class="stat-sub">이상 주문시</div>
-            </div>
-
-            <!-- 배달비 -->
-            <div class="stat">
-              <div class="stat-label">
-                <span
-                  class="stat-ico"
-                  aria-hidden="true"
-                  >🚚</span
-                >배달비
-              </div>
-              <div class="stat-value">3,000원</div>
-              <div class="stat-sub">3km 이내</div>
             </div>
           </div>
-
-          <p class="extra">
-            <span
-              class="info-dot"
-              aria-hidden="true"
-              >i</span
-            >
-            배달 가능 지역: 강남구, 서초구 일부 / 예상 배달시간: 30~45분
-          </p>
-
-          <!-- (4~8) 하단 액션 버튼 -->
-          <div
-            class="actionbar"
-            role="group"
-            aria-label="작업"
-          >
-            <button
-              type="button"
-              class="btn btn--secondary btn--md"
-              aria-label="업체 정보 수정"
-            >
-              <span><i class="fa-solid fa-pen-to-square"></i></span>업체 정보
-              수정
-            </button>
-            <button
-              type="button"
-              class="btn btn--excel btn--md"
-              aria-label="엑셀 등록 양식 다운로드"
-            >
-              Excel 등록 양식 다운로드
-            </button>
-            <button
-              type="button"
-              class="btn btn--primary btn--md"
-              aria-label="메뉴 목록"
-            >
-              메뉴 목록
-            </button>
-            <button
-              type="button"
-              class="btn btn--primary btn--md"
-              aria-label="메뉴 등록"
-            >
-              <span><i class="fa-solid fa-plus"></i></span>메뉴 등록
-            </button>
-            <button
-              type="button"
-              class="btn btn--secondary btn--md"
-              aria-label="비활성화"
-            >
-              <span><i class="fa-solid fa-pause"></i></span> 비활성화
-            </button>
-          </div>
-        </section>
+        </div>
       </main>
     </div>
   </body>
