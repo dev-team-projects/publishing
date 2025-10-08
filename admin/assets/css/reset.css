@@ -84,7 +84,10 @@
   }
   /* 텍스트 영역 줄바꿈 개선 */
   textarea {
+    min-height: 150px;
     white-space: pre-wrap;
+    resize: none; /* 크기 조정 비활성화 */
+    overflow: auto; /* 내용 넘치면 스크롤 */
   }
 
   /* 포커스 가시성 보장 */

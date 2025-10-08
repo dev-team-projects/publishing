@@ -478,6 +478,12 @@
   padding-right: 2rem;
 }
 
+.field__error-message {
+  color: var(--status-rejected);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
 /* IE/고대비 보조 */
 @media (forced-colors: active) {
   .search-form__select {
