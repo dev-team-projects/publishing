@@ -1,4 +1,49 @@
-/* main-container 내부에서 중복되지 않는 클래스만 초안 작성 */
+.header__menu-item {
+}
+
+.header__menu-item {
+  position: relative;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  background: var(--surface-alt);
+  border: 0.0625rem solid var(--border);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
+  min-width: 220px;
+  z-index: 1000;
+  border-radius: 0.375rem;
+}
+
+.dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+.dropdown__item {
+  padding: 0.5rem 0;
+  border-bottom: 0.0625rem solid var(--border);
+}
+.dropdown__content {
+}
+.dropdown__type {
+}
+.dropdown__message {
+}
+.dropdown__time {
+  color: #888;
+}
+.dropdown__footer {
+  text-align: center;
+  padding: 8px 0;
+}
+.dropdown__link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 13px;
+}
 
 /* 메인 헤더 */
 .main-header {

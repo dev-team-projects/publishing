@@ -1,4 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 헤더 아이콘 드랍다운 메뉴
+  const alarmBtn = document.getElementById('btn-alarm');
+  const alarmDropdown = document.getElementById('alarm-dropdown');
+  const profileBtn = document.getElementById('btn-profile');
+  const profileDropdown = document.getElementById('profile-dropdown');
+
+  alarmBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    profileDropdown.style.display =
+      profileDropdown.style.display === 'none' ? 'block' : 'none';
+    alarmDropdown.style.display =
+      alarmDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+  document.addEventListener('click', function (e) {
+    if (
+      alarmDropdown.style.display === 'block' &&
+      !alarmBtn.contains(e.target) &&
+      !alarmDropdown.contains(e.target)
+    ) {
+      alarmDropdown.style.display = 'none';
+    }
+  });
+  profileBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    alarmDropdown.style.display =
+      alarmDropdown.style.display === 'none' ? 'block' : 'none';
+    profileDropdown.style.display =
+      profileDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+  document.addEventListener('click', function (e) {
+    if (
+      profileDropdown.style.display === 'block' &&
+      !profileBtn.contains(e.target) &&
+      !profileDropdown.contains(e.target)
+    ) {
+      profileDropdown.style.display = 'none';
+    }
+  });
+
   // 사이드바 토글 버튼 클릭 이벤트 위임
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.sidebar__toggle-btn');

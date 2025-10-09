@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>FMS 관리자 대시보드</title>
+    <title>FMS 관리자</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -73,19 +73,110 @@
         aria-label="상단 메뉴"
       >
         <ul class="header__menu">
-          <li>
+          <li class="header__menu-item header__menu-item--alarm">
             <button
               class="btn header__btn header__btn--alarm"
               aria-label="알림"
+              id="btn-alarm"
+              type="button"
             >
               <i
                 class="fa-solid fa-bell"
                 aria-hidden="true"
               ></i>
             </button>
+
+            <div
+              id="alarm-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--rejected dropdown__type"
+                      >[신고]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 신고 요청이 있습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >2분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--approve dropdown__type"
+                      >[회원]</strong
+                    >
+                    <p class="dropdown__message">신규 회원이 가입했습니다.</p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >10분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--pending dropdown__type"
+                      >[업체]</strong
+                    >
+                    <p class="dropdown__message">
+                      업체가입요청이 도착했습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >30분 전</time
+                  >
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--info dropdown__type"
+                      >[메뉴]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 메뉴가 등록되었습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >5분 전</time
+                  >
+                </li>
+              </ul>
+
+              <div class="dropdown__footer">
+                <a
+                  href="#"
+                  class="dropdown__link"
+                  >알림 전체보기</a
+                >
+              </div>
+            </div>
           </li>
-          <li>
+          <li class="header__menu-item header__menu-item--profile">
             <button
+              id="btn-profile"
               class="btn header__btn header__btn--profile"
               aria-label="프로필"
             >
@@ -94,6 +185,28 @@
                 aria-hidden="true"
               ></i>
             </button>
+            <div
+              id="profile-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >마이페이지</a
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >로그아웃</a
+                  >
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </nav>
