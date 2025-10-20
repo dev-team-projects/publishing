@@ -8,23 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   alarmBtn.addEventListener('click', function (e) {
     e.stopPropagation();
     profileDropdown.style.display =
-      profileDropdown.style.display === 'block' ? 'none' : 'block';
+      profileDropdown.style.display === 'block' ? 'none' : '';
     alarmDropdown.style.display =
       alarmDropdown.style.display === 'block' ? 'none' : 'block';
-  });
-  document.addEventListener('click', function (e) {
-    if (
-      alarmDropdown.style.display === 'block' &&
-      !alarmBtn.contains(e.target) &&
-      !alarmDropdown.contains(e.target)
-    ) {
-      alarmDropdown.style.display = 'none';
-    }
   });
   profileBtn.addEventListener('click', function (e) {
     e.stopPropagation();
     alarmDropdown.style.display =
-      alarmDropdown.style.display === 'block' ? 'none' : 'block';
+      alarmDropdown.style.display === 'block' ? 'none' : '';
     profileDropdown.style.display =
       profileDropdown.style.display === 'block' ? 'none' : 'block';
   });
