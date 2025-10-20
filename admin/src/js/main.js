@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   alarmBtn.addEventListener('click', function (e) {
     e.stopPropagation();
     profileDropdown.style.display =
-      profileDropdown.style.display === 'none' ? 'block' : 'none';
+      profileDropdown.style.display === 'block' ? 'none' : 'block';
     alarmDropdown.style.display =
       alarmDropdown.style.display === 'block' ? 'none' : 'block';
   });
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   profileBtn.addEventListener('click', function (e) {
     e.stopPropagation();
     alarmDropdown.style.display =
-      alarmDropdown.style.display === 'none' ? 'block' : 'none';
+      alarmDropdown.style.display === 'block' ? 'none' : 'block';
     profileDropdown.style.display =
       profileDropdown.style.display === 'block' ? 'none' : 'block';
   });

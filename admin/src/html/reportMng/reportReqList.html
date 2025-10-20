@@ -17,29 +17,30 @@
     <!-- Base resets & fonts -->
     <link
       rel="stylesheet"
-      href="../../assets/css/reset.css"
+      href="../../style/reset.css"
     />
     <link
       rel="stylesheet"
-      href="../../assets/css/common.css"
+      href="../../style/common.css"
     />
     <link
       rel="stylesheet"
-      href="../../assets/css/fonts.css"
+      href="../../style/fonts.css"
     />
 
     <link
       rel="stylesheet"
-      href="../../assets/css/admin.css"
+      href="../../style/admin.css"
     />
 
     <!-- 이 페이지 css -->
     <link
       rel="stylesheet"
-      href="../../assets/css/menuMng/menuList.css"
+      href="../../style/report/reportReqList.css"
     />
 
-    <script src="../../assets/js/main.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/report/reportReqList.js"></script>
   </head>
   <body>
     <!-- <a
@@ -50,7 +51,7 @@
     <header class="header">
       <div class="header__logo">
         <a
-          href="../../index.html"
+          href="../../../index.html"
           class="header__logo-link"
         >
           <span class="header__icon"
@@ -63,10 +64,10 @@
       </div>
       <div
         class="header__path"
-        aria-label="현재 위치: 메뉴관리 > 메뉴 목록"
+        aria-label="현재 위치: 신고관리 > 신고요청 목록"
       >
-        <span>메뉴관리</span><span>&nbsp;&gt;&nbsp;</span
-        ><span class="header__current-path">메뉴 목록</span>
+        <span>신고관리</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">신고요청 목록</span>
       </div>
       <nav
         class="header__nav"
@@ -277,7 +278,7 @@
                     ><i class="fa-solid fa-utensils"></i
                   ></span>
                   <a
-                    href="./menuList.html"
+                    href="../menuMng/menuList.html"
                     class="sidebar__link"
                     >메뉴 관리</a
                   >
@@ -308,11 +309,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./menuList.html">메뉴 목록</a>
+                    <a href="../menuMng/menuList.html">메뉴 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./menuUpload.html">메뉴 업로드</a>
+                    <a href="../menuMng/menuUpload.html">메뉴 업로드</a>
                   </li>
                 </ul>
               </div>
@@ -369,7 +370,7 @@
                     ><i class="fa-solid fa-flag"></i
                   ></span>
                   <a
-                    href="../reportMng/reportReqList.html"
+                    href="./reportReqList.html"
                     class="sidebar__link"
                     >신고 관리</a
                   >
@@ -400,11 +401,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../reportMng/reportReqList.html">신고요청 목록</a>
+                    <a href="./reportReqList.html">신고요청 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../reportMng/reportList.html">신고내역</a>
+                    <a href="./reportList.html">신고내역 목록</a>
                   </li>
                 </ul>
               </div>
@@ -418,8 +419,8 @@
       >
         <div class="main-header">
           <div class="main-header__info">
-            <h3 class="main-header__title">메뉴 목록</h3>
-            <p class="main-header__desc">음식업체 메뉴 목록입니다.</p>
+            <h3 class="main-header__title">신고요청 목록</h3>
+            <p class="main-header__desc">음식업체 신고요청 목록입니다.</p>
           </div>
 
           <div class="main-header__actions">
@@ -466,7 +467,7 @@
             id="search-heading"
             class="sr-only"
           >
-            음식업체 메뉴 검색조건 영역
+            음식업체 신고요청 검색조건 영역
           </h2>
 
           <form
@@ -476,82 +477,111 @@
             role="search"
           >
             <fieldset class="search-form__fieldset">
-              <legend class="sr-only">음식업체 메뉴 검색조건</legend>
+              <legend class="sr-only">음식업체 신고요청 검색조건</legend>
 
               <!-- 검색조건 영역 (Top) -->
               <div class="search-form__top">
                 <div class="search-form__grid">
-                  <!-- 메뉴 카테고리 -->
+                  <!-- 신고자 -->
                   <div
-                    class="search-form__group-item search-form__group-item--menu-category"
+                    class="search-form__group-item search-form__group-item--report-user"
                   >
                     <label
-                      for="menu-category"
+                      for="report-user"
                       class="search-form__label"
-                      >카테고리</label
-                    >
-                    <select
-                      id="menu-category"
-                      name="menuCategory"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 카테고리 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 상태 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-status"
-                  >
-                    <label
-                      for="menu-status"
-                      class="search-form__label"
-                      >상태</label
-                    >
-                    <select
-                      id="menu-status"
-                      name="menuStatus"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 상태 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 가격대 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-price-range"
-                  >
-                    <label
-                      for="menu-price-range"
-                      class="search-form__label"
-                      >가격대</label
-                    >
-                    <select
-                      id="menu-price-range"
-                      name="menuPriceRange"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 가격대 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 메뉴명 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-name"
-                  >
-                    <label
-                      for="menu-name"
-                      class="search-form__label"
-                      >메뉴명</label
+                      >신고자</label
                     >
                     <input
                       type="search"
-                      id="menu-name"
-                      name="menuName"
+                      id="report-user"
+                      name="reportUser"
                       class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="메뉴명을 입력하세요"
+                      placeholder="신고자명을 입력하세요"
                       autocomplete="off"
                     />
+                  </div>
+                  <!-- 이메일 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-email"
+                  >
+                    <label
+                      for="report-email"
+                      class="search-form__label"
+                      >이메일</label
+                    >
+                    <input
+                      type="email"
+                      id="report-email"
+                      name="reportEmail"
+                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
+                      placeholder="이메일을 입력하세요"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <!-- 신고대상 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-subject"
+                  >
+                    <label
+                      for="report-subject"
+                      class="search-form__label"
+                      >신고대상</label
+                    >
+                    <select
+                      id="report-subject"
+                      name="reportSubject"
+                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
+                    >
+                      <option value="">전체</option>
+                      <!-- 실제 신고대상 리스트 주입 -->
+                    </select>
+                  </div>
+                  <!-- 처리 상태 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-status"
+                  >
+                    <label
+                      for="report-status"
+                      class="search-form__label"
+                      >처리 상태</label
+                    >
+                    <select
+                      id="report-status"
+                      name="reportStatus"
+                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
+                    >
+                      <option value="">전체</option>
+                      <!-- 실제 처리 상태 리스트 주입 -->
+                    </select>
+                  </div>
+                  <!-- 접수기간 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--application-period"
+                  >
+                    <label
+                      for="application-period"
+                      class="search-form__label"
+                      >접수기간</label
+                    >
+                    <div>
+                      <input
+                        type="date"
+                        id="start-date"
+                        name="startDate"
+                        class="search-form__input u-focus-reset u-focus-ring u-no-tap-highlight"
+                      />
+                      <span
+                        class="date-separator"
+                        aria-hidden="true"
+                        >~</span
+                      >
+                      <input
+                        type="date"
+                        id="end-date"
+                        name="endDate"
+                        class="search-form__input u-focus-reset u-focus-ring u-no-tap-highlight"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -595,56 +625,38 @@
           </form>
         </section>
 
-        <!-- 음식업체 목록 -->
+        <!-- 신고요청 목록 -->
         <section
           class="content-wrapper"
-          aria-labelledby="음식업체 가입 요청 목록"
+          aria-labelledby="음식업체 신고요청 목록"
         >
           <div class="data-table__header">
             <div class="data-table__search-wrapper">
-              <h3>음식업체 목록</h3>
-            </div>
-            <div class="data-table__action-group">
-              <button class="btn btn--primary">
-                <span><i class="fa-solid fa-pen-to-square"></i></span
-                ><span>메뉴수정</span>
-              </button>
-              <button class="btn btn--reject">
-                <span><i class="fa-solid fa-trash-can"></i></span
-                ><span>메뉴삭제</span>
-              </button>
+              <h3>신고요청 목록</h3>
             </div>
           </div>
 
           <div class="data-table">
             <table class="data-table__table">
               <caption class="sr-only">
-                음식업체 목록
+                신고요청 목록
               </caption>
 
               <!-- (선택) 컬럼 폭 제어 -->
               <colgroup>
                 <!-- 체크박스 -->
                 <col width="5%" />
-                <!-- 순번 -->
-                <col width="5%" />
-                <!-- 카테고리 -->
+                <!-- 신고자 -->
                 <col width="10%" />
-                <!-- 메뉴명 -->
-                <col width="15%" />
-                <!-- 메뉴설명 -->
-                <col width="25%" />
-                <!-- 가격 -->
-                <col width="10%" />
+                <!-- 이메일 -->
+                <col width="20%" />
+                <!-- 신고대상업체명 -->
+                <col width="20%" />
                 <!-- 첨부파일 -->
                 <col width="5%" />
-                <!-- 상태 -->
-                <col width="5%" />
-                <!-- 등록일 -->
-                <col width="10%" />
-                <!-- 수정일 -->
-                <col width="10%" />
-                <!-- 담당자 -->
+                <!-- 신고사유 -->
+                <col width="25%" />
+                <!-- 신고일 -->
                 <col width="10%" />
               </colgroup>
 
@@ -665,61 +677,37 @@
                     scope="col"
                     class="data-table__cell"
                   >
-                    순번
+                    신고자
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    카테고리
+                    이메일
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    메뉴명
+                    신고대상업체명
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    메뉴설명
+                    첨부파일 유무
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    가격
+                    신고사유
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    첨부파일
-                  </th>
-                  <th
-                    scope="col"
-                    class="data-table__cell"
-                  >
-                    상태
-                  </th>
-                  <th
-                    scope="col"
-                    class="data-table__cell"
-                  >
-                    등록일
-                  </th>
-                  <th
-                    scope="col"
-                    class="data-table__cell"
-                  >
-                    수정일
-                  </th>
-                  <th
-                    scope="col"
-                    class="data-table__cell"
-                  >
-                    담당자
+                    신고일
                   </th>
                 </tr>
               </thead>
@@ -733,24 +721,12 @@
                       aria-labelledby="row-1-label"
                     />
                   </td>
-                  <td class="data-table__cell">1</td>
-                  <td class="data-table__cell">세트/패키지</td>
-                  <td class="data-table__cell">패밀리 세트</td>
-                  <td class="data-table__cell">
-                    파스타2+피자1+스테이크1 +음료2
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">35,000</span>원
-                  </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin1</td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">test@test.com</td>
+                  <td class="data-table__cell">A대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">테스트신고사유</td>
+                  <td class="data-table__cell">2025-10-06</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -760,22 +736,17 @@
                       aria-labelledby="row-2-label"
                     />
                   </td>
-                  <td class="data-table__cell">2</td>
-                  <td class="data-table__cell">세트/패키지</td>
-                  <td class="data-table__cell">커플 세트</td>
-                  <td class="data-table__cell">파스타1+피자1 +음료2</td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">20,000</span>원
+                  <td class="data-table__cell">김영희</td>
+                  <td class="data-table__cell">young@test.com</td>
+                  <td class="data-table__cell">B대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="위생상태가 불량하여 신고합니다."
+                  >
+                    위생상태가 불량하여 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin2</td>
+                  <td class="data-table__cell">2025-10-05</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -785,24 +756,17 @@
                       aria-labelledby="row-3-label"
                     />
                   </td>
-                  <td class="data-table__cell">3</td>
-                  <td class="data-table__cell">한식</td>
-                  <td class="data-table__cell">비빔밥</td>
-                  <td class="data-table__cell">
-                    신선한 야채와 고소한 고추장 소스
+                  <td class="data-table__cell">이철수</td>
+                  <td class="data-table__cell">chulsoo@test.com</td>
+                  <td class="data-table__cell">C대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="불친절한 서비스로 인해 신고합니다."
+                  >
+                    불친절한 서비스로 인해 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">9,000</span>원
-                  </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-05</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin3</td>
+                  <td class="data-table__cell">2025-10-04</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -812,24 +776,17 @@
                       aria-labelledby="row-4-label"
                     />
                   </td>
-                  <td class="data-table__cell">4</td>
-                  <td class="data-table__cell">중식</td>
-                  <td class="data-table__cell">짜장면</td>
-                  <td class="data-table__cell">
-                    달콤한 춘장 소스와 쫄깃한 면발
+                  <td class="data-table__cell">박민수</td>
+                  <td class="data-table__cell">minsoo@test.com</td>
+                  <td class="data-table__cell">D대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="가격이 메뉴판과 달라 신고합니다."
+                  >
+                    가격이 메뉴판과 달라 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">7,000</span>원
-                  </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-04</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin4</td>
+                  <td class="data-table__cell">2025-10-03</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -839,22 +796,17 @@
                       aria-labelledby="row-5-label"
                     />
                   </td>
-                  <td class="data-table__cell">5</td>
-                  <td class="data-table__cell">일식</td>
-                  <td class="data-table__cell">연어초밥</td>
-                  <td class="data-table__cell">신선한 연어와 고소한 밥</td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">12,000</span>원
+                  <td class="data-table__cell">최수정</td>
+                  <td class="data-table__cell">soojung@test.com</td>
+                  <td class="data-table__cell">E대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="음식에서 이물질이 나와 신고합니다."
+                  >
+                    음식에서 이물질이 나와 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-03</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin5</td>
+                  <td class="data-table__cell">2025-10-02</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -864,24 +816,17 @@
                       aria-labelledby="row-6-label"
                     />
                   </td>
-                  <td class="data-table__cell">6</td>
-                  <td class="data-table__cell">양식</td>
-                  <td class="data-table__cell">스테이크</td>
-                  <td class="data-table__cell">
-                    육즙 가득한 프리미엄 스테이크
+                  <td class="data-table__cell">정하늘</td>
+                  <td class="data-table__cell">sky@test.com</td>
+                  <td class="data-table__cell">F대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="주문한 음식이 너무 늦게 나와 신고합니다."
+                  >
+                    주문한 음식이 너무 늦게 나와 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">25,000</span>원
-                  </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-02</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin6</td>
+                  <td class="data-table__cell">2025-10-01</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -891,22 +836,17 @@
                       aria-labelledby="row-7-label"
                     />
                   </td>
-                  <td class="data-table__cell">7</td>
-                  <td class="data-table__cell">분식</td>
-                  <td class="data-table__cell">떡볶이</td>
-                  <td class="data-table__cell">매콤달콤한 소스와 쫄깃한 떡</td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">5,000</span>원
+                  <td class="data-table__cell">한가람</td>
+                  <td class="data-table__cell">garam@test.com</td>
+                  <td class="data-table__cell">G대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="직원이 마스크를 착용하지 않아 신고합니다."
+                  >
+                    직원이 마스크를 착용하지 않아 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-09-01</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin7</td>
+                  <td class="data-table__cell">2025-09-30</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -916,22 +856,17 @@
                       aria-labelledby="row-8-label"
                     />
                   </td>
-                  <td class="data-table__cell">8</td>
-                  <td class="data-table__cell">디저트</td>
-                  <td class="data-table__cell">치즈케이크</td>
-                  <td class="data-table__cell">부드럽고 진한 치즈의 풍미</td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">6,000</span>원
+                  <td class="data-table__cell">오세훈</td>
+                  <td class="data-table__cell">sehoon@test.com</td>
+                  <td class="data-table__cell">H대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="영업시간이 안내와 달라 신고합니다."
+                  >
+                    영업시간이 안내와 달라 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-08-31</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin8</td>
+                  <td class="data-table__cell">2025-09-29</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -941,22 +876,17 @@
                       aria-labelledby="row-9-label"
                     />
                   </td>
-                  <td class="data-table__cell">9</td>
-                  <td class="data-table__cell">음료</td>
-                  <td class="data-table__cell">아메리카노</td>
-                  <td class="data-table__cell">진한 에스프레소와 깔끔한 맛</td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">3,000</span>원
+                  <td class="data-table__cell">유지민</td>
+                  <td class="data-table__cell">jimin@test.com</td>
+                  <td class="data-table__cell">I대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="음식이 상해 있어 신고합니다."
+                  >
+                    음식이 상해 있어 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-08-30</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin9</td>
+                  <td class="data-table__cell">2025-09-28</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
@@ -966,24 +896,17 @@
                       aria-labelledby="row-10-label"
                     />
                   </td>
-                  <td class="data-table__cell">10</td>
-                  <td class="data-table__cell">양식</td>
-                  <td class="data-table__cell">마르게리타 피자</td>
-                  <td class="data-table__cell">
-                    신선한 토마토와 바질, 모짜렐라 치즈
+                  <td class="data-table__cell">장동건</td>
+                  <td class="data-table__cell">donggun@test.com</td>
+                  <td class="data-table__cell">J대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="주문과 다른 음식이 나와 신고합니다."
+                  >
+                    주문과 다른 음식이 나와 신고합니다.
                   </td>
-                  <td class="data-table__cell">
-                    <span class="menu-price">15,000</span>원
-                  </td>
-                  <td class="data-table__cell">
-                    <i class="fa-solid fa-file-image"></i>
-                  </td>
-                  <td class="data-table__cell">
-                    <span class="badge badge--approve">활성</span>
-                  </td>
-                  <td class="data-table__cell">2025-08-29</td>
-                  <td class="data-table__cell">2025-09-06</td>
-                  <td class="data-table__cell">admin10</td>
+                  <td class="data-table__cell">2025-09-27</td>
                 </tr>
               </tbody>
             </table>

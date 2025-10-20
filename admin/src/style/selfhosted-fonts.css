@@ -13,7 +13,7 @@
   /* 학교안심 알림장 (정적 웨이트 예시) */
   @font-face {
     font-family: '학교안심 알림장';
-    src: url('../fonts/Hakgyoansim_Allimjang_TTF_R.ttf') format('ttf');
+    src: url('../assets/fonts/Hakgyoansim_Allimjang_TTF_R.ttf') format('ttf');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -21,14 +21,14 @@
   /* 사천항공체 (정적 웨이트 예시) */
   @font-face {
     font-family: '사천항공체';
-    src: url('../fonts/SacheonHangGong_Regular.ttf') format('ttf');
+    src: url('../assets/fonts/SacheonHangGong_Regular.ttf') format('ttf');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: '사천항공체';
-    src: url('../fonts/Pretendard_Regular.ttf') format('ttf');
+    src: url('../assets/fonts/Pretendard_Regular.ttf') format('ttf');
     font-weight: 400;
     font-style: normal;
     font-display: swap;

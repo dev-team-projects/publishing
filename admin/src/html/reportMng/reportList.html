@@ -17,30 +17,29 @@
     <!-- Base resets & fonts -->
     <link
       rel="stylesheet"
-      href="../../assets/css/reset.css"
+      href="../../style/reset.css"
     />
     <link
       rel="stylesheet"
-      href="../../assets/css/common.css"
+      href="../../style/common.css"
     />
     <link
       rel="stylesheet"
-      href="../../assets/css/fonts.css"
+      href="../../style/fonts.css"
     />
 
     <link
       rel="stylesheet"
-      href="../../assets/css/admin.css"
+      href="../../style/admin.css"
     />
 
     <!-- 이 페이지 css -->
     <link
       rel="stylesheet"
-      href="../../assets/css/bisMem/bisMemReqList.css"
+      href="../../style/report/reportReqList.css"
     />
 
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/bisMem/bisMemReqList.js"></script>
+    <script src="../../js/main.js"></script>
   </head>
   <body>
     <!-- <a
@@ -51,7 +50,7 @@
     <header class="header">
       <div class="header__logo">
         <a
-          href="../../index.html"
+          href="../../../index.html"
           class="header__logo-link"
         >
           <span class="header__icon"
@@ -64,10 +63,10 @@
       </div>
       <div
         class="header__path"
-        aria-label="현재 위치: 업체관리 > 음식업체 회원가입 요청 목록"
+        aria-label="현재 위치: 신고관리 > 신고내역 목록"
       >
-        <span>업체관리</span><span>&nbsp;&gt;&nbsp;</span
-        ><span class="header__current-path">음식업체 회원가입 요청 목록</span>
+        <span>신고관리</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">신고내역 목록</span>
       </div>
       <nav
         class="header__nav"
@@ -230,7 +229,7 @@
                     ><i class="fa-solid fa-building-user"></i
                   ></span>
                   <a
-                    href="./bisMemList.html"
+                    href="../bisMng/bisMemList.html"
                     class="sidebar__link"
                     >업체 관리</a
                   >
@@ -261,11 +260,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./bisMemList.html">업체 목록</a>
+                    <a href="../bisMng/bisMemList.html">업체 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="./bisMemReqList.html">업체가입요청 목록</a>
+                    <a href="../bisMng/bisMemReqList.html">업체가입요청 목록</a>
                   </li>
                 </ul>
               </div>
@@ -370,7 +369,7 @@
                     ><i class="fa-solid fa-flag"></i
                   ></span>
                   <a
-                    href="../reportMng/reportReqList.html"
+                    href="./reportReqList.html"
                     class="sidebar__link"
                     >신고 관리</a
                   >
@@ -401,11 +400,11 @@
                 <ul class="sidebar__submenu">
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../reportMng/reportReqList.html">신고요청 목록</a>
+                    <a href="./reportReqList.html">신고내역 목록</a>
                   </li>
                   <li class="sidebar__submenu-item">
                     <span class="sidebar__submenu-item--bar"></span>
-                    <a href="../reportMng/reportList.html">신고내역</a>
+                    <a href="./reportList.html">신고내역 목록</a>
                   </li>
                 </ul>
               </div>
@@ -419,10 +418,8 @@
       >
         <div class="main-header">
           <div class="main-header__info">
-            <h3 class="main-header__title">음식업체 회원가입 요청 목록</h3>
-            <p class="main-header__desc">
-              신규 음식업체의 회원가입 요청을 관리합니다.
-            </p>
+            <h3 class="main-header__title">신고내역 목록</h3>
+            <p class="main-header__desc">음식업체 신고내역 목록입니다.</p>
           </div>
 
           <div class="main-header__actions">
@@ -460,22 +457,189 @@
           </div>
         </div>
 
+        <!-- 검색영역 -->
+        <section
+          class="content-wrapper"
+          aria-labelledby="search-heading"
+        >
+          <h2
+            id="search-heading"
+            class="sr-only"
+          >
+            음식업체 신고내역 검색조건 영역
+          </h2>
+
+          <form
+            class="search-form"
+            action="#"
+            method="get"
+            role="search"
+          >
+            <fieldset class="search-form__fieldset">
+              <legend class="sr-only">음식업체 신고내역 검색조건</legend>
+
+              <!-- 검색조건 영역 (Top) -->
+              <div class="search-form__top">
+                <div class="search-form__grid">
+                  <!-- 신고자 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-user"
+                  >
+                    <label
+                      for="report-user"
+                      class="search-form__label"
+                      >신고자</label
+                    >
+                    <input
+                      type="search"
+                      id="report-user"
+                      name="reportUser"
+                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
+                      placeholder="신고자명을 입력하세요"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <!-- 대상업체 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-email"
+                  >
+                    <label
+                      for="report-email"
+                      class="search-form__label"
+                      >대상업체</label
+                    >
+                    <input
+                      type="email"
+                      id="report-email"
+                      name="reportEmail"
+                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
+                      placeholder="대상업체을 입력하세요"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <!-- 처리자 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-subject"
+                  >
+                    <label
+                      for="report-subject"
+                      class="search-form__label"
+                      >처리자</label
+                    >
+                    <select
+                      id="report-subject"
+                      name="reportSubject"
+                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
+                    >
+                      <option value="">전체</option>
+                      <!-- 실제 처리자 리스트 주입 -->
+                    </select>
+                  </div>
+                  <!-- 처리 상태 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--report-status"
+                  >
+                    <label
+                      for="report-status"
+                      class="search-form__label"
+                      >처리 상태</label
+                    >
+                    <select
+                      id="report-status"
+                      name="reportStatus"
+                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
+                    >
+                      <option value="">전체</option>
+                      <!-- 실제 처리 상태 리스트 주입 -->
+                    </select>
+                  </div>
+                  <!-- 접수기간 -->
+                  <div
+                    class="search-form__group-item search-form__group-item--application-period"
+                  >
+                    <label
+                      for="application-period"
+                      class="search-form__label"
+                      >접수기간</label
+                    >
+                    <div>
+                      <input
+                        type="date"
+                        id="start-date"
+                        name="startDate"
+                        class="search-form__input u-focus-reset u-focus-ring u-no-tap-highlight"
+                      />
+                      <span
+                        class="date-separator"
+                        aria-hidden="true"
+                        >~</span
+                      >
+                      <input
+                        type="date"
+                        id="end-date"
+                        name="endDate"
+                        class="search-form__input u-focus-reset u-focus-ring u-no-tap-highlight"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 버튼 영역 (Bottom) -->
+              <div class="search-form__bottom">
+                <div class="search-form__actions">
+                  <button
+                    type="button"
+                    class="btn btn--secondary btn--md search-form__btn"
+                  >
+                    <span
+                      class="btn__icon"
+                      aria-hidden="true"
+                    >
+                      <i
+                        class="fa-solid fa-rotate-left"
+                        aria-hidden="true"
+                      ></i>
+                    </span>
+                    <span class="btn__label">초기화</span>
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn--primary btn--md search-form__btn"
+                  >
+                    <span
+                      class="btn__icon"
+                      aria-hidden="true"
+                    >
+                      <i
+                        class="fa-solid fa-magnifying-glass"
+                        aria-hidden="true"
+                      ></i>
+                    </span>
+                    <span class="btn__label">검색</span>
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+
         <ul
           class="status-card"
           aria-label="음식업체 가입 요청 현황"
         >
           <li class="status-card__item">
             <span
-              class="status-card__icon status-card__icon--pending"
+              class="status-card__icon status-card__icon--total"
               aria-hidden="true"
             >
               <i
-                class="fa-solid fa-clock"
+                class="fa-solid fa-layer-group"
                 aria-hidden="true"
               ></i>
             </span>
             <div class="status-card__meta">
-              <span class="status-card__label">대기 중</span>
+              <span class="status-card__label">전체</span>
               <data
                 class="status-card__count"
                 value="12"
@@ -503,6 +667,26 @@
 
           <li class="status-card__item">
             <span
+              class="status-card__icon status-card__icon--pending"
+              aria-hidden="true"
+            >
+              <i
+                class="fa-solid fa-clock"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <div class="status-card__meta">
+              <span class="status-card__label">대기 중</span>
+              <data
+                class="status-card__count"
+                value="12"
+                >12</data
+              >
+            </div>
+          </li>
+
+          <li class="status-card__item">
+            <span
               class="status-card__icon status-card__icon--rejected"
               aria-hidden="true"
             >
@@ -517,80 +701,49 @@
               >
             </div>
           </li>
-
-          <li class="status-card__item">
-            <span
-              class="status-card__icon status-card__icon--total"
-              aria-hidden="true"
-            >
-              <i
-                class="fa-solid fa-layer-group"
-                aria-hidden="true"
-              ></i>
-            </span>
-            <div class="status-card__meta">
-              <span class="status-card__label">전체</span>
-              <data
-                class="status-card__count"
-                value="12"
-                >12</data
-              >
-            </div>
-          </li>
         </ul>
+
+        <!-- 신고내역 목록 -->
         <section
           class="content-wrapper"
-          aria-labelledby="음식업체 가입 요청 목록"
+          aria-labelledby="음식업체 신고내역 목록"
         >
           <div class="data-table__header">
             <div class="data-table__search-wrapper">
-              <input
-                id="search-keyword"
-                type="search"
-                class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                placeholder="업체명 혹은 사업자등록번호를 검색하세요"
-                aria-label="검색어 입력"
-              />
-              <button
-                class="btn btn--primary"
-                type="button"
-                aria-label="검색"
-              >
-                <span>
-                  <i
-                    class="fa-solid fa-magnifying-glass"
-                    aria-hidden="true"
-                  ></i>
-                </span>
-              </button>
-            </div>
-            <div class="data-table__action-group">
-              <button class="btn btn--approve">
-                <span><i class="fa-solid fa-check"></i></span><span>승인</span>
-              </button>
-              <button class="btn btn--reject">
-                <span><i class="fa-solid fa-xmark"></i></span><span>반려</span>
-              </button>
+              <h3>신고내역 목록</h3>
             </div>
           </div>
 
           <div class="data-table">
             <table class="data-table__table">
               <caption class="sr-only">
-                음식업체 가입 요청 목록
+                신고내역 목록
               </caption>
 
               <!-- (선택) 컬럼 폭 제어 -->
               <colgroup>
-                <col width="3%" />
+                <!-- 체크박스 -->
+                <col width="5%" />
+                <!-- 신고ID -->
                 <col width="10%" />
-                <col width="11%" />
+                <!-- 신고자 -->
+                <col width="10%" />
+                <!-- 이메일 -->
+                <col width="10%" />
+                <!-- 신고대상업체명 -->
+                <col width="15%" />
+                <!-- 첨부파일 -->
                 <col width="5%" />
-                <col width="11%" />
-                <col width="12%" />
-                <col width="36%" />
-                <col width="7%" />
+                <!-- 신고사유 -->
+                <col width="10%" />
+                <!-- 결과 -->
                 <col width="5%" />
+                <!-- 신고일 -->
+                <col width="10%" />
+                <!-- 처리일 -->
+                <col width="10%" />
+                <!-- 담당자 -->
+                <col width="10%" />
               </colgroup>
 
               <thead class="data-table__head">
@@ -610,25 +763,13 @@
                     scope="col"
                     class="data-table__cell"
                   >
-                    업체명
+                    신고ID
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    사업자등록번호
-                  </th>
-                  <th
-                    scope="col"
-                    class="data-table__cell"
-                  >
-                    대표자명
-                  </th>
-                  <th
-                    scope="col"
-                    class="data-table__cell"
-                  >
-                    연락처
+                    신고자
                   </th>
                   <th
                     scope="col"
@@ -640,19 +781,43 @@
                     scope="col"
                     class="data-table__cell"
                   >
-                    주소
+                    신고대상업체명
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    상태
+                    첨부파일 유무
                   </th>
                   <th
                     scope="col"
                     class="data-table__cell"
                   >
-                    요청일
+                    신고사유
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    결과
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    신고일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    처리일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    담당자
                   </th>
                 </tr>
               </thead>
@@ -660,533 +825,233 @@
               <tbody class="data-table__body">
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
                     <input
                       type="checkbox"
                       class="data-table__checkbox"
                       aria-labelledby="row-1-label"
                     />
                   </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-1-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
+                  <td class="data-table__cell">REPORT_01</td>
                   <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">test@test.com</td>
+                  <td class="data-table__cell">A대상업체</td>
                   <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
+                    <i class="fa-solid fa-file-image"></i>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span class="badge badge--pending">대기 중</span>
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
-                </tr>
-                <tr class="data-table__row">
-                  <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
-                    <input
-                      type="checkbox"
-                      class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
-                    />
-                  </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-2-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
+                  <td class="data-table__cell">음식 문제</td>
                   <td class="data-table__cell">
                     <span class="badge badge--rejected">반려</span>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
+                  <td class="data-table__cell">2025-10-06</td>
+                  <td class="data-table__cell">2025-10-06</td>
+                  <td class="data-table__cell">admin1</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
                     <input
                       type="checkbox"
                       class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
+                      aria-labelledby="row-2-label"
                     />
                   </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-3-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">REPORT_02</td>
+                  <td class="data-table__cell">김철수</td>
+                  <td class="data-table__cell">kim@test.com</td>
+                  <td class="data-table__cell">B대상업체</td>
                   <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
+                    <i class="fa-solid fa-file-image"></i>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
+                  <td class="data-table__cell">서비스 불만</td>
                   <td class="data-table__cell">
                     <span class="badge badge--approve">승인</span>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
+                  <td class="data-table__cell">2025-10-05</td>
+                  <td class="data-table__cell">2025-10-07</td>
+                  <td class="data-table__cell">admin2</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
                     <input
                       type="checkbox"
                       class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
+                      aria-labelledby="row-3-label"
                     />
                   </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-4-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">REPORT_03</td>
+                  <td class="data-table__cell">이영희</td>
+                  <td class="data-table__cell">lee@test.com</td>
+                  <td class="data-table__cell">C대상업체</td>
                   <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
+                    <i class="fa-solid fa-file-image"></i>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
+                  <td class="data-table__cell">위생 문제</td>
                   <td class="data-table__cell">
                     <span class="badge badge--pending">대기 중</span>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
+                  <td class="data-table__cell">2025-10-04</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
                     <input
                       type="checkbox"
                       class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
+                      aria-labelledby="row-4-label"
                     />
                   </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-5-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">REPORT_04</td>
+                  <td class="data-table__cell">박민수</td>
+                  <td class="data-table__cell">park@test.com</td>
+                  <td class="data-table__cell">D대상업체</td>
                   <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
+                    <i class="fa-solid fa-file-image"></i>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span class="badge badge--pending">대기 중</span>
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
-                </tr>
-                <tr class="data-table__row">
-                  <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
-                    <input
-                      type="checkbox"
-                      class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
-                    />
-                  </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-6-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span class="badge badge--pending">대기 중</span>
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
-                </tr>
-                <tr class="data-table__row">
-                  <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
-                    <input
-                      type="checkbox"
-                      class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
-                    />
-                  </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-7-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span class="badge badge--pending">대기 중</span>
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
-                </tr>
-                <tr class="data-table__row">
-                  <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
-                    <input
-                      type="checkbox"
-                      class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
-                    />
-                  </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-8-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span class="badge badge--pending">대기 중</span>
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
-                </tr>
-                <tr class="data-table__row">
-                  <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
-                    <input
-                      type="checkbox"
-                      class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
-                    />
-                  </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-9-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
-                  </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
+                  <td class="data-table__cell">가격 문제</td>
                   <td class="data-table__cell">
                     <span class="badge badge--approve">승인</span>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
-                  </td>
+                  <td class="data-table__cell">2025-10-03</td>
+                  <td class="data-table__cell">2025-10-08</td>
+                  <td class="data-table__cell">admin3</td>
                 </tr>
                 <tr class="data-table__row">
                   <td class="data-table__cell data-table__cell--select">
-                    <!-- 행 체크박스는 '업체명' 행 머리글을 레이블로 사용 -->
                     <input
                       type="checkbox"
                       class="data-table__checkbox"
-                      aria-labelledby="row-1-label"
+                      aria-labelledby="row-5-label"
                     />
                   </td>
-
-                  <!-- 행 머리글로 바꿔 스크린리더가 행 컨텍스트를 읽게 함 -->
-                  <th
-                    scope="row"
-                    id="row-10-label"
-                    class="data-table__cell data-table__cell--row-header"
-                  >
-                    맛있는 음식점
-                  </th>
-
-                  <td class="data-table__cell">123-45-67890</td>
-                  <td class="data-table__cell">홍길동</td>
-                  <td class="data-table__cell">010-1234-5678</td>
-
-                  <!-- 빈 값은 의미 있는 대시 처리 -->
+                  <td class="data-table__cell">REPORT_05</td>
+                  <td class="data-table__cell">최수정</td>
+                  <td class="data-table__cell">choi@test.com</td>
+                  <td class="data-table__cell">E대상업체</td>
                   <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="이메일"
-                      >test1234@naver.com</span
-                    >
+                    <i class="fa-solid fa-file-image"></i>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="주소"
-                      >인천광역시 연수구 인천타워대로 323, A동 29층 2904호,
-                      2905호</span
-                    >
-                  </td>
-
+                  <td class="data-table__cell">불친절</td>
                   <td class="data-table__cell">
                     <span class="badge badge--pending">대기 중</span>
                   </td>
-
-                  <td class="data-table__cell">
-                    <span
-                      class="data-table__empty"
-                      aria-label="요청일"
-                      >25.10.03</span
-                    >
+                  <td class="data-table__cell">2025-10-02</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-6-label"
+                    />
                   </td>
+                  <td class="data-table__cell">REPORT_06</td>
+                  <td class="data-table__cell">오세훈</td>
+                  <td class="data-table__cell">oh@test.com</td>
+                  <td class="data-table__cell">F대상업체</td>
+                  <td class="data-table__cell">
+                    <i class="fa-solid fa-file-image"></i>
+                  </td>
+                  <td class="data-table__cell">이물질 발견</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--rejected">반려</span>
+                  </td>
+                  <td class="data-table__cell">2025-10-01</td>
+                  <td class="data-table__cell">2025-10-09</td>
+                  <td class="data-table__cell">admin4</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-7-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">REPORT_07</td>
+                  <td class="data-table__cell">정다은</td>
+                  <td class="data-table__cell">jung@test.com</td>
+                  <td class="data-table__cell">G대상업체</td>
+                  <td class="data-table__cell">
+                    <i class="fa-solid fa-file-image"></i>
+                  </td>
+                  <td class="data-table__cell">지연 제공</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--approve">승인</span>
+                  </td>
+                  <td class="data-table__cell">2025-09-30</td>
+                  <td class="data-table__cell">2025-10-10</td>
+                  <td class="data-table__cell">admin5</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-8-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">REPORT_08</td>
+                  <td class="data-table__cell">한지민</td>
+                  <td class="data-table__cell">han@test.com</td>
+                  <td class="data-table__cell">H대상업체</td>
+                  <td class="data-table__cell">
+                    <i class="fa-solid fa-file-image"></i>
+                  </td>
+                  <td class="data-table__cell">불량 식재료</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기 중</span>
+                  </td>
+                  <td class="data-table__cell">2025-09-29</td>
+                  <td class="data-table__cell"></td>
+                  <td class="data-table__cell"></td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-9-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">REPORT_09</td>
+                  <td class="data-table__cell">유재석</td>
+                  <td class="data-table__cell">yoo@test.com</td>
+                  <td class="data-table__cell">I대상업체</td>
+                  <td class="data-table__cell">
+                    <i class="fa-solid fa-file-image"></i>
+                  </td>
+                  <td class="data-table__cell">과다 청구</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--rejected">반려</span>
+                  </td>
+                  <td class="data-table__cell">2025-09-28</td>
+                  <td class="data-table__cell">2025-10-11</td>
+                  <td class="data-table__cell">admin6</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-10-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">REPORT_10</td>
+                  <td class="data-table__cell">장도연</td>
+                  <td class="data-table__cell">jang@test.com</td>
+                  <td class="data-table__cell">J대상업체</td>
+                  <td class="data-table__cell">
+                    <i class="fa-solid fa-file-image"></i>
+                  </td>
+                  <td class="data-table__cell">불친절</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--approve">승인</span>
+                  </td>
+                  <td class="data-table__cell">2025-09-27</td>
+                  <td class="data-table__cell">2025-10-12</td>
+                  <td class="data-table__cell">admin7</td>
                 </tr>
               </tbody>
             </table>
