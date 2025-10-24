@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="../../style/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/admin.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/user.css"
+    />
+
+    <script src="../../js/main.js"></script>
+  </head>
+  <body>
+    <a href="../../../index.html">DEV</a>
+    <main
+      id="login-content"
+      class="login-wrapper"
+    >
+      <section
+        class="login-container"
+        aria-labelledby="login-title"
+      >
+        <!-- 
+        TODO: LOGO 사천항공체 안먹음
+      -->
+        <h1
+          id="login-title"
+          class="login__title"
+        >
+          관리자 로그인
+        </h1>
+
+        <form
+          class="form form--login"
+          action=""
+        >
+          <div class="form__group form--login__group">
+            <label class="form__label"> ID </label>
+            <input
+              id="userId"
+              type="text"
+              name="userId"
+              class="form__input"
+              placeholder="아이디를 입력하세요"
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="form__group form--login__group">
+            <label class="form__label"> Password </label>
+            <input
+              id="userPwd"
+              type="password"
+              name="userPwd"
+              class="form__input"
+              placeholder="비밀번호를 입력하세요"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <div class="form__group form--login__group">
+            <button
+              type="submit"
+              class="btn btn--primary btn--login"
+            >
+              로그인
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

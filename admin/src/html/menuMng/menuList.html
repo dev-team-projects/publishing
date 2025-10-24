@@ -30,6 +30,21 @@
 
     <link
       rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="../../style/admin.css"
     />
 
@@ -470,98 +485,96 @@
           </h2>
 
           <form
-            class="search-form"
+            class="form search--form"
             action="#"
             method="get"
             role="search"
           >
-            <fieldset class="search-form__fieldset">
+            <fieldset class="search--form__fieldset">
               <legend class="sr-only">음식업체 메뉴 검색조건</legend>
 
               <!-- 검색조건 영역 (Top) -->
-              <div class="search-form__top">
-                <div class="search-form__grid">
-                  <!-- 메뉴 카테고리 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-category"
+              <div class="search--form__top">
+                <!-- 메뉴 카테고리 -->
+                <div
+                  class="form__group form__search-group form__search-group--menu-category"
+                >
+                  <label
+                    for="menu-category"
+                    class="form__label"
+                    >카테고리</label
                   >
-                    <label
-                      for="menu-category"
-                      class="search-form__label"
-                      >카테고리</label
-                    >
-                    <select
-                      id="menu-category"
-                      name="menuCategory"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 카테고리 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 상태 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-status"
+                  <select
+                    id="menu-category"
+                    name="menuCategory"
+                    class="form__select"
                   >
-                    <label
-                      for="menu-status"
-                      class="search-form__label"
-                      >상태</label
-                    >
-                    <select
-                      id="menu-status"
-                      name="menuStatus"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 상태 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 가격대 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-price-range"
+                    <option value="">전체</option>
+                    <!-- 실제 카테고리 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 상태 -->
+                <div
+                  class="form__group form__search-group form__search-group--menu-status"
+                >
+                  <label
+                    for="menu-status"
+                    class="form__label"
+                    >상태</label
                   >
-                    <label
-                      for="menu-price-range"
-                      class="search-form__label"
-                      >가격대</label
-                    >
-                    <select
-                      id="menu-price-range"
-                      name="menuPriceRange"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 가격대 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 메뉴명 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--menu-name"
+                  <select
+                    id="menu-status"
+                    name="menuStatus"
+                    class="form__select"
                   >
-                    <label
-                      for="menu-name"
-                      class="search-form__label"
-                      >메뉴명</label
-                    >
-                    <input
-                      type="search"
-                      id="menu-name"
-                      name="menuName"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="메뉴명을 입력하세요"
-                      autocomplete="off"
-                    />
-                  </div>
+                    <option value="">전체</option>
+                    <!-- 실제 상태 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 가격대 -->
+                <div
+                  class="form__group form__search-group form__search-group--menu-price-range"
+                >
+                  <label
+                    for="menu-price-range"
+                    class="form__label"
+                    >가격대</label
+                  >
+                  <select
+                    id="menu-price-range"
+                    name="menuPriceRange"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 가격대 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 메뉴명 -->
+                <div
+                  class="form__group form__search-group form__search-group--menu-name"
+                >
+                  <label
+                    for="menu-name"
+                    class="form__label"
+                    >메뉴명</label
+                  >
+                  <input
+                    type="search"
+                    id="menu-name"
+                    name="menuName"
+                    class="form__input"
+                    placeholder="메뉴명을 입력하세요"
+                    autocomplete="off"
+                  />
                 </div>
               </div>
 
               <!-- 버튼 영역 (Bottom) -->
-              <div class="search-form__bottom">
-                <div class="search-form__actions">
+              <div class="search--form__bottom">
+                <div class="search--form__actions">
                   <button
                     type="button"
-                    class="btn btn--secondary btn--md search-form__btn"
+                    class="btn btn--secondary btn--md search--form__btn btn--reset"
                   >
                     <span
                       class="btn__icon"
@@ -576,7 +589,7 @@
                   </button>
                   <button
                     type="submit"
-                    class="btn btn--primary btn--md search-form__btn"
+                    class="btn btn--primary btn--md search--form__btn"
                   >
                     <span
                       class="btn__icon"

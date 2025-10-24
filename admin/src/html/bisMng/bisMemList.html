@@ -27,7 +27,18 @@
       rel="stylesheet"
       href="../../style/fonts.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
     <link
       rel="stylesheet"
       href="../../style/admin.css"
@@ -471,102 +482,98 @@
           </h2>
 
           <form
-            class="search-form"
+            class="form search--form"
             action="#"
             method="get"
             role="search"
           >
-            <fieldset class="search-form__fieldset">
+            <fieldset class="search--form__fieldset">
               <legend class="sr-only">음식업체 검색조건</legend>
 
               <!-- 검색조건 영역 (Top) -->
-              <div class="search-form__top">
-                <div class="search-form__grid">
-                  <!-- 업체명 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--bis-name"
+              <div class="search--form__top">
+                <!-- 업체명 -->
+                <div
+                  class="form__group form__search-group form__group--biz-name"
+                >
+                  <label
+                    for="biz-name"
+                    class="form__label form__label--search"
+                    >업체명</label
                   >
-                    <label
-                      for="biz-name"
-                      class="search-form__label"
-                      >업체명</label
-                    >
-                    <input
-                      type="text"
-                      id="biz-name"
-                      name="bizName"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="업체명을 입력하세요"
-                      autocomplete="off"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    id="biz-name"
+                    name="bizName"
+                    class="form__input search--form__input"
+                    placeholder="업체명을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
 
-                  <!-- 사업자번호 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--bis-reg-num"
+                <!-- 사업자번호 -->
+                <div
+                  class="form__group form__search-group form__group--bis-reg-num"
+                >
+                  <label
+                    for="biz-reg-no"
+                    class="form__label form__label--search"
+                    >사업자번호</label
                   >
-                    <label
-                      for="biz-reg-no"
-                      class="search-form__label"
-                      >사업자번호</label
-                    >
-                    <input
-                      type="text"
-                      id="biz-reg-no"
-                      name="bizRegNo"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="사업자번호를 입력하세요"
-                      inputmode="numeric"
-                      autocomplete="off"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    id="biz-reg-no"
+                    name="bizRegNo"
+                    class="form__input search--form__input"
+                    placeholder="사업자번호를 입력하세요"
+                    inputmode="numeric"
+                    autocomplete="off"
+                  />
+                </div>
 
-                  <!-- 카테고리 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--category"
+                <!-- 카테고리 -->
+                <div
+                  class="form__group form__search-group form__group--category"
+                >
+                  <label
+                    for="category"
+                    class="form__label form__label--search"
+                    >카테고리</label
                   >
-                    <label
-                      for="category"
-                      class="search-form__label"
-                      >카테고리</label
-                    >
-                    <select
-                      id="category"
-                      name="category"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 카테고리는 서버/스크립트로 주입 -->
-                    </select>
-                  </div>
+                  <select
+                    id="category"
+                    name="category"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 카테고리는 서버/스크립트로 주입 -->
+                  </select>
+                </div>
 
-                  <!-- 지역 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--region"
+                <!-- 지역 -->
+                <div class="form__group form__search-group form__group--region">
+                  <label
+                    for="region"
+                    class="form__label form__label--search"
+                    >지역</label
                   >
-                    <label
-                      for="region"
-                      class="search-form__label"
-                      >지역</label
-                    >
-                    <select
-                      id="region"
-                      name="region"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 지역 리스트 주입 -->
-                    </select>
-                  </div>
+                  <select
+                    id="region"
+                    name="region"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 지역 리스트 주입 -->
+                  </select>
                 </div>
               </div>
 
               <!-- 버튼 영역 (Bottom) -->
-              <div class="search-form__bottom">
-                <div class="search-form__actions">
+              <div class="search--form__bottom">
+                <div class="search--form__actions">
                   <button
                     type="button"
-                    class="btn btn--secondary btn--md search-form__btn"
+                    class="btn btn--secondary btn--md search--form__btn btn--reset"
                   >
                     <span
                       class="btn__icon"
@@ -581,7 +588,7 @@
                   </button>
                   <button
                     type="submit"
-                    class="btn btn--primary btn--md search-form__btn"
+                    class="btn btn--primary btn--md search--form__btn"
                   >
                     <span
                       class="btn__icon"

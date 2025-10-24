@@ -1,19 +1,19 @@
 /* 이름 */
-.search-form__group-item--mem-name {
+.form__group--mem-name {
   flex: 0 0 25%;
 }
 
 /* 이메일 */
-.search-form__group-item--mem-email {
+.form__group--mem-email {
   flex: 0 0 20%;
 }
 
 /* 주소 */
-.search-form__group-item--mem-addr {
+.form__group--mem-addr {
   flex: 0 0 25%;
 }
 
 /* 연령대 */
-.search-form__group-item--mem-age-range {
+.form__group--mem-age-range {
   flex: 0 0 20%;
 }

@@ -1,0 +1,39 @@
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: var(--surface);
+}
+
+.main-container {
+  flex: 1 1 auto; /* 기존 width:100% → 가변 영역 */
+  padding: var(--space-4) calc(var(--space-4) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background-color: var(--surface-alt);
+}
+
+.login-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4, 1rem);
+  background-color: var(--surface-alt);
+  border-radius: var(--radius-md, 0.5rem);
+  padding: var(--space-4, 1rem) calc(var(--space-4, 1rem) * 2);
+  box-shadow: var(--elevation-1, 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1));
+}

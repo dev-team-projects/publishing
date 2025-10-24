@@ -30,6 +30,21 @@
 
     <link
       rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="../../style/admin.css"
     />
 
@@ -650,18 +665,18 @@
 
             <div class="card__body">
               <form
-                class="rd-action__form"
+                class="form form--report"
                 novalidate
               >
-                <div class="rd-action__field">
+                <div class="form__group form__group--report">
                   <label
                     for="rd-state"
-                    class="rd-action__label"
+                    class="form__label form__label--report"
                     >상태 변경</label
                   >
                   <select
                     id="rd-state"
-                    class="rd-action__select"
+                    class="form__select"
                     aria-describedby="rd-state-help"
                   >
                     <option
@@ -681,15 +696,15 @@
                   </p>
                 </div>
 
-                <div class="rd-action__field">
+                <div class="form__group">
                   <label
                     for="rd-result"
-                    class="rd-action__label"
+                    class="form__label"
                     >처리 결과</label
                   >
                   <textarea
                     id="rd-result"
-                    class="rd-action__textarea"
+                    class="form__textarea"
                     placeholder="처리 결과를 입력하세요…"
                     rows="6"
                   ></textarea>

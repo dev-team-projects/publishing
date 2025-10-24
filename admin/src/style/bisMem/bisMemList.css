@@ -1,19 +1,19 @@
 /* 업체명 */
-.search-form__group-item--bis-name {
+.form__group--biz-name {
   flex: 0 0 25%;
 }
 
 /* 이메일 */
-.search-form__group-item--bis-reg-num {
+.form__group--bis-reg-num {
   flex: 0 0 20%;
 }
 
 /* 카테고리 */
-.search-form__group-item--category {
+.form__group--category {
   flex: 0 0 25%;
 }
 
 /* 연령대 */
-.search-form__group-item--region {
+.form__group--region {
   flex: 0 0 20%;
 }

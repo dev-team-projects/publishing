@@ -30,6 +30,21 @@
 
     <link
       rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="../../style/admin.css"
     />
 
@@ -471,127 +486,125 @@
           </h2>
 
           <form
-            class="search-form"
+            class="form search--form"
             action="#"
             method="get"
             role="search"
           >
-            <fieldset class="search-form__fieldset">
+            <fieldset class="search--form__fieldset">
               <legend class="sr-only">음식업체 신고요청 검색조건</legend>
 
               <!-- 검색조건 영역 (Top) -->
-              <div class="search-form__top">
-                <div class="search-form__grid">
-                  <!-- 신고자 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--report-user"
+              <div class="search--form__top">
+                <!-- 신고자 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-user"
+                >
+                  <label
+                    for="report-user"
+                    class="search--form__label"
+                    >신고자</label
                   >
-                    <label
-                      for="report-user"
-                      class="search-form__label"
-                      >신고자</label
+                  <input
+                    type="search"
+                    id="report-user"
+                    name="reportUser"
+                    class="form__input"
+                    placeholder="신고자명을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
+                <!-- 이메일 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-email"
+                >
+                  <label
+                    for="report-email"
+                    class="search--form__label"
+                    >이메일</label
+                  >
+                  <input
+                    type="email"
+                    id="report-email"
+                    name="reportEmail"
+                    class="form__input"
+                    placeholder="이메일을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
+                <!-- 신고대상 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-subject"
+                >
+                  <label
+                    for="report-subject"
+                    class="search--form__label"
+                    >신고대상</label
+                  >
+                  <select
+                    id="report-subject"
+                    name="reportSubject"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 신고대상 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 처리 상태 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-status"
+                >
+                  <label
+                    for="report-status"
+                    class="search--form__label"
+                    >처리 상태</label
+                  >
+                  <select
+                    id="report-status"
+                    name="reportStatus"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 처리 상태 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 접수기간 -->
+                <div
+                  class="form__group form__search-group form__search-group--application-period"
+                >
+                  <label
+                    for="application-period"
+                    class="search--form__label"
+                    >접수기간</label
+                  >
+                  <div>
+                    <input
+                      type="date"
+                      id="start-date"
+                      name="startDate"
+                      class="form__input"
+                    />
+                    <span
+                      class="date-separator"
+                      aria-hidden="true"
+                      >~</span
                     >
                     <input
-                      type="search"
-                      id="report-user"
-                      name="reportUser"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="신고자명을 입력하세요"
-                      autocomplete="off"
+                      type="date"
+                      id="end-date"
+                      name="endDate"
+                      class="form__input"
                     />
-                  </div>
-                  <!-- 이메일 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--report-email"
-                  >
-                    <label
-                      for="report-email"
-                      class="search-form__label"
-                      >이메일</label
-                    >
-                    <input
-                      type="email"
-                      id="report-email"
-                      name="reportEmail"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="이메일을 입력하세요"
-                      autocomplete="off"
-                    />
-                  </div>
-                  <!-- 신고대상 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--report-subject"
-                  >
-                    <label
-                      for="report-subject"
-                      class="search-form__label"
-                      >신고대상</label
-                    >
-                    <select
-                      id="report-subject"
-                      name="reportSubject"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 신고대상 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 처리 상태 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--report-status"
-                  >
-                    <label
-                      for="report-status"
-                      class="search-form__label"
-                      >처리 상태</label
-                    >
-                    <select
-                      id="report-status"
-                      name="reportStatus"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 처리 상태 리스트 주입 -->
-                    </select>
-                  </div>
-                  <!-- 접수기간 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--application-period"
-                  >
-                    <label
-                      for="application-period"
-                      class="search-form__label"
-                      >접수기간</label
-                    >
-                    <div>
-                      <input
-                        type="date"
-                        id="start-date"
-                        name="startDate"
-                        class="search-form__input u-focus-reset u-focus-ring u-no-tap-highlight"
-                      />
-                      <span
-                        class="date-separator"
-                        aria-hidden="true"
-                        >~</span
-                      >
-                      <input
-                        type="date"
-                        id="end-date"
-                        name="endDate"
-                        class="search-form__input u-focus-reset u-focus-ring u-no-tap-highlight"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- 버튼 영역 (Bottom) -->
-              <div class="search-form__bottom">
-                <div class="search-form__actions">
+              <div class="search--form__bottom">
+                <div class="search--form__actions">
                   <button
                     type="button"
-                    class="btn btn--secondary btn--md search-form__btn"
+                    class="btn btn--secondary btn--md search--form__btn"
                   >
                     <span
                       class="btn__icon"
@@ -606,7 +619,7 @@
                   </button>
                   <button
                     type="submit"
-                    class="btn btn--primary btn--md search-form__btn"
+                    class="btn btn--primary btn--md search--form__btn"
                   >
                     <span
                       class="btn__icon"

@@ -1,25 +1,30 @@
 /* 신고자 */
-.search-form__group-item--report-user {
+.form__search-group--report-user {
   flex: 0 0 15%;
 }
 
+/* 대상업체명 */
+.form__search-group--biz-mem-name {
+  flex: 0 0 20%;
+}
+
 /* 이메일 */
-.search-form__group-item--report-email {
+.form__search-group--report-email {
   flex: 0 0 20%;
 }
 
 /* 신고대상 */
-.search-form__group-item--report-subject {
+.form__search-group--report-subject {
   flex: 0 0 10%;
 }
 
 /* 처리 상태 */
-.search-form__group-item--report-status {
+.form__search-group--report-status {
   flex: 0 0 10%;
 }
 
 /* 접수기간 */
-.search-form__group-item--application-period {
+.form__search-group--application-period {
   flex: 0 0 30%;
 }
 
@@ -80,16 +85,14 @@
 }
 
 /* 접수기간(날짜 범위) — 수평 정렬 */
-.search-form__group-item--application-period > div {
+.form__search-group--application-period > div {
   display: flex;
   align-items: center;
   gap: var(--space-2, 0.5rem);
   flex-wrap: nowrap;
 }
 
-.search-form__group-item--application-period
-  > div
-  .search-form__input[type='date'] {
+.form__search-group--application-period > div .search-form__input[type='date'] {
   flex: 1 1 0;
   min-width: 0; /* overflow 방지 */
 }
@@ -104,7 +107,7 @@
 
 /* 작은 화면에서는 세로 스택 */
 @media (max-width: 576px) {
-  .search-form__group-item--application-period > div {
+  .form__search-group--application-period > div {
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-2, 0.5rem);

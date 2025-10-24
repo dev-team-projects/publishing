@@ -14,22 +14,9 @@
   gap: var(--space-3);
 }
 
-.rd-container {
-  width: 100%;
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.rd__col {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
 /* Card (공통) */
 .card {
+  width: 100%;
   background-color: var(--surface-alt);
   border-radius: var(--radius-md);
   box-shadow: var(--elevation-1);
@@ -143,24 +130,4 @@
   border-radius: 0.5rem;
   padding: 0.28rem 0.6rem;
   font-size: 0.85rem;
-}
-
-/* 접근성/공통 반응형 보조 */
-@media (forced-colors: active) {
-  .card {
-    box-shadow: none;
-    border: 0.1rem solid CanvasText;
-    background: Canvas;
-    color: CanvasText;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .rd-attachments__file {
-    transition: none;
-  }
-}
-@media (max-width: 992px) {
-  .rd-container {
-    flex-direction: column;
-  }
 }

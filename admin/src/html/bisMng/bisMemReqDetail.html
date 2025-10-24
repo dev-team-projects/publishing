@@ -30,6 +30,21 @@
 
     <link
       rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="../../style/admin.css"
     />
 
@@ -611,15 +626,15 @@
             class="action-column"
             aria-label="처리 액션"
           >
-            <section class="panel">
+            <form class="form form--panel">
               <header class="panel__header">
                 <h2 class="panel__title">처리 액션</h2>
               </header>
 
               <!-- 기존 segmented fieldset 삭제하고 아래로 교체 -->
-              <div class="panel__group">
+              <div class="form__group">
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn--primary btn--block btn-seg"
                   aria-pressed="true"
                   aria-label="승인"
@@ -634,7 +649,7 @@
               </div>
 
               <!-- 반려 사유 박스 -->
-              <div class="panel__field panel__field--boxed">
+              <div class="form__group">
                 <label
                   for="rejectReason"
                   class="panel__label"
@@ -642,7 +657,7 @@
                 >
                 <textarea
                   id="rejectReason"
-                  class="panel__textarea u-focus-reset u-focus-ring u-no-tap-highlight"
+                  class="form__textarea"
                   rows="6"
                   placeholder="반려 사유를 입력해주세요"
                 ></textarea>
@@ -658,7 +673,7 @@
                   반려
                 </button>
               </div>
-            </section>
+            </form>
           </aside>
         </section>
       </main>

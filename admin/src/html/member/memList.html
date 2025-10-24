@@ -30,6 +30,21 @@
 
     <link
       rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="../../style/admin.css"
     />
 
@@ -470,101 +485,99 @@
           </h2>
 
           <form
-            class="search-form"
+            class="form search--form"
             action="#"
             method="get"
             role="search"
           >
-            <fieldset class="search-form__fieldset">
+            <fieldset class="search--form__fieldset">
               <legend class="sr-only">일반회원 검색조건</legend>
 
               <!-- 검색조건 영역 (Top) -->
-              <div class="search-form__top">
-                <div class="search-form__grid">
-                  <!-- 이름 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--mem-name"
+              <div class="search--form__top">
+                <!-- 이름 -->
+                <div
+                  class="form__group form__search-group form__group--mem-name"
+                >
+                  <label
+                    for="mem-name"
+                    class="form__label"
+                    >이름</label
                   >
-                    <label
-                      for="mem-name"
-                      class="search-form__label"
-                      >이름</label
-                    >
-                    <input
-                      type="search"
-                      id="mem-name"
-                      name="memName"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="이름을 입력하세요"
-                      autocomplete="off"
-                    />
-                  </div>
+                  <input
+                    type="search"
+                    id="mem-name"
+                    name="memName"
+                    class="form__input"
+                    placeholder="이름을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
 
-                  <!-- 이메일 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--mem-email"
+                <!-- 이메일 -->
+                <div
+                  class="form__group form__search-group form__group--mem-email"
+                >
+                  <label
+                    for="mem-email"
+                    class="form__label"
+                    >이메일</label
                   >
-                    <label
-                      for="mem-email"
-                      class="search-form__label"
-                      >이메일</label
-                    >
-                    <input
-                      type="text"
-                      id="mem-email"
-                      name="memRegNo"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="이메일을 입력하세요"
-                      autocomplete="off"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    id="mem-email"
+                    name="memRegNo"
+                    class="form__input"
+                    placeholder="이메일을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
 
-                  <!-- 주소 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--mem-addr"
+                <!-- 주소 -->
+                <div
+                  class="form__group form__search-group form__group--mem-addr"
+                >
+                  <label
+                    for="mem-addr"
+                    class="form__label"
+                    >주소</label
                   >
-                    <label
-                      for="mem-addr"
-                      class="search-form__label"
-                      >주소</label
-                    >
-                    <input
-                      type="text"
-                      id="mem-addr"
-                      name="memAddr"
-                      class="search-form__input u-focus-reset u-focus-ring u-search-clean u-no-tap-highlight"
-                      placeholder="주소를 입력하세요"
-                      autocomplete="off"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    id="mem-addr"
+                    name="memAddr"
+                    class="form__input"
+                    placeholder="주소를 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
 
-                  <!-- 연령대 -->
-                  <div
-                    class="search-form__group-item search-form__group-item--mem-age-range"
+                <!-- 연령대 -->
+                <div
+                  class="form__group form__search-group form__group--mem-age-range"
+                >
+                  <label
+                    for="mem-age-range"
+                    class="form__label"
+                    >연령대</label
                   >
-                    <label
-                      for="mem-age-range"
-                      class="search-form__label"
-                      >연령대</label
-                    >
-                    <select
-                      id="mem-age-range"
-                      name="memAgeRange"
-                      class="search-form__select u-focus-reset u-focus-ring u-no-tap-highlight"
-                    >
-                      <option value="">전체</option>
-                      <!-- 실제 연령대 리스트 주입 -->
-                    </select>
-                  </div>
+                  <select
+                    id="mem-age-range"
+                    name="memAgeRange"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 연령대 리스트 주입 -->
+                  </select>
                 </div>
               </div>
 
               <!-- 버튼 영역 (Bottom) -->
-              <div class="search-form__bottom">
-                <div class="search-form__actions">
+              <div class="search--form__bottom">
+                <div class="search--form__actions">
                   <button
                     type="button"
-                    class="btn btn--secondary btn--md search-form__btn"
+                    class="btn btn--secondary btn--md search-form__btn btn--reset"
                   >
                     <span
                       class="btn__icon"

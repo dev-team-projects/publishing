@@ -1,0 +1,322 @@
+.login__title {
+  text-align: center;
+  font-family: var(--font-logo);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-synthesis: none;
+}
+
+.btn--login {
+  padding: 0.7rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* =========================
+   Block: .auth (admin sign-up)
+   Theme: Neumorphism for 관리자
+   ========================= */
+
+.auth {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: calc(var(--space-4) * 2) var(--space-4);
+  background: var(--surface, #f9fafb);
+}
+
+.auth__container {
+  width: min(720px, 100%);
+}
+
+.auth__header {
+  text-align: center;
+  margin-bottom: calc(var(--space-4) * 1.5);
+}
+
+.auth__title {
+  font-weight: 800;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  color: var(--brand-gray-800);
+  letter-spacing: 0.01em;
+}
+
+.auth__subtitle {
+  margin-top: 0.5rem;
+  color: var(--brand-gray-400);
+  font-size: 0.95rem;
+}
+
+/* Card (neumorphism) */
+.auth-card {
+  border-radius: 1rem;
+  padding: calc(var(--space-4) * 2) clamp(1rem, 3vw, 2rem);
+  background: var(--surface);
+  box-shadow: var(--elevation-1);
+}
+
+[data-theme='vendor'] .auth-card--elevated {
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.06),
+    -12px -12px 24px rgba(255, 255, 255, 0.9);
+}
+
+/* Form Block inside card */
+.auth-form {
+  display: grid;
+  gap: calc(var(--space-4) * 1.2);
+}
+
+.auth-form__fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.auth-form__group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.auth-form__group--password .auth-meter {
+  margin-top: 0.5rem;
+}
+
+.auth-form__group--checkbox {
+  margin-top: 0.25rem;
+}
+
+.auth-form__label {
+  font-weight: 600;
+  color: var(--brand-gray-800);
+}
+
+.auth-form__label-optional {
+  color: var(--brand-gray-400);
+  font-weight: 400;
+}
+
+/* Inputs — Neumorphism inner feel */
+.auth-form__input {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--surface-alt);
+  color: var(--text);
+  transition: box-shadow 0.2s ease, transform 0.05s ease, border-color 0.2s ease;
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.06),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.auth-form__input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-form__input:focus-visible {
+  outline: var(--focus-ring-size) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-color: var(--brand-blue-500);
+}
+
+/* Input with right addon (eye icon) */
+.auth-input {
+  position: relative;
+}
+
+.auth-input--with-addon .auth-input__control {
+  padding-right: 2.75rem;
+}
+
+.auth-input__addon {
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.06),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.auth-input__addon--icon i {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--brand-gray-400);
+}
+.auth-input__addon[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Password strength (visual-only skeleton; JS 연동 전) */
+.auth-meter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+.auth-meter__bar {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 0% 33%,
+    #e5e7eb 33% 66%,
+    #e5e7eb 66% 100%
+  );
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.06),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+.auth-meter__text {
+  font-size: 0.75rem;
+  color: var(--brand-gray-400);
+}
+
+/* Help text */
+.auth-form__help {
+  font-size: 0.8rem;
+  color: var(--brand-gray-400);
+}
+
+/* Checkbox (custom, accessible) */
+.auth-checkbox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.auth-checkbox__control {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.auth-checkbox__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.auth-checkbox__box {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.06),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.auth-checkbox__control:checked + .auth-checkbox__label .auth-checkbox__box {
+  border-color: var(--brand-blue-500);
+}
+
+.auth-checkbox__control:checked
+  + .auth-checkbox__label
+  .auth-checkbox__box::after {
+  content: '';
+  position: absolute;
+  inset: 0.2rem;
+  border-radius: 0.3rem;
+  background: var(--brand-blue-600);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.auth-checkbox__text {
+  color: var(--text);
+}
+
+/* Actions */
+.auth-form__actions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.btn--signup {
+  padding: 0.9rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 0.9rem;
+  border: 1px solid var(--brand-blue-500);
+  background: linear-gradient(145deg, #ffffff, #eef2ff);
+  color: var(--brand-blue-800);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.06),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  transition: transform 0.03s ease, box-shadow 0.2s ease;
+}
+
+.btn--signup:hover {
+  transform: translateY(-1px);
+}
+
+.btn--signup:active {
+  transform: translateY(0);
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.08),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+.auth-form__link {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--brand-gray-400);
+}
+.auth-form__link--accent {
+  color: var(--brand-blue-600);
+  font-weight: 700;
+}
+
+/* Social sign-up (optional placeholders) */
+.auth-social {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.auth-social__btn {
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.06),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.auth-social__btn[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-social__btn--naver {
+  /* 색상은 후속 디자인 단계에서 보강 가능 */
+}
+.auth-social__btn--google {
+}
+.auth-social__btn--kakao {
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .auth-card {
+    padding: calc(var(--space-4) * 1.5) var(--space-4);
+  }
+  .auth-social {
+    grid-template-columns: 1fr;
+  }
+}

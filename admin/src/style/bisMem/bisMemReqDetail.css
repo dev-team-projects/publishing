@@ -177,16 +177,6 @@
 }
 
 /* 우측 처리 패널 */
-.panel {
-  background: var(--surface-alt);
-  border-radius: var(--radius-md);
-  box-shadow: var(--elevation-1);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-4);
-}
-
 .panel__header {
   padding-bottom: var(--space-3);
   border-bottom: 0.0625rem solid var(--border);
@@ -239,17 +229,6 @@
   color: var(--text);
 }
 
-.panel__textarea {
-  width: 100%;
-  min-height: 8rem;
-  padding: 0.75rem 0.875rem;
-  border: 0.0625rem solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface-alt);
-  color: var(--text);
-  resize: vertical;
-}
-
 .panel__hint {
   font-size: 0.8125rem;
   color: var(--text-subtle);
@@ -280,6 +259,10 @@
   width: 100%;
 }
 
+.btn--block {
+  width: 100%;
+}
+
 .btn-seg {
   border-radius: var(--radius-md);
   color: var(--surface-alt);
@@ -300,11 +283,6 @@
 }
 .panel__field--boxed .panel__textarea {
   min-height: 7.5rem;
-}
-
-/* 버튼 블록/세로 스택 */
-.btn--block {
-  width: 100%;
 }
 
 .panel__actions--stack {
