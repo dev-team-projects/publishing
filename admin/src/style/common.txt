@@ -64,6 +64,11 @@
   /* table head (new) */
   --table-head-bg: #f4f6fa; /* soft light blue, 어울리는 중립 계열 */
   --table-head-text: #171717;
+
+  --newmorphism-shadow-inset: inset 0.2rem 0.2rem 0.5rem var(--border),
+    inset -0.2rem -0.2rem 0.5rem var(--surface-alt);
+  --newmorphism-shadow: 0.2rem 0.2rem 0.5rem var(--border),
+    -0.2rem -0.2rem 0.5rem var(--surface-alt);
 }
 
 /* Optional page themes */
@@ -185,7 +190,7 @@
   justify-content: space-between;
   padding: var(--space-4) calc(var(--space-4) * 2);
   border-bottom: 0.1rem solid #ccc;
-  background: var(--surface-alt);
+  background-color: var(--surface-alt);
   color: var(--text);
 }
 
@@ -336,7 +341,7 @@
   background-color: var(--surface-alt);
   border-radius: var(--radius-md, 0.5rem);
   padding: var(--space-4, 1rem) calc(var(--space-4, 1rem) * 2);
-  box-shadow: var(--elevation-1, 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1));
+  box-shadow: var(--newmorphism-shadow);
 }
 
 .data-table-wrapper {
@@ -364,7 +369,7 @@
   border: 0.1rem solid var(--border, #d4d4d4);
   border-radius: var(--radius-md, 0.5rem);
   font-size: 1rem;
-  background: #ffffff;
+  background-color: #ffffff;
   color: var(--text, #171717);
 }
 
@@ -427,7 +432,7 @@
   position: sticky;
   left: 0;
   z-index: 1;
-  background: var(--surface-alt);
+  background-color: var(--surface-alt);
   font-weight: 600;
 }
 
@@ -485,11 +490,8 @@
   justify-content: space-between;
   gap: var(--space-4);
   padding: var(--space-3) var(--space-4);
-  border-top: 0.0625rem solid var(--border);
-  background: var(--surface-alt);
+  background-color: var(--surface-alt);
   color: var(--text);
-  border-radius: var(--radius-md);
-  box-shadow: var(--elevation-1);
 }
 
 .pagination__status {
@@ -523,18 +525,18 @@
   min-width: 2.25rem; /* 터치 타깃 확보 */
   height: 2.25rem;
   padding: 0 var(--space-3);
-  border: 0.0625rem solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--surface-alt);
+  background-color: var(--surface-alt);
   color: var(--text);
   text-decoration: none;
   line-height: 1;
-  transition: background-color 0.2s ease, border-color 0.2s ease,
-    color 0.2s ease;
+  transition: box-shadow 0.15s ease, background-color 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease, transform 0.06s ease;
+  box-shadow: var(--newmorphism-shadow-inset);
 }
 
 .pagination__link:hover {
-  background: var(--surface);
+  background-color: var(--surface);
 }
 
 .pagination__link:focus-visible {
@@ -545,10 +547,10 @@
 /* current page */
 .pagination__link--current,
 .pagination__link[aria-current='page'] {
-  background: var(--brand-blue-600);
-  border-color: var(--brand-blue-600);
+  background-color: var(--brand-blue-600);
   color: var(--surface-alt);
   cursor: default;
+  box-shadow: var(--newmorphism-shadow);
 }
 
 /* disabled */
@@ -576,13 +578,13 @@
 @media (forced-colors: active) {
   .pagination__link {
     border: 0.0625rem solid ButtonBorder;
-    background: Canvas;
+    background-color: Canvas;
     color: CanvasText;
   }
   .pagination__link--current,
   .pagination__link[aria-current='page'] {
     border-color: Highlight;
-    background: Highlight;
+    background-color: Highlight;
     color: HighlightText;
   }
 }

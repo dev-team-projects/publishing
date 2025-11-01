@@ -35,5 +35,5 @@
   background-color: var(--surface-alt);
   border-radius: var(--radius-md, 0.5rem);
   padding: var(--space-4, 1rem) calc(var(--space-4, 1rem) * 2);
-  box-shadow: var(--elevation-1, 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1));
+  box-shadow: var(--newmorphism-shadow);
 }

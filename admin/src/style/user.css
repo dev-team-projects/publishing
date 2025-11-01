@@ -52,12 +52,11 @@
   border-radius: 1rem;
   padding: calc(var(--space-4) * 2) clamp(1rem, 3vw, 2rem);
   background: var(--surface);
-  box-shadow: var(--elevation-1);
+  box-shadow: var(--newmorphism-shadow);
 }
 
 [data-theme='vendor'] .auth-card--elevated {
-  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.06),
-    -12px -12px 24px rgba(255, 255, 255, 0.9);
+  box-shadow: var(--newmorphism-shadow);
 }
 
 /* Form Block inside card */
@@ -105,8 +104,7 @@
   background: var(--surface-alt);
   color: var(--text);
   transition: box-shadow 0.2s ease, transform 0.05s ease, border-color 0.2s ease;
-  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.06),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--newmorphism-shadow-inset);
 }
 
 .auth-form__input::placeholder {
@@ -140,8 +138,7 @@
   place-items: center;
   border: 1px solid var(--border);
   background: var(--surface-alt);
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.06),
-    -3px -3px 6px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--newmorphism-shadow);
 }
 
 .auth-input__addon--icon i {
@@ -170,8 +167,7 @@
     #e5e7eb 33% 66%,
     #e5e7eb 66% 100%
   );
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.06),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--newmorphism-shadow-inset);
 }
 .auth-meter__text {
   font-size: 0.75rem;
@@ -211,8 +207,7 @@
   border-radius: 0.4rem;
   border: 1px solid var(--border);
   background: var(--surface-alt);
-  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.06),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--newmorphism-shadow-inset);
   position: relative;
 }
 
@@ -228,8 +223,7 @@
   inset: 0.2rem;
   border-radius: 0.3rem;
   background: var(--brand-blue-600);
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+  box-shadow: var(--newmorphism-shadow-inset);
 }
 
 .auth-checkbox__text {
@@ -251,8 +245,7 @@
   border: 1px solid var(--brand-blue-500);
   background: linear-gradient(145deg, #ffffff, #eef2ff);
   color: var(--brand-blue-800);
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.06),
-    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  box-shadow: var(--newmorphism-shadow);
   transition: transform 0.03s ease, box-shadow 0.2s ease;
 }
 
@@ -262,8 +255,7 @@
 
 .btn--signup:active {
   transform: translateY(0);
-  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.08),
-    inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+  box-shadow: var(--newmorphism-shadow-inset);
 }
 
 .auth-form__link {
@@ -290,8 +282,7 @@
   border: 1px solid var(--border);
   background: var(--surface-alt);
   color: var(--text);
-  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.06),
-    -6px -6px 12px rgba(255, 255, 255, 0.9);
+  box-shadow: var(--newmorphism-shadow);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -320,3 +311,38 @@
     grid-template-columns: 1fr;
   }
 }
+
+.auth-nav {
+  width: 100%;
+  padding: var(--space-2) calc(var(--space-4) * 4);
+}
+.auth-nav__list {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-4);
+}
+.auth-nav__item {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--newmorphism-shadow-inset);
+  color: var(--text-subtle);
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+.auth-nav__item:hover {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.auth-nav__link {
+  text-decoration: none;
+}
+.auth-nav__link--find {
+} /* 찾기 링크 변형 */
+.auth-nav__link--register {
+} /* 회원가입 링크 변형 */

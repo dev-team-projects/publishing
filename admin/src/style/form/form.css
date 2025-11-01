@@ -89,8 +89,7 @@
 
 .form__input {
   background-color: var(--surface);
-  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--border),
-    inset -0.2rem -0.2rem 0.5rem var(--surface-alt);
+  box-shadow: var(--newmorphism-shadow-inset);
 }
 
 .form__select {

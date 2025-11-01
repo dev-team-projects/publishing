@@ -74,43 +74,68 @@
           관리자 로그인
         </h1>
 
-        <form
-          class="form form--login"
-          action=""
-        >
-          <div class="form__group form--login__group">
-            <label class="form__label"> ID </label>
-            <input
-              id="userId"
-              type="text"
-              name="userId"
-              class="form__input"
-              placeholder="아이디를 입력하세요"
-              autocomplete="username"
-              required
-            />
+        <div class="form">
+          <form
+            class="form--login"
+            action=""
+          >
+            <div class="form__group form--login__group">
+              <label class="form__label"> ID </label>
+              <input
+                id="userId"
+                type="text"
+                name="userId"
+                class="form__input"
+                placeholder="아이디를 입력하세요"
+                autocomplete="username"
+                required
+              />
+            </div>
+            <div class="form__group form--login__group">
+              <label class="form__label"> Password </label>
+              <input
+                id="userPwd"
+                type="password"
+                name="userPwd"
+                class="form__input"
+                placeholder="비밀번호를 입력하세요"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+            <div class="form__group form--login__group">
+              <button
+                type="submit"
+                class="btn btn--primary btn--login"
+              >
+                로그인
+              </button>
+            </div>
+          </form>
+          <div
+            class="auth-nav"
+            aria-label="계정 액션"
+          >
+            <ul class="auth-nav__list">
+              <li class="auth-nav__item">
+                <a
+                  href="./find.html"
+                  class="auth-nav__link auth-nav__link--find"
+                >
+                  아이디 / 비밀번호 찾기
+                </a>
+              </li>
+              <li class="auth-nav__item">
+                <a
+                  href="./register.html"
+                  class="auth-nav__link auth-nav__link--register"
+                >
+                  회원가입
+                </a>
+              </li>
+            </ul>
           </div>
-          <div class="form__group form--login__group">
-            <label class="form__label"> Password </label>
-            <input
-              id="userPwd"
-              type="password"
-              name="userPwd"
-              class="form__input"
-              placeholder="비밀번호를 입력하세요"
-              autocomplete="current-password"
-              required
-            />
-          </div>
-          <div class="form__group form--login__group">
-            <button
-              type="submit"
-              class="btn btn--primary btn--login"
-            >
-              로그인
-            </button>
-          </div>
-        </form>
+        </div>
       </section>
     </main>
   </body>
