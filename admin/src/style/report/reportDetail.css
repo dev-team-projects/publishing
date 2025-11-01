@@ -1,0 +1,266 @@
+/* ===== Report Detail (rd) ===== */
+.rd {
+  padding: var(--space-4) calc(var(--space-4) * 2);
+}
+
+/* Top */
+.rd__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.rd__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.rd__subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--text-subtle);
+  font-size: 0.9375rem;
+}
+.rd__actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.rd-container {
+  width: 100%;
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rd__col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ===== Card (뉴모피즘 공통) ===== */
+.card {
+  background-color: var(--surface-alt);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+  color: var(--text);
+}
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-3);
+  margin: 0 var(--space-4) 0;
+}
+.card__title {
+  font-size: 1.0625rem;
+  margin: var(--space-4) 0 var(--space-3);
+}
+.card__body {
+  padding: var(--space-4);
+}
+
+/* report 전용: rd-info, attachments, history, action form 등 */
+
+/* ===== 신고 정보 (rd-info) ===== */
+.rd-info__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.rd-info__item {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  justify-content: flex-start;
+}
+.rd-info__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 0.1rem solid var(--border);
+}
+.rd-info__icon i {
+  font-size: 1rem;
+}
+.rd-info__term {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+}
+.rd-info__desc {
+  margin: 0;
+}
+.rd-info__value {
+  font-size: 1rem;
+}
+.rd-info__value--sub {
+  margin-top: 0.25rem;
+  color: var(--text-subtle);
+}
+
+/* ===== 첨부 자료 (rd-attachments) ===== */
+.rd-attachments__list {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rd-attachments__file {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-content: center;
+  background: var(--surface-alt);
+  border: 0.1rem solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--elevation-1);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.rd-attachments__file:hover {
+  transform: translateY(-0.125rem);
+}
+.rd-attachments__file:focus-visible {
+  outline: var(--focus-ring-size) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+.rd-attachments__file i {
+  font-size: 1.25rem;
+}
+.rd-attachments__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== 처리 이력 (rd-history) ===== */
+.rd-history__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.rd-history__item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+.rd-history__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.1rem solid var(--border);
+  background: var(--surface);
+}
+.rd-history__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rd-history__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.rd-history__author {
+  font-weight: 700;
+}
+.rd-history__time {
+  color: var(--text-subtle);
+  font-size: 0.875rem;
+}
+.rd-history__state {
+  margin: 0.375rem 0;
+}
+.rd-history__desc {
+  margin: 0;
+  color: var(--text-subtle);
+}
+.rd-history__empty {
+  margin: 0;
+  color: var(--text-subtle);
+}
+
+/* ===== 처리 액션 (rd-action) ===== */
+.rd-action__help {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+}
+.rd-action__notice {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: var(--space-3);
+  padding: 0.75rem 0.875rem;
+  border: 0.1rem dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.rd-action__note-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+}
+.rd-action__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rd-action__btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+}
+
+/* ===== 접근성 보조 ===== */
+@media (forced-colors: active) {
+  .card,
+  .rd-attachments__file {
+    box-shadow: none;
+    border: 0.1rem solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rd-attachments__file {
+    transition: none;
+  }
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 1024px) {
+  .rd__grid {
+    grid-template-columns: 1fr;
+  }
+  .rd__col--side {
+    position: static;
+  }
+  .rd-attachments__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .rd-attachments__list {
+    grid-template-columns: 1fr;
+  }
+  .rd__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="../../style/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/admin.css"
+    />
+
+    <!-- 이 페이지 css -->
+    <link
+      rel="stylesheet"
+      href="../../style/report/reportReqList.css"
+    />
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/report/reportReqList.js"></script>
+  </head>
+  <body>
+    <!-- <a
+      href="#main"
+      class="skip-link"
+      >본문 바로가기</a
+    > -->
+    <header class="header">
+      <div class="header__logo">
+        <a
+          href="../../../index.html"
+          class="header__logo-link"
+        >
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS</a
+        >
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 신고관리 > 신고요청 목록"
+      >
+        <span>신고관리</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">신고요청 목록</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li class="header__menu-item header__menu-item--alarm">
+            <button
+              class="btn header__btn header__btn--alarm"
+              aria-label="알림"
+              id="btn-alarm"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+            <div
+              id="alarm-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--rejected dropdown__type"
+                      >[신고]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 신고 요청이 있습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >2분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--approve dropdown__type"
+                      >[회원]</strong
+                    >
+                    <p class="dropdown__message">신규 회원이 가입했습니다.</p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >10분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--pending dropdown__type"
+                      >[업체]</strong
+                    >
+                    <p class="dropdown__message">
+                      업체가입요청이 도착했습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >30분 전</time
+                  >
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--info dropdown__type"
+                      >[메뉴]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 메뉴가 등록되었습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >5분 전</time
+                  >
+                </li>
+              </ul>
+
+              <div class="dropdown__footer">
+                <a
+                  href="#"
+                  class="dropdown__link"
+                  >알림 전체보기</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="header__menu-item header__menu-item--profile">
+            <button
+              id="btn-profile"
+              class="btn header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="profile-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >마이페이지</a
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >로그아웃</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <aside
+        id="sidebar-content"
+        class="sidebar-container"
+      >
+        <nav
+          class="sidebar"
+          aria-label="사이드바 메뉴"
+        >
+          <ul class="sidebar__menu">
+            <!-- sidebar item (with submenu) -->
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-building-user"></i
+                  ></span>
+                  <a
+                    href="../bisMng/bisMemList.html"
+                    class="sidebar__link"
+                    >업체 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-business-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-business-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="업체 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../bisMng/bisMemList.html">업체 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../bisMng/bisMemReqList.html">업체가입요청 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <a
+                    href="../menuMng/menuList.html"
+                    class="sidebar__link"
+                    >메뉴 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-menus"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-menus"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="메뉴 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../menuMng/menuList.html">메뉴 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../menuMng/menuUpload.html">메뉴 업로드</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-users"></i
+                  ></span>
+                  <a
+                    href="../member/memList.html"
+                    class="sidebar__link"
+                    >회원 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="회원 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../member/memList.html">회원 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-flag"></i
+                  ></span>
+                  <a
+                    href="./reportReqList.html"
+                    class="sidebar__link"
+                    >신고 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-reports"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-reports"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="신고 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./reportReqList.html">신고요청 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./reportList.html">신고내역 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main
+        id="main-content"
+        class="main-container"
+      >
+        <div class="main-header">
+          <div class="main-header__info">
+            <h3 class="main-header__title">신고요청 목록</h3>
+            <p class="main-header__desc">음식업체 신고요청 목록입니다.</p>
+          </div>
+
+          <div class="main-header__actions">
+            <button
+              class="btn btn--download btn--excel"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-file-excel"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">Excel 양식 다운로드</span>
+            </button>
+
+            <button
+              class="btn btn--primary"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-download"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">내보내기</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 검색영역 -->
+        <section
+          class="content-wrapper"
+          aria-labelledby="search-heading"
+        >
+          <h2
+            id="search-heading"
+            class="sr-only"
+          >
+            음식업체 신고요청 검색조건 영역
+          </h2>
+
+          <form
+            class="form search--form"
+            action="#"
+            method="get"
+            role="search"
+          >
+            <fieldset class="search--form__fieldset">
+              <legend class="sr-only">음식업체 신고요청 검색조건</legend>
+
+              <!-- 검색조건 영역 (Top) -->
+              <div class="search--form__top">
+                <!-- 신고자 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-user"
+                >
+                  <label
+                    for="report-user"
+                    class="search--form__label"
+                    >신고자</label
+                  >
+                  <input
+                    type="search"
+                    id="report-user"
+                    name="reportUser"
+                    class="form__input"
+                    placeholder="신고자명을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
+                <!-- 이메일 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-email"
+                >
+                  <label
+                    for="report-email"
+                    class="search--form__label"
+                    >이메일</label
+                  >
+                  <input
+                    type="email"
+                    id="report-email"
+                    name="reportEmail"
+                    class="form__input"
+                    placeholder="이메일을 입력하세요"
+                    autocomplete="off"
+                  />
+                </div>
+                <!-- 신고대상 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-subject"
+                >
+                  <label
+                    for="report-subject"
+                    class="search--form__label"
+                    >신고대상</label
+                  >
+                  <select
+                    id="report-subject"
+                    name="reportSubject"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 신고대상 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 처리 상태 -->
+                <div
+                  class="form__group form__search-group form__search-group--report-status"
+                >
+                  <label
+                    for="report-status"
+                    class="search--form__label"
+                    >처리 상태</label
+                  >
+                  <select
+                    id="report-status"
+                    name="reportStatus"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 처리 상태 리스트 주입 -->
+                  </select>
+                </div>
+                <!-- 접수기간 -->
+                <div
+                  class="form__group form__search-group form__search-group--application-period"
+                >
+                  <label
+                    for="application-period"
+                    class="search--form__label"
+                    >접수기간</label
+                  >
+                  <div>
+                    <input
+                      type="date"
+                      id="start-date"
+                      name="startDate"
+                      class="form__input"
+                    />
+                    <span
+                      class="date-separator"
+                      aria-hidden="true"
+                      >~</span
+                    >
+                    <input
+                      type="date"
+                      id="end-date"
+                      name="endDate"
+                      class="form__input"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 버튼 영역 (Bottom) -->
+              <div class="search--form__bottom">
+                <div class="search--form__actions">
+                  <button
+                    type="button"
+                    class="btn btn--secondary btn--md search--form__btn"
+                  >
+                    <span
+                      class="btn__icon"
+                      aria-hidden="true"
+                    >
+                      <i
+                        class="fa-solid fa-rotate-left"
+                        aria-hidden="true"
+                      ></i>
+                    </span>
+                    <span class="btn__label">초기화</span>
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn--primary btn--md search--form__btn"
+                  >
+                    <span
+                      class="btn__icon"
+                      aria-hidden="true"
+                    >
+                      <i
+                        class="fa-solid fa-magnifying-glass"
+                        aria-hidden="true"
+                      ></i>
+                    </span>
+                    <span class="btn__label">검색</span>
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+
+        <!-- 신고요청 목록 -->
+        <section
+          class="content-wrapper"
+          aria-labelledby="음식업체 신고요청 목록"
+        >
+          <div class="data-table__header">
+            <div class="data-table__search-wrapper">
+              <h3>신고요청 목록</h3>
+            </div>
+          </div>
+
+          <div class="data-table">
+            <table class="data-table__table">
+              <caption class="sr-only">
+                신고요청 목록
+              </caption>
+
+              <!-- (선택) 컬럼 폭 제어 -->
+              <colgroup>
+                <!-- 체크박스 -->
+                <col width="5%" />
+                <!-- 신고자 -->
+                <col width="10%" />
+                <!-- 이메일 -->
+                <col width="20%" />
+                <!-- 신고대상업체명 -->
+                <col width="20%" />
+                <!-- 첨부파일 -->
+                <col width="5%" />
+                <!-- 신고사유 -->
+                <col width="25%" />
+                <!-- 신고일 -->
+                <col width="10%" />
+              </colgroup>
+
+              <thead class="data-table__head">
+                <tr class="data-table__row data-table__row--head">
+                  <th
+                    scope="col"
+                    class="data-table__cell data-table__cell--select"
+                  >
+                    <input
+                      id="select-all"
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="전체 선택"
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    신고자
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    이메일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    신고대상업체명
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    첨부파일 유무
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    신고사유
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    신고일
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="data-table__body">
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">홍길동</td>
+                  <td class="data-table__cell">test@test.com</td>
+                  <td class="data-table__cell">A대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">테스트신고사유</td>
+                  <td class="data-table__cell">2025-10-06</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-2-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">김영희</td>
+                  <td class="data-table__cell">young@test.com</td>
+                  <td class="data-table__cell">B대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="위생상태가 불량하여 신고합니다."
+                  >
+                    위생상태가 불량하여 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-10-05</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-3-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">이철수</td>
+                  <td class="data-table__cell">chulsoo@test.com</td>
+                  <td class="data-table__cell">C대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="불친절한 서비스로 인해 신고합니다."
+                  >
+                    불친절한 서비스로 인해 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-10-04</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-4-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">박민수</td>
+                  <td class="data-table__cell">minsoo@test.com</td>
+                  <td class="data-table__cell">D대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="가격이 메뉴판과 달라 신고합니다."
+                  >
+                    가격이 메뉴판과 달라 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-10-03</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-5-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">최수정</td>
+                  <td class="data-table__cell">soojung@test.com</td>
+                  <td class="data-table__cell">E대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="음식에서 이물질이 나와 신고합니다."
+                  >
+                    음식에서 이물질이 나와 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-10-02</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-6-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">정하늘</td>
+                  <td class="data-table__cell">sky@test.com</td>
+                  <td class="data-table__cell">F대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="주문한 음식이 너무 늦게 나와 신고합니다."
+                  >
+                    주문한 음식이 너무 늦게 나와 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-10-01</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-7-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">한가람</td>
+                  <td class="data-table__cell">garam@test.com</td>
+                  <td class="data-table__cell">G대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="직원이 마스크를 착용하지 않아 신고합니다."
+                  >
+                    직원이 마스크를 착용하지 않아 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-09-30</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-8-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">오세훈</td>
+                  <td class="data-table__cell">sehoon@test.com</td>
+                  <td class="data-table__cell">H대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="영업시간이 안내와 달라 신고합니다."
+                  >
+                    영업시간이 안내와 달라 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-09-29</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-9-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">유지민</td>
+                  <td class="data-table__cell">jimin@test.com</td>
+                  <td class="data-table__cell">I대상업체</td>
+                  <td class="data-table__cell">Y</td>
+                  <td
+                    class="data-table__cell"
+                    title="음식이 상해 있어 신고합니다."
+                  >
+                    음식이 상해 있어 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-09-28</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-10-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">장동건</td>
+                  <td class="data-table__cell">donggun@test.com</td>
+                  <td class="data-table__cell">J대상업체</td>
+                  <td class="data-table__cell">N</td>
+                  <td
+                    class="data-table__cell"
+                    title="주문과 다른 음식이 나와 신고합니다."
+                  >
+                    주문과 다른 음식이 나와 신고합니다.
+                  </td>
+                  <td class="data-table__cell">2025-09-27</td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              class="pagination"
+              role="region"
+              aria-label="목록 하단 페이지 정보 및 이동"
+            >
+              <!-- (5) 상태 텍스트 -->
+              <p
+                class="pagination__status"
+                role="status"
+                aria-live="polite"
+              >
+                총 65개 중 1–10개 표시
+              </p>
+
+              <!-- (6) 페이지 네비게이션 -->
+              <nav
+                class="pagination__nav"
+                aria-label="페이지네이션"
+              >
+                <ul class="pagination__list list-reset">
+                  <!-- (6-1) 처음, 이전 : 첫 페이지에서는 비활성 -->
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=1"
+                      aria-label="첫 페이지"
+                      aria-disabled="true"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >«</span
+                      >
+                      <span class="sr-only">첫 페이지</span>
+                    </a>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=0"
+                      aria-label="이전 페이지"
+                      aria-disabled="true"
+                      tabindex="-1"
+                      rel="prev"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >‹</span
+                      >
+                      <span class="sr-only">이전 페이지</span>
+                    </a>
+                  </li>
+
+                  <!-- 숫자 페이지 -->
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link pagination__link--current"
+                      href="?page=1"
+                      aria-current="page"
+                      aria-label="현재 페이지 1"
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=2"
+                      aria-label="2페이지"
+                      >2</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=3"
+                      aria-label="3페이지"
+                      >3</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=4"
+                      aria-label="4페이지"
+                      >4</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=5"
+                      aria-label="5페이지"
+                      >5</a
+                    >
+                  </li>
+
+                  <!-- 필요 시 생략 부호 -->
+                  <!-- <li class="pagination__item" aria-hidden="true">
+                    <span class="pagination__ellipsis">…</span>
+                  </li> -->
+
+                  <!-- (6-1) 다음, 마지막 -->
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=2"
+                      aria-label="다음 페이지"
+                      rel="next"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >›</span
+                      >
+                      <span class="sr-only">다음 페이지</span>
+                    </a>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=7"
+                      aria-label="마지막 페이지"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >»</span
+                      >
+                      <span class="sr-only">마지막 페이지</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

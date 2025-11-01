@@ -1,0 +1,115 @@
+/* @layer reset 로 특이성 낮게 */
+@layer reset {
+  /* 박스 모델 & 텍스트 보정 */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    /* 모바일 텍스트 크기 자동 조정 방지 */
+    -webkit-text-size-adjust: 100%;
+
+    /* 파이어폭스 텍스트 크기 자동 조정 방지 */
+    text-size-adjust: 100%;
+
+    /* 다크모드 지원 시 UA 폼 컬러 동기화 */
+    color-scheme: light; /* dark;  필요 시 프로젝트에 맞게 조정 */
+  }
+
+  /* 기본 마진 제거 & 타이포 */
+  :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    min-height: 100dvh;
+    /* 시스템 폰트 스택 예시: 필요 시 프로젝트 폰트로 교체 */
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR',
+      Arial, sans-serif;
+  }
+
+  /* 목록 */
+  :where(ol, ul) {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* 링크 */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* 이미지/미디어 */
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    max-width: 100%;
+  }
+  img {
+    height: auto;
+  }
+
+  /* 테이블 */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* 인라인 코드/인용 기호 초기화 최소화 */
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
+    content: none;
+  }
+
+  /* 폼 컨트롤: 폰트 상속만, 과한 리셋 금지 */
+  :where(button, input, select, textarea) {
+    font: inherit;
+    color: inherit;
+    background-color: transparent; /* 필요 시 컴포넌트에서 덮어쓰기 */
+    /* border/outline/appearance 를 제거하지 않음 */
+  }
+  /* 텍스트 영역 줄바꿈 개선 */
+  textarea {
+    min-height: 150px;
+    white-space: pre-wrap;
+    resize: none; /* 크기 조정 비활성화 */
+    overflow: auto; /* 내용 넘치면 스크롤 */
+  }
+
+  /* 포커스 가시성 보장 */
+  :where(:focus-visible) {
+    outline: 2px solid CanvasText;
+    outline-offset: 2px;
+  }
+
+  /* 스크린리더 전용 유틸리티 (공통 유용) */
+  .visually-hidden {
+    position: absolute !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: -1px !important;
+  }
+}
+
+/* 테마/컴포넌트는 별 레이어로 분리 (예: @layer theme, components) */
+/* 예) @layer theme {...} @layer components {...} */

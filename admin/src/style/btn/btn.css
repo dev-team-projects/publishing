@@ -1,0 +1,127 @@
+.btn {
+  border: 0;
+  background: none;
+  padding: 0; /* size는 modifier로 */
+  border-radius: var(--radius-sm);
+  transition: all 0.1s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  color: inherit;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn:active {
+  transform: translateY(0.1rem);
+}
+
+/* size helpers */
+.btn--sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+.btn--md {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+.btn--lg {
+  padding: 0.75rem 1.25rem;
+  font-size: 1.0625rem;
+}
+
+/* variants (kept as-is + tokenized) */
+.btn--excel {
+  background-color: var(--brand-green-600);
+  color: var(--surface-alt);
+  padding: 0.5rem 1rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem var(--border),
+    -0.2rem -0.2rem 0.5rem var(--surface);
+  --excel-shadow-dark: var(--brand-green-800);
+  --excel-shadow-light: var(--brand-green-400);
+}
+.btn--excel:hover {
+  background-color: var(--brand-green-700);
+}
+.btn--excel:active {
+  box-shadow: inset 0.3rem 0.3rem 0.3rem var(--excel-shadow-dark),
+    inset -0.3rem -0.3rem 0.3rem var(--excel-shadow-light);
+}
+
+.btn--primary {
+  background-color: var(--brand-blue-500);
+  color: var(--surface-alt);
+  padding: 0.5rem 1rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem var(--border),
+    -0.2rem -0.2rem 0.5rem var(--surface);
+  --primary-shadow-dark: var(--brand-blue-800);
+  --primary-shadow-light: var(--brand-blue-500);
+}
+.btn--primary:hover {
+  background-color: var(--brand-blue-600);
+}
+.btn--primary:active {
+  box-shadow: inset 0.3rem 0.3rem 0.3rem var(--primary-shadow-dark),
+    inset -0.3rem -0.3rem 0.3rem var(--primary-shadow-light);
+}
+
+.btn--approve {
+  background-color: var(--status-approved);
+  color: var(--surface-alt);
+  padding: 0.5rem 1rem;
+  --approve-shadow-dark: var(--brand-green-800);
+  --approve-shadow-light: var(--brand-green-400);
+}
+.btn--approve:hover {
+  background-color: var(--status-approved-hover);
+}
+.btn--approve:active {
+  box-shadow: inset 0.3rem 0.3rem 0.3rem var(--approve-shadow-dark),
+    inset -0.3rem -0.3rem 0.3rem var(--approve-shadow-light);
+}
+
+.btn--reject {
+  background-color: var(--status-rejected);
+  color: var(--surface-alt);
+  padding: 0.5rem 1rem;
+  --reject-shadow-dark: var(--brand-red-800);
+  --reject-shadow-light: var(--brand-red-400);
+}
+.btn--reject:hover {
+  background-color: var(--status-rejected-hover);
+}
+.btn--reject:active {
+  box-shadow: inset 0.3rem 0.3rem 0.3rem var(--reject-shadow-dark),
+    inset -0.3rem -0.3rem 0.3rem var(--reject-shadow-light);
+}
+
+.btn--secondary {
+  background-color: var(--text-subtle);
+  color: var(--surface-alt);
+  padding: 0.5rem 1rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem var(--border),
+    -0.2rem -0.2rem 0.5rem var(--surface);
+  --secondary-shadow-dark: var(--brand-gray-800);
+  --secondary-shadow-light: var(--brand-gray-400);
+}
+.btn--secondary:hover {
+  background-color: #404040;
+}
+.btn--secondary:active {
+  box-shadow: inset 0.3rem 0.3rem 0.3rem var(--secondary-shadow-dark),
+    inset -0.3rem -0.3rem 0.3rem var(--secondary-shadow-light);
+}
+
+/* elements */
+.btn__icon {
+  line-height: 1;
+}
+.btn__label {
+  line-height: 1;
+}
+
+.btn--login {
+  padding: 1rem 1.1rem;
+  font-size: 1.3rem;
+}

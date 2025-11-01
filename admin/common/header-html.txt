@@ -1,0 +1,51 @@
+<header class="header">
+      <div class="header__logo">
+        <a
+          href="index.html"
+          class="header__logo-link"
+        >
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS</a
+        >
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 관리자 > 대시보드"
+      >
+        <span>관리자</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">대시보드</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li>
+            <button
+              class="btn header__btn header__btn--alarm"
+              aria-label="알림"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>

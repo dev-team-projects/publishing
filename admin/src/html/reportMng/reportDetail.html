@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="../../style/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/admin.css"
+    />
+
+    <!-- 공통 detail 스타일 -->
+    <link
+      rel="stylesheet"
+      href="../../style/detail.css"
+    />
+
+    <!-- 페이지 전용 스타일 -->
+    <link
+      rel="stylesheet"
+      href="../../style/report/reportDetail.css"
+    />
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/report/reportReqList.js"></script>
+  </head>
+  <body>
+    <!-- <a
+      href="#main"
+      class="skip-link"
+      >본문 바로가기</a
+    > -->
+    <header class="header">
+      <div class="header__logo">
+        <a
+          href="../../../index.html"
+          class="header__logo-link"
+        >
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS</a
+        >
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 신고관리 > 신고요청 목록"
+      >
+        <span>신고관리</span><span>&nbsp;&gt;&nbsp;</span>
+        <span>신고요청 목록</span><span>&nbsp;&gt;&nbsp;</span>
+        <span class="header__current-path">신고요청 상세</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li class="header__menu-item header__menu-item--alarm">
+            <button
+              class="btn header__btn header__btn--alarm"
+              aria-label="알림"
+              id="btn-alarm"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+            <div
+              id="alarm-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--rejected dropdown__type"
+                      >[신고]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 신고 요청이 있습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >2분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--approve dropdown__type"
+                      >[회원]</strong
+                    >
+                    <p class="dropdown__message">신규 회원이 가입했습니다.</p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >10분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--pending dropdown__type"
+                      >[업체]</strong
+                    >
+                    <p class="dropdown__message">
+                      업체가입요청이 도착했습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >30분 전</time
+                  >
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--info dropdown__type"
+                      >[메뉴]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 메뉴가 등록되었습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >5분 전</time
+                  >
+                </li>
+              </ul>
+
+              <div class="dropdown__footer">
+                <a
+                  href="#"
+                  class="dropdown__link"
+                  >알림 전체보기</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="header__menu-item header__menu-item--profile">
+            <button
+              id="btn-profile"
+              class="btn header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="profile-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >마이페이지</a
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >로그아웃</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <aside
+        id="sidebar-content"
+        class="sidebar-container"
+      >
+        <nav
+          class="sidebar"
+          aria-label="사이드바 메뉴"
+        >
+          <ul class="sidebar__menu">
+            <!-- sidebar item (with submenu) -->
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-building-user"></i
+                  ></span>
+                  <a
+                    href="../bisMng/bisMemList.html"
+                    class="sidebar__link"
+                    >업체 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-business-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-business-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="업체 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../bisMng/bisMemList.html">업체 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../bisMng/bisMemReqList.html">업체가입요청 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <a
+                    href="../menuMng/menuList.html"
+                    class="sidebar__link"
+                    >메뉴 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-menus"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-menus"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="메뉴 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../menuMng/menuList.html">메뉴 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../menuMng/menuUpload.html">메뉴 업로드</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-users"></i
+                  ></span>
+                  <a
+                    href="../member/memList.html"
+                    class="sidebar__link"
+                    >회원 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="회원 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../member/memList.html">회원 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-flag"></i
+                  ></span>
+                  <a
+                    href="./reportReqList.html"
+                    class="sidebar__link"
+                    >신고 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-reports"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-reports"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="신고 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./reportReqList.html">신고요청 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./reportList.html">신고내역</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main
+        id="main-content"
+        class="main-container"
+      >
+        <div class="main-header">
+          <div class="main-header__info">
+            <h3 class="main-header__title">신고요청 상세</h3>
+            <p class="main-header__desc">음식업체 신고요청 상세입니다.</p>
+          </div>
+
+          <div class="main-header__actions">
+            <button
+              class="btn btn--download btn--excel"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-file-excel"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">Excel 양식 다운로드</span>
+            </button>
+
+            <button
+              class="btn btn--primary"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-download"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">내보내기</span>
+            </button>
+          </div>
+        </div>
+        <div class="rd-container">
+          <div class="rd__col rd__col--main">
+            <section
+              class="card rd-info"
+              aria-labelledby="rd-info-title"
+            >
+              <header class="card__header">
+                <h2
+                  id="rd-info-title"
+                  class="card__title"
+                >
+                  신고 정보
+                </h2>
+                <span
+                  class="badge badge--pending"
+                  role="status"
+                  aria-live="polite"
+                  >처리중</span
+                >
+              </header>
+
+              <div class="card__body">
+                <dl class="rd-info__list">
+                  <div class="rd-info__item">
+                    <div
+                      class="rd-info__icon"
+                      aria-hidden="true"
+                    >
+                      #
+                    </div>
+                    <div class="rd-info__meta">
+                      <dt class="rd-info__term">신고 ID</dt>
+                      <dd class="rd-info__desc">
+                        <span class="rd-info__value">1</span>
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div class="rd-info__item">
+                    <div
+                      class="rd-info__icon"
+                      aria-hidden="true"
+                    >
+                      <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="rd-info__meta">
+                      <dt class="rd-info__term">신고자</dt>
+                      <dd class="rd-info__desc">
+                        <span class="rd-info__value">리뷰어 (user_12345)</span>
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div class="rd-info__item">
+                    <div
+                      class="rd-info__icon"
+                      aria-hidden="true"
+                    >
+                      <i class="fa-solid fa-calendar"></i>
+                    </div>
+                    <div class="rd-info__meta">
+                      <dt class="rd-info__term">접수일</dt>
+                      <dd class="rd-info__desc">
+                        <time
+                          class="rd-info__value"
+                          datetime="2025-01-15T14:30:25"
+                          >2025-01-15 14:30:25</time
+                        >
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div class="rd-info__item">
+                    <div
+                      class="rd-info__icon"
+                      aria-hidden="true"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="rd-info__meta">
+                      <dt class="rd-info__term">신고 대상</dt>
+                      <dd class="rd-info__desc">
+                        <span class="rd-info__value">리뷰 (맛집 리뷰)</span>
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div class="rd-info__item">
+                    <div
+                      class="rd-info__icon"
+                      aria-hidden="true"
+                    >
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div class="rd-info__meta">
+                      <dt class="rd-info__term">신고 사유</dt>
+                      <dd class="rd-info__desc">
+                        <p class="rd-info__value">부적절한 언어 사용</p>
+                        <p class="rd-info__value rd-info__value--sub">
+                          욕설과 비방이 포함된 리뷰 내용으로 신고합니다.
+                        </p>
+                      </dd>
+                    </div>
+                  </div>
+                </dl>
+              </div>
+            </section>
+
+            <!-- (3) 첨부 자료 -->
+            <section
+              class="card rd-attachments"
+              aria-labelledby="rd-att-title"
+            >
+              <header class="card__header">
+                <h2
+                  id="rd-att-title"
+                  class="card__title"
+                >
+                  첨부 자료
+                </h2>
+              </header>
+
+              <div class="card__body">
+                <ul
+                  class="rd-attachments__list list-reset"
+                  role="list"
+                >
+                  <li class="rd-attachments__item">
+                    <button
+                      type="button"
+                      class="rd-attachments__file"
+                      aria-label="스크린샷1.png 보기"
+                    >
+                      <i
+                        class="fa-regular fa-image"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="rd-attachments__name">스크린샷1.png</span>
+                    </button>
+                  </li>
+                  <li class="rd-attachments__item">
+                    <button
+                      type="button"
+                      class="rd-attachments__file"
+                      aria-label="증거자료.jpg 보기"
+                    >
+                      <i
+                        class="fa-regular fa-image"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="rd-attachments__name">증거자료.jpg</span>
+                    </button>
+                  </li>
+                  <li class="rd-attachments__item">
+                    <button
+                      type="button"
+                      class="rd-attachments__file"
+                      aria-label="신고서.pdf 보기"
+                    >
+                      <i
+                        class="fa-regular fa-file-lines"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="rd-attachments__name">신고서.pdf</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          <!-- 우측 사이드(5) 처리 액션 -->
+          <aside
+            class="card rd-action"
+            aria-labelledby="rd-action-title"
+          >
+            <header class="card__header">
+              <h2
+                id="rd-action-title"
+                class="card__title"
+              >
+                처리 액션
+              </h2>
+            </header>
+
+            <div class="card__body">
+              <form
+                class="form form--report"
+                novalidate
+              >
+                <div class="form__group form__group--report">
+                  <label
+                    for="rd-state"
+                    class="form__label form__label--report"
+                    >상태 변경</label
+                  >
+                  <select
+                    id="rd-state"
+                    class="form__select"
+                    aria-describedby="rd-state-help"
+                  >
+                    <option
+                      value="processing"
+                      selected
+                    >
+                      처리중
+                    </option>
+                    <option value="approved">승인</option>
+                    <option value="rejected">반려</option>
+                  </select>
+                  <p
+                    id="rd-state-help"
+                    class="rd-action__help"
+                  >
+                    상태를 선택하세요.
+                  </p>
+                </div>
+
+                <div class="form__group">
+                  <label
+                    for="rd-result"
+                    class="form__label"
+                    >처리 결과</label
+                  >
+                  <textarea
+                    id="rd-result"
+                    class="form__textarea"
+                    placeholder="처리 결과를 입력하세요…"
+                    rows="6"
+                  ></textarea>
+                </div>
+
+                <div
+                  class="rd-action__notice"
+                  role="note"
+                >
+                  <i
+                    class="fa-solid fa-bell"
+                    aria-hidden="true"
+                  ></i>
+                  <p class="rd-action__note-text">
+                    신고 누적 알림 — 동일 사유로 3회 신고 누적일 때: 1회 더 누적
+                    시 자동 정지 처리됩니다.
+                  </p>
+                </div>
+
+                <div class="rd-action__submit">
+                  <button
+                    type="submit"
+                    class="btn btn--primary btn--lg rd-action__btn"
+                    aria-live="polite"
+                  >
+                    <i
+                      class="fa-solid fa-floppy-disk btn__icon"
+                      aria-hidden="true"
+                    ></i>
+                    <span class="btn__label">처리 결과 저장</span>
+                  </button>
+                </div>
+
+                <div
+                  class="sr-only"
+                  role="status"
+                  aria-live="polite"
+                  id="rd-form-status"
+                ></div>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

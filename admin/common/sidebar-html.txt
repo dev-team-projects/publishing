@@ -1,0 +1,200 @@
+<aside
+        id="sidebar-content"
+        class="sidebar-container"
+      >
+        <nav
+          class="sidebar"
+          aria-label="사이드바 메뉴"
+        >
+          <ul class="sidebar__menu">
+            <!-- sidebar item (with submenu) -->
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-building-user"></i
+                  ></span>
+                  <a
+                    href="./bisMng/bisMemList.html"
+                    class="sidebar__link"
+                    >업체 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-business-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-business-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="업체 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./bisMng/bisMemList.html">업체 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./bisMng/bisMemReqList.html">업체가입요청 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >메뉴 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-menus"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-menus"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="메뉴 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">메뉴 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">메뉴 업로드</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-users"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >회원 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="회원 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">회원 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-flag"></i
+                  ></span>
+                  <a
+                    href="#"
+                    class="sidebar__link"
+                    >신고 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-reports"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-reports"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="신고 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">신고요청 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="#">신고내역</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>

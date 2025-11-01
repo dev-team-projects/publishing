@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="../../style/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/admin.css"
+    />
+
+    <!-- 이 페이지 css -->
+    <link
+      rel="stylesheet"
+      href="../../style/menuMng/menuList.css"
+    />
+
+    <script src="../../js/main.js"></script>
+  </head>
+  <body>
+    <!-- <a
+      href="#main"
+      class="skip-link"
+      >본문 바로가기</a
+    > -->
+    <header class="header">
+      <div class="header__logo">
+        <a
+          href="../../../index.html"
+          class="header__logo-link"
+        >
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS</a
+        >
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 메뉴관리 > 메뉴 업로드 목록"
+      >
+        <span>메뉴관리</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">메뉴 업로드 목록</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li class="header__menu-item header__menu-item--alarm">
+            <button
+              class="btn header__btn header__btn--alarm"
+              aria-label="알림"
+              id="btn-alarm"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+            <div
+              id="alarm-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--rejected dropdown__type"
+                      >[신고]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 신고 요청이 있습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >2분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--approve dropdown__type"
+                      >[회원]</strong
+                    >
+                    <p class="dropdown__message">신규 회원이 가입했습니다.</p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >10분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--pending dropdown__type"
+                      >[업체]</strong
+                    >
+                    <p class="dropdown__message">
+                      업체가입요청이 도착했습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >30분 전</time
+                  >
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--info dropdown__type"
+                      >[메뉴]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 메뉴가 등록되었습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >5분 전</time
+                  >
+                </li>
+              </ul>
+
+              <div class="dropdown__footer">
+                <a
+                  href="#"
+                  class="dropdown__link"
+                  >알림 전체보기</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="header__menu-item header__menu-item--profile">
+            <button
+              id="btn-profile"
+              class="btn header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="profile-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >마이페이지</a
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >로그아웃</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <aside
+        id="sidebar-content"
+        class="sidebar-container"
+      >
+        <nav
+          class="sidebar"
+          aria-label="사이드바 메뉴"
+        >
+          <ul class="sidebar__menu">
+            <!-- sidebar item (with submenu) -->
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-building-user"></i
+                  ></span>
+                  <a
+                    href="../bisMng/bisMemList.html"
+                    class="sidebar__link"
+                    >업체 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-business-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-business-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="업체 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../bisMng/bisMemList.html">업체 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../bisMng/bisMemReqList.html">업체가입요청 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <a
+                    href="./menuList.html"
+                    class="sidebar__link"
+                    >메뉴 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-menus"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-menus"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="메뉴 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./menuList.html">메뉴 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./menuUpload.html">메뉴 업로드</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-users"></i
+                  ></span>
+                  <a
+                    href="../member/memList.html"
+                    class="sidebar__link"
+                    >회원 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="회원 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../member/memList.html">회원 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-flag"></i
+                  ></span>
+                  <a
+                    href="../reportMng/reportReqList.html"
+                    class="sidebar__link"
+                    >신고 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-reports"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-reports"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="신고 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../reportMng/reportReqList.html">신고요청 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../reportMng/reportList.html">신고내역</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main
+        id="main-content"
+        class="main-container"
+      >
+        <div class="main-header">
+          <div class="main-header__info">
+            <h3 class="main-header__title">메뉴 업로드 목록</h3>
+            <p class="main-header__desc">메뉴 업로드 목록입니다.</p>
+          </div>
+
+          <div class="main-header__actions">
+            <button
+              class="btn btn--download btn--excel"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-file-excel"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">Excel 양식 다운로드</span>
+            </button>
+
+            <button
+              class="btn btn--primary"
+              type="button"
+            >
+              <span
+                class="btn__icon"
+                aria-hidden="true"
+              >
+                <i
+                  class="fa-solid fa-download"
+                  aria-hidden="true"
+                ></i>
+              </span>
+              <span class="btn__label">내보내기</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 음식업체 목록 -->
+        <section
+          class="content-wrapper"
+          aria-labelledby="메뉴 업로드 목록"
+        >
+          <div class="data-table__header">
+            <div class="data-table__search-wrapper">
+              <h3>메뉴 업로드 목록</h3>
+            </div>
+            <div class="data-table__action-group">
+              <button class="btn btn--primary">
+                <span><i class="fa-solid fa-pen-to-square"></i></span
+                ><span>저장</span>
+              </button>
+              <button class="btn btn--secondary">
+                <span><i class="fa-solid fa-trash-can"></i></span
+                ><span>취소</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="data-table">
+            <table class="data-table__table">
+              <caption class="sr-only">
+                메뉴 업로드 목록
+              </caption>
+
+              <!-- (선택) 컬럼 폭 제어 -->
+              <colgroup>
+                <!-- 체크박스 -->
+                <col width="5%" />
+                <!-- 순번 -->
+                <col width="5%" />
+                <!-- 카테고리 -->
+                <col width="10%" />
+                <!-- 메뉴명 -->
+                <col width="20%" />
+                <!-- 메뉴설명 -->
+                <col width="25%" />
+                <!-- 가격 -->
+                <col width="10%" />
+                <!-- 첨부파일 여부 -->
+                <col width="5%" />
+                <!-- 등록일 -->
+                <col width="10%" />
+                <!-- 수정일 -->
+                <col width="10%" />
+                <!-- 담당자 -->
+                <col width="10%" />
+              </colgroup>
+
+              <thead class="data-table__head">
+                <tr class="data-table__row data-table__row--head">
+                  <th
+                    scope="col"
+                    class="data-table__cell data-table__cell--select"
+                  >
+                    <input
+                      id="select-all"
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="전체 선택"
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    순번
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    카테고리
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    메뉴명
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    메뉴설명
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    가격
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    첨부파일 여부
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    등록일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    수정일
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    담당자
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="data-table__body">
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-1-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">1</td>
+                  <td class="data-table__cell">세트/패키지</td>
+                  <td class="data-table__cell">패밀리 세트</td>
+                  <td class="data-table__cell">
+                    파스타2+피자1+스테이크1 +음료2
+                  </td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">35,000</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-09-06</td>
+                  <td class="data-table__cell">2025-09-06</td>
+                  <td class="data-table__cell">admin1</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-2-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">2</td>
+                  <td class="data-table__cell">한식</td>
+                  <td class="data-table__cell">비빔밥</td>
+                  <td class="data-table__cell">신선한 야채와 고소한 고추장</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">8,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-09-05</td>
+                  <td class="data-table__cell">2025-09-06</td>
+                  <td class="data-table__cell">admin2</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-3-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">3</td>
+                  <td class="data-table__cell">중식</td>
+                  <td class="data-table__cell">짜장면</td>
+                  <td class="data-table__cell">
+                    달콤한 춘장 소스와 쫄깃한 면발
+                  </td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">6,500</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-09-04</td>
+                  <td class="data-table__cell">2025-09-05</td>
+                  <td class="data-table__cell">admin3</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-4-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">4</td>
+                  <td class="data-table__cell">일식</td>
+                  <td class="data-table__cell">연어초밥</td>
+                  <td class="data-table__cell">신선한 연어와 부드러운 밥</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">12,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-09-03</td>
+                  <td class="data-table__cell">2025-09-04</td>
+                  <td class="data-table__cell">admin4</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-5-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">5</td>
+                  <td class="data-table__cell">양식</td>
+                  <td class="data-table__cell">스테이크</td>
+                  <td class="data-table__cell">
+                    육즙 가득한 프리미엄 스테이크
+                  </td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">25,000</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-09-02</td>
+                  <td class="data-table__cell">2025-09-03</td>
+                  <td class="data-table__cell">admin5</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-6-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">6</td>
+                  <td class="data-table__cell">분식</td>
+                  <td class="data-table__cell">떡볶이</td>
+                  <td class="data-table__cell">매콤달콤한 소스와 쫄깃한 떡</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">4,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-09-01</td>
+                  <td class="data-table__cell">2025-09-02</td>
+                  <td class="data-table__cell">admin6</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-7-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">7</td>
+                  <td class="data-table__cell">디저트</td>
+                  <td class="data-table__cell">치즈케이크</td>
+                  <td class="data-table__cell">부드럽고 진한 치즈의 풍미</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">5,500</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-31</td>
+                  <td class="data-table__cell">2025-09-01</td>
+                  <td class="data-table__cell">admin7</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-8-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">8</td>
+                  <td class="data-table__cell">음료</td>
+                  <td class="data-table__cell">아메리카노</td>
+                  <td class="data-table__cell">진한 에스프레소와 깔끔한 맛</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">3,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-30</td>
+                  <td class="data-table__cell">2025-08-31</td>
+                  <td class="data-table__cell">admin8</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-9-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">9</td>
+                  <td class="data-table__cell">세트/패키지</td>
+                  <td class="data-table__cell">커플 세트</td>
+                  <td class="data-table__cell">파스타1+피자1+음료2</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">22,000</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-29</td>
+                  <td class="data-table__cell">2025-08-30</td>
+                  <td class="data-table__cell">admin9</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-10-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">10</td>
+                  <td class="data-table__cell">한식</td>
+                  <td class="data-table__cell">불고기</td>
+                  <td class="data-table__cell">
+                    달콤한 간장 양념의 소고기 볶음
+                  </td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">10,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-28</td>
+                  <td class="data-table__cell">2025-08-29</td>
+                  <td class="data-table__cell">admin10</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-11-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">11</td>
+                  <td class="data-table__cell">중식</td>
+                  <td class="data-table__cell">탕수육</td>
+                  <td class="data-table__cell">
+                    바삭한 튀김과 새콤달콤한 소스
+                  </td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">13,000</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-27</td>
+                  <td class="data-table__cell">2025-08-28</td>
+                  <td class="data-table__cell">admin11</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-12-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">12</td>
+                  <td class="data-table__cell">일식</td>
+                  <td class="data-table__cell">돈까스</td>
+                  <td class="data-table__cell">두툼한 고기와 바삭한 튀김옷</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">9,500</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-26</td>
+                  <td class="data-table__cell">2025-08-27</td>
+                  <td class="data-table__cell">admin12</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-13-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">13</td>
+                  <td class="data-table__cell">양식</td>
+                  <td class="data-table__cell">파스타</td>
+                  <td class="data-table__cell">크림소스와 신선한 재료</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">11,000</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-25</td>
+                  <td class="data-table__cell">2025-08-26</td>
+                  <td class="data-table__cell">admin13</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-14-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">14</td>
+                  <td class="data-table__cell">분식</td>
+                  <td class="data-table__cell">김밥</td>
+                  <td class="data-table__cell">다양한 재료가 가득한 김밥</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">3,500</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-24</td>
+                  <td class="data-table__cell">2025-08-25</td>
+                  <td class="data-table__cell">admin14</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-15-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">15</td>
+                  <td class="data-table__cell">디저트</td>
+                  <td class="data-table__cell">마카롱</td>
+                  <td class="data-table__cell">
+                    달콤하고 쫀득한 프랑스 디저트
+                  </td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">2,500</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-23</td>
+                  <td class="data-table__cell">2025-08-24</td>
+                  <td class="data-table__cell">admin15</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-16-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">16</td>
+                  <td class="data-table__cell">음료</td>
+                  <td class="data-table__cell">카페라떼</td>
+                  <td class="data-table__cell">부드러운 우유와 에스프레소</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">3,500</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-22</td>
+                  <td class="data-table__cell">2025-08-23</td>
+                  <td class="data-table__cell">admin16</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-17-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">17</td>
+                  <td class="data-table__cell">세트/패키지</td>
+                  <td class="data-table__cell">런치 세트</td>
+                  <td class="data-table__cell">메인+사이드+음료</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">15,000</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-21</td>
+                  <td class="data-table__cell">2025-08-22</td>
+                  <td class="data-table__cell">admin17</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-18-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">18</td>
+                  <td class="data-table__cell">한식</td>
+                  <td class="data-table__cell">김치찌개</td>
+                  <td class="data-table__cell">진한 국물과 푸짐한 재료</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">7,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-20</td>
+                  <td class="data-table__cell">2025-08-21</td>
+                  <td class="data-table__cell">admin18</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-19-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">19</td>
+                  <td class="data-table__cell">중식</td>
+                  <td class="data-table__cell">짬뽕</td>
+                  <td class="data-table__cell">얼큰한 국물과 해산물</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">7,500</span>원
+                  </td>
+                  <td class="data-table__cell">Y</td>
+                  <td class="data-table__cell">2025-08-19</td>
+                  <td class="data-table__cell">2025-08-20</td>
+                  <td class="data-table__cell">admin19</td>
+                </tr>
+                <tr class="data-table__row">
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-labelledby="row-20-label"
+                    />
+                  </td>
+                  <td class="data-table__cell">20</td>
+                  <td class="data-table__cell">일식</td>
+                  <td class="data-table__cell">우동</td>
+                  <td class="data-table__cell">쫄깃한 면과 깊은 국물맛</td>
+                  <td class="data-table__cell">
+                    <span class="menu-price">6,000</span>원
+                  </td>
+                  <td class="data-table__cell">N</td>
+                  <td class="data-table__cell">2025-08-18</td>
+                  <td class="data-table__cell">2025-08-19</td>
+                  <td class="data-table__cell">admin20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

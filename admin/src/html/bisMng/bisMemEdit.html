@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FMS 관리자</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <!-- Base resets & fonts -->
+    <link
+      rel="stylesheet"
+      href="../../style/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/detail.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../style/fonts.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/layout/layout.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/btn/btn.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/form/form.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../style/admin.css"
+    />
+
+    <!-- 공통 detail 스타일 -->
+    <link
+      rel="stylesheet"
+      href="../../style/detail.css"
+    />
+
+    <!-- 페이지 전용 스타일 -->
+    <link
+      rel="stylesheet"
+      href="../../style/bisMem/bisMemEdit.css"
+    />
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/bisMem/bisMemEdit.js"></script>
+  </head>
+  <body>
+    <!-- <a
+      href="#main"
+      class="skip-link"
+      >본문 바로가기</a
+    > -->
+    <header class="header">
+      <div class="header__logo">
+        <a
+          href="../../../index.html"
+          class="header__logo-link"
+        >
+          <span class="header__icon"
+            ><i
+              class="fa-solid fa-shield-halved"
+              aria-hidden="true"
+            ></i></span
+          >FMS</a
+        >
+      </div>
+      <div
+        class="header__path"
+        aria-label="현재 위치: 업체관리 > 음식업체 목록 > 음식업체 상세"
+      >
+        <span>업체관리</span><span>&nbsp;&gt;&nbsp;</span
+        ><span>음식업체 목록</span><span>&nbsp;&gt;&nbsp;</span
+        ><span>음식업체 상세</span><span>&nbsp;&gt;&nbsp;</span
+        ><span class="header__current-path">음식업체 정보수정</span>
+      </div>
+      <nav
+        class="header__nav"
+        aria-label="상단 메뉴"
+      >
+        <ul class="header__menu">
+          <li class="header__menu-item header__menu-item--alarm">
+            <button
+              class="btn header__btn header__btn--alarm"
+              aria-label="알림"
+              id="btn-alarm"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-bell"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+            <div
+              id="alarm-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--rejected dropdown__type"
+                      >[신고]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 신고 요청이 있습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >2분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--approve dropdown__type"
+                      >[회원]</strong
+                    >
+                    <p class="dropdown__message">신규 회원이 가입했습니다.</p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >10분 전</time
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--pending dropdown__type"
+                      >[업체]</strong
+                    >
+                    <p class="dropdown__message">
+                      업체가입요청이 도착했습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >30분 전</time
+                  >
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                  >
+                    <strong class="badge badge--info dropdown__type"
+                      >[메뉴]</strong
+                    >
+                    <p class="dropdown__message">
+                      새로운 메뉴가 등록되었습니다.
+                    </p>
+                  </a>
+                  <time
+                    class="dropdown__time"
+                    datetime=""
+                    >5분 전</time
+                  >
+                </li>
+              </ul>
+
+              <div class="dropdown__footer">
+                <a
+                  href="#"
+                  class="dropdown__link"
+                  >알림 전체보기</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="header__menu-item header__menu-item--profile">
+            <button
+              id="btn-profile"
+              class="btn header__btn header__btn--profile"
+              aria-label="프로필"
+            >
+              <i
+                class="fa-solid fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              id="profile-dropdown"
+              class="dropdown"
+            >
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >마이페이지</a
+                  >
+                </li>
+
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__content"
+                    >로그아웃</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <aside
+        id="sidebar-content"
+        class="sidebar-container"
+      >
+        <nav
+          class="sidebar"
+          aria-label="사이드바 메뉴"
+        >
+          <ul class="sidebar__menu">
+            <!-- sidebar item (with submenu) -->
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-building-user"></i
+                  ></span>
+                  <a
+                    href="./bisMemList.html"
+                    class="sidebar__link"
+                    >업체 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-business-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-business-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="업체 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./bisMemList.html">업체 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="./bisMemReqList.html">업체가입요청 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <a
+                    href="../menuMng/menuList.html"
+                    class="sidebar__link"
+                    >메뉴 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-menus"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-menus"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="메뉴 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../menuMng/menuList.html">메뉴 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../menuMng/menuUpload.html">메뉴 업로드</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-users"></i
+                  ></span>
+                  <a
+                    href="../member/memList.html"
+                    class="sidebar__link"
+                    >회원 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-users"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-users"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="회원 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../member/memList.html">회원 목록</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar__item">
+              <div class="sidebar__main">
+                <div class="sidebar__left">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-flag"></i
+                  ></span>
+                  <a
+                    href="../reportMng/reportReqList.html"
+                    class="sidebar__link"
+                    >신고 관리</a
+                  >
+                </div>
+                <div class="sidebar__right">
+                  <button
+                    class="btn sidebar__toggle-btn"
+                    type="button"
+                    aria-label="서브메뉴 토글"
+                    aria-expanded="false"
+                    aria-controls="submenu-reports"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="submenu-reports"
+                class="sidebar__submenu-wrapper"
+                role="region"
+                aria-hidden="true"
+                aria-label="신고 관리 하위 메뉴"
+              >
+                <ul class="sidebar__submenu">
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../reportMng/reportReqList.html">신고요청 목록</a>
+                  </li>
+                  <li class="sidebar__submenu-item">
+                    <span class="sidebar__submenu-item--bar"></span>
+                    <a href="../reportMng/reportList.html">신고내역</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main
+        id="main"
+        class="main-container"
+        role="main"
+        aria-labelledby="page-title"
+      >
+        <div class="main-header">
+          <div class="main-header__info">
+            <h3 class="main-header__title">음식업체 정보수정</h3>
+            <p class="main-header__desc">음식업체명</p>
+          </div>
+
+          <div class="main-header__actions">
+            <button
+              class="btn btn--secondary"
+              type="button"
+            >
+              <span class="btn__label">취소</span>
+            </button>
+
+            <button
+              class="btn btn--primary"
+              type="button"
+            >
+              <span class="btn__label">저장</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="form form--bis-mem-edit">
+          <!-- 업체 기본정보 카드 -->
+          <section
+            class="card"
+            aria-labelledby="sec-basic"
+          >
+            <header class="card__header">
+              <div class="card-head">
+                <span
+                  class="card-icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-circle-info"></i
+                ></span>
+                <div>
+                  <h2
+                    id="sec-basic"
+                    class="card__title"
+                  >
+                    업체 기본정보
+                  </h2>
+                </div>
+              </div>
+              <div class="card__status">
+                <span class="btn btn--reject">2개 오류</span>
+              </div>
+            </header>
+
+            <div class="card__body card__list">
+              <div class="card__item-container">
+                <div class="card__item">
+                  <label
+                    for="bisMem-name"
+                    class="search-form__label"
+                    >음식업체명 *</label
+                  >
+                  <input
+                    type="text"
+                    id="bisMem-name"
+                    name="bisMemName"
+                    class="form__input"
+                    placeholder="음식업체명을 입력하세요"
+                    autocomplete="off"
+                  />
+                  <span class="field__error-message">오류 메시지</span>
+                </div>
+                <div class="card__item">
+                  <label
+                    for="bisMem-name"
+                    class="search-form__label"
+                    >전화번호 *</label
+                  >
+                  <input
+                    type="tel"
+                    id="bisMem-tel"
+                    name="bisMemTel"
+                    class="form__input"
+                    placeholder="'-'을 제외하고 입력하세요"
+                    autocomplete="off"
+                  />
+                  <span class="field__error-message">오류 메시지</span>
+                </div>
+                <div class="card__item">
+                  <label
+                    for="bisMem-no"
+                    class="search-form__label"
+                    >사업자등록번호 *</label
+                  >
+                  <input
+                    type="text"
+                    id="bisMem-no"
+                    name="bisMemNo"
+                    class="form__input"
+                    placeholder="사업자등록 번호를 입력하세요"
+                    autocomplete="off"
+                  />
+                  <span class="field__error-message">오류 메시지</span>
+                </div>
+              </div>
+
+              <div class="card__item-container">
+                <div class="card__item">
+                  <label
+                    for="bisMem-addr"
+                    class="search-form__label"
+                    >주소 *</label
+                  >
+                  <div class="card__item-row">
+                    <input
+                      type="text"
+                      id="bisMem-addr"
+                      name="bisMemAddr"
+                      class="form__input"
+                      placeholder="주소를 입력하세요"
+                      autocomplete="off"
+                    />
+                    <button
+                      class="btn btn--secondary btn--sm"
+                      type="button"
+                    >
+                      <span class="btn__label">주소 검색</span>
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    id="bisMem-etc__addr"
+                    name="bisMemEtcAddr"
+                    class="form__input"
+                    placeholder="상세주소를 입력하세요"
+                    autocomplete="off"
+                  />
+                  <span class="field__error-message">오류 메시지</span>
+                </div>
+
+                <div class="card__item">
+                  <label
+                    for="report-subject"
+                    class="search-form__label"
+                    >카테고리</label
+                  >
+                  <select
+                    id="report-subject"
+                    name="reportSubject"
+                    class="form__select"
+                  >
+                    <option value="">전체</option>
+                    <!-- 실제 카테고리 리스트 주입 -->
+                  </select>
+                </div>
+
+                <div class="card__item">
+                  <label
+                    for="report-subject"
+                    class="search-form__label"
+                    >업체 상태</label
+                  >
+                  <div class="toggle-switch">
+                    <input
+                      type="checkbox"
+                      id="bisMem-status"
+                      name="bisMemStatus"
+                      class="toggle-switch__input"
+                    />
+                    <label
+                      for="bisMem-status"
+                      class="toggle-switch__label"
+                    >
+                      <span class="toggle-switch__slider"></span>
+                      <span class="toggle-switch__text">활성화</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 운영 정보 카드 -->
+          <section
+            class="card"
+            aria-labelledby="sec-oper"
+          >
+            <header class="card__header card-head">
+              <span
+                class="card-icon"
+                aria-hidden="true"
+                ><i class="fa-solid fa-clock"></i
+              ></span>
+              <div>
+                <h2
+                  id="sec-oper"
+                  class="card__title"
+                >
+                  운영 정보
+                </h2>
+                <p class="card-desc">영업시간 및 주문 조건</p>
+              </div>
+            </header>
+
+            <script>
+              $(function () {
+                $(
+                  '#operating-hours__time-start--monday, #operating-hours__time-end--monday, \
+                    #operating-hours__time-start--tuesday, #operating-hours__time-end--tuesday, \
+                          #operating-hours__time-start--wednesday, #operating-hours__time-end--wednesday, \
+                          #operating-hours__time-start--thursday, #operating-hours__time-end--thursday, \
+                          #operating-hours__time-start--friday, #operating-hours__time-end--friday, \
+                          #operating-hours__time-start--saturday, #operating-hours__time-end--saturday, \
+                          #operating-hours__time-start--sunday, #operating-hours__time-end--sunday'
+                ).timepicker({
+                  timeFormat: 'HH:mm',
+                  interval: 30,
+                  minTime: '00:00',
+                  maxTime: '23:30',
+                  defaultTime: '09:00',
+                  startTime: '00:00',
+                  dynamic: false,
+                  dropdown: true,
+                  scrollbar: true,
+                });
+              });
+            </script>
+            <div class="card__body">
+              <div class="card__item-container">
+                <div class="card__item">
+                  <div class="card__item-row card__item-row--between">
+                    <label class="search-form__label">영업시간 *</label>
+                    <button
+                      id="operating-hours__all-day-button"
+                      class="btn btn--secondary btn--sm"
+                      type="button"
+                    >
+                      <span class="btn__label">월 ~ 금 동일</span>
+                    </button>
+                  </div>
+                  <div class="card__item-row card__item-row--between">
+                    <span class="day-name">월요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--monday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--monday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--monday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card__item-row">
+                    <span class="day-name">화요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--tuesday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--tuesday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--tuesday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card__item-row">
+                    <span class="day-name">수요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--wednesday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--wednesday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--wednesday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card__item-row">
+                    <span class="day-name">목요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--thursday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--thursday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--thursday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card__item-row">
+                    <span class="day-name">금요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--friday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--friday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--friday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card__item-row">
+                    <span class="day-name">토요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--saturday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--saturday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--saturday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card__item-row">
+                    <span class="day-name">일요일</span>
+                    <div class="card__item-row">
+                      <input
+                        type="text"
+                        id="operating-hours__time-start--sunday"
+                        name="operTimeStart"
+                        class="form__input"
+                        placeholder="시작 시간"
+                        autocomplete="off"
+                      />
+                      <span class="oper-time__separator">~</span>
+                      <input
+                        type="text"
+                        id="operating-hours__time-end--sunday"
+                        name="operTimeEnd"
+                        class="form__input"
+                        placeholder="종료 시간"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="operating-hours__status-button-wrapper">
+                      <button
+                        id="operating-hours__status-button--sunday"
+                        class="btn btn--secondary btn--sm operating-hours__status-button"
+                        type="button"
+                      >
+                        <span class="btn__label">휴무</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <span class="field__error-message">오류 메시지</span>
+                </div>
+
+                <div class="card__item">
+                  <label
+                    for="etc-desc"
+                    class="search-form__label"
+                    >추가 정보</label
+                  >
+                  <textarea
+                    id="etc-desc"
+                    class="form__textarea"
+                    name="bisMem-etc-desc"
+                  ></textarea>
+                </div>
+
+                <div class="card__item">
+                  <div class="card__item-row">
+                    <div class="card__item">
+                      <label
+                        for="min-order-amount"
+                        class="search-form__label"
+                        >최소 주문 금액 *</label
+                      >
+                      <input
+                        type="number"
+                        id="min-order-amount"
+                        name="minOrderAmount"
+                        class="form__input"
+                        placeholder="숫자만 입력하세요"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="card__item">
+                      <label
+                        for="delivery-fee__amount"
+                        class="search-form__label"
+                        >배달비 *</label
+                      >
+                      <input
+                        type="number"
+                        id="delivery-fee__amount"
+                        name="deliveryFeeAmount"
+                        class="form__input"
+                        placeholder="숫자만 입력하세요"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <span class="field__error-message">오류 메시지</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+/* =========================
+   bisMemReqList.css (page)
+   ========================= */
+
+/* -------- Status Card -------- */
+.status-card {
+  width: 100%;
+  display: flex;
+  gap: var(--space-4, 1rem);
+}
+
+.status-card__item {
+  flex: 1;
+  background-color: var(--surface-alt);
+  border-radius: var(--radius-md, 0.5rem);
+  padding: 2rem var(--space-4, 1rem);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4, 1rem);
+  box-shadow: var(--elevation-1, 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1));
+  color: var(--text, #171717);
+}
+
+/* 아이콘/메타 */
+.status-card__icon {
+  font-size: 2rem;
+  padding: var(--space-2);
+  color: var(--accent, currentColor); /* 아이템 모디파이어가 주입 */
+}
+.status-card__meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.3rem;
+  gap: var(--space-2);
+}
+.status-card__label {
+  font-size: 1rem;
+  color: var(--text-subtle, #737373);
+}
+.status-card__count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text, #171717);
+}
+
+/* (하위 호환) 기존 아이콘 모디파이어 유지 */
+.status-card__icon--pending {
+  color: var(--status-pending);
+}
+.status-card__icon--approved {
+  color: var(--status-approved);
+}
+.status-card__icon--rejected {
+  color: var(--status-rejected);
+}
+.status-card__icon--total {
+  color: var(--status-info);
+}

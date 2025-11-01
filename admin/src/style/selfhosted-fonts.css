@@ -1,0 +1,38 @@
+@layer base {
+  /* SUIT */
+  @font-face {
+    font-family: 'SUIT';
+    src: url('../assets/fonts/SUIT_Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-024F, U+1100-11FF, U+3130-318F, U+AC00-D7AF;
+  }
+
+  /* 학교안심 알림장 */
+  @font-face {
+    font-family: '학교안심 알림장';
+    src: url('../assets/fonts/Hakgyoansim_Allimjang_TTF_R.ttf')
+      format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* 사천항공체 Regular (400) */
+  @font-face {
+    font-family: '사천항공체';
+    src: url('../assets/fonts/SacheonHangGong_Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* 사천항공체 Bold (700) — 실제 파일이 있으면 등록, 없으면 이 블록은 생략 */
+  @font-face {
+    font-family: '사천항공체';
+    src: url('../assets/fonts/SacheonHangGong_Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}
