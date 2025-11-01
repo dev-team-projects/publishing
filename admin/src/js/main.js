@@ -1,35 +1,69 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 헤더 아이콘 드랍다운 메뉴
-  const alarmBtn = document.getElementById('btn-alarm');
-  const alarmDropdown = document.getElementById('alarm-dropdown');
-  const profileBtn = document.getElementById('btn-profile');
-  const profileDropdown = document.getElementById('profile-dropdown');
+  /* ===========================
+   * Header Dropdowns (Alarm / Profile)
+   * - hidden 속성 + aria-expanded 동기화
+   * - 바깥 클릭 & ESC 닫기
+   * =========================== */
+  const dropdownMap = [
+    {
+      btn: document.getElementById('btn-alarm'),
+      panel: document.getElementById('alarm-dropdown'),
+    },
+    {
+      btn: document.getElementById('btn-profile'),
+      panel: document.getElementById('profile-dropdown'),
+    },
+  ].filter(({ btn, panel }) => btn && panel);
 
-  alarmBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    profileDropdown.style.display =
-      profileDropdown.style.display === 'block' ? 'none' : '';
-    alarmDropdown.style.display =
-      alarmDropdown.style.display === 'block' ? 'none' : 'block';
+  // 초기 상태 정리
+  dropdownMap.forEach(({ btn, panel }) => {
+    btn.setAttribute('aria-expanded', 'false');
+    panel.hidden = true; // CSS와 일관
   });
-  profileBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    alarmDropdown.style.display =
-      alarmDropdown.style.display === 'block' ? 'none' : '';
-    profileDropdown.style.display =
-      profileDropdown.style.display === 'block' ? 'none' : 'block';
-  });
-  document.addEventListener('click', function (e) {
-    if (
-      profileDropdown.style.display === 'block' &&
-      !profileBtn.contains(e.target) &&
-      !profileDropdown.contains(e.target)
-    ) {
-      profileDropdown.style.display = 'none';
+
+  const closeAll = () => {
+    dropdownMap.forEach(({ btn, panel }) => {
+      if (!panel.hidden) {
+        panel.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  };
+
+  const toggleDropdown = (btn, panel) => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    closeAll();
+    if (!isOpen) {
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      // 첫 포커스 가능한 요소로 포커스 이동(있으면)
+      const focusable = panel.querySelector(
+        'a, button, input, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable) focusable.focus({ preventScroll: true });
     }
+  };
+
+  dropdownMap.forEach(({ btn, panel }) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleDropdown(btn, panel);
+    });
+    // 패널 내부 클릭은 전파 중단(바깥 클릭 닫힘 방지)
+    panel.addEventListener('click', (e) => e.stopPropagation());
   });
 
-  // 사이드바 토글 버튼 클릭 이벤트 위임
+  // 바깥 클릭 시 닫기
+  document.addEventListener('click', () => closeAll());
+
+  // ESC로 닫기
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+  });
+
+  /* ===========================
+   * Sidebar Accordion (기존 로직 유지)
+   * =========================== */
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.sidebar__toggle-btn');
     if (!btn) return;
@@ -40,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-    // 모든 서브메뉴 닫기 (하나만 열리도록)
+    // 모든 서브메뉴 닫기 (하나만 열기)
     const wrappers = document.getElementsByClassName(
       'sidebar__submenu-wrapper'
     );
@@ -55,13 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const relatedBtn = document.querySelector(
           `.sidebar__toggle-btn[aria-controls="${el.id}"]`
         );
-        if (relatedBtn) {
-          relatedBtn.setAttribute('aria-expanded', 'false');
-        }
+        if (relatedBtn) relatedBtn.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // 이미 열려있던 패널이면 여기서 종료
+    // 이미 열려있던 패널이면 종료(=모두 닫힌 상태 유지)
     if (isOpen) return;
 
     // 열기

@@ -413,7 +413,690 @@
       <main
         id="main-content"
         class="main-container"
-      ></main>
+        role="main"
+      >
+        <h1 class="visually-hidden">일반 관리자 대시보드</h1>
+
+        <!-- ===== 요약 KPI (플랫폼 전반 + 사이드바 섹션 연결) ===== -->
+        <section
+          class="dashboard content-wrapper"
+          aria-labelledby="dashboard-heading"
+        >
+          <h2
+            id="dashboard-heading"
+            class="visually-hidden"
+          >
+            요약/업무 현황
+          </h2>
+
+          <div
+            class="kpis grid grid--cols-4"
+            role="list"
+          >
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="오늘 총 주문"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-receipt"></i
+                ></span>
+                <span class="kpis__label">오늘 주문</span>
+              </div>
+              <strong
+                class="kpis__value"
+                aria-live="polite"
+                >12,480건</strong
+              >
+              <p class="kpis__delta kpis__delta--up">
+                <i
+                  class="fa-solid fa-arrow-up"
+                  aria-hidden="true"
+                ></i>
+                +8%
+              </p>
+            </article>
+
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="오늘 매출"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-won-sign"></i
+                ></span>
+                <span class="kpis__label">오늘 매출</span>
+              </div>
+              <strong class="kpis__value">₩ 1,238,000,000</strong>
+              <p class="kpis__delta kpis__delta--up">
+                <i
+                  class="fa-solid fa-arrow-up"
+                  aria-hidden="true"
+                ></i>
+                +5%
+              </p>
+            </article>
+
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="입점업체 승인 대기"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-store"></i
+                ></span>
+                <span class="kpis__label">입점 승인 대기</span>
+              </div>
+              <strong class="kpis__value">23건</strong>
+              <p class="kpis__delta kpis__delta--flat">
+                <i
+                  class="fa-solid fa-arrows-left-right"
+                  aria-hidden="true"
+                ></i>
+                0%
+              </p>
+            </article>
+
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="신고 처리 대기"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-flag"></i
+                ></span>
+                <span class="kpis__label">신고 대기</span>
+              </div>
+              <strong class="kpis__value">12건</strong>
+              <p class="kpis__delta kpis__delta--down">
+                <i
+                  class="fa-solid fa-arrow-down"
+                  aria-hidden="true"
+                ></i>
+                -3%
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== 업무 인박스: 업체/메뉴/회원/신고 중심 ===== -->
+        <section
+          class="content-wrapper"
+          aria-labelledby="inbox-heading"
+        >
+          <div class="data-table__header">
+            <h2 id="inbox-heading">업무 인박스</h2>
+
+            <div class="data-table__search-wrapper">
+              <label
+                for="inbox-search"
+                class="sr-only"
+                >검색</label
+              >
+              <input
+                id="inbox-search"
+                type="search"
+                class="data-table__search-input u-search-clean"
+                placeholder="업체/요청자/유형 검색"
+                inputmode="search"
+              />
+            </div>
+
+            <div class="data-table__action-group">
+              <button
+                class="btn btn--secondary u-focus-ring"
+                type="button"
+              >
+                선택 반려
+              </button>
+              <button
+                class="btn btn--primary u-focus-ring"
+                type="button"
+              >
+                선택 승인
+              </button>
+            </div>
+          </div>
+
+          <div class="data-table-wrapper">
+            <table
+              class="data-table__table"
+              aria-describedby="inbox-caption"
+            >
+              <caption
+                id="inbox-caption"
+                class="sr-only"
+              >
+                승인/검토가 필요한 최신 요청 목록
+              </caption>
+              <thead class="data-table__head">
+                <tr class="data-table__row">
+                  <th
+                    scope="col"
+                    class="data-table__cell data-table__cell--select"
+                  >
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="전체 선택"
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    유형
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    제목
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    요청자
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    상태
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    요청일시
+                  </th>
+                  <th
+                    scope="col"
+                    class="data-table__cell"
+                  >
+                    액션
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="data-table__body">
+                <!-- 업체 관리 -->
+                <tr
+                  class="data-table__row"
+                  data-type="입점승인"
+                >
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="행 선택"
+                    />
+                  </td>
+                  <th
+                    scope="row"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    입점승인
+                  </th>
+                  <td class="data-table__cell data-table__cell--truncate">
+                    [더맛나분식] 사업자 등록증/통장 사본 제출
+                  </td>
+                  <td class="data-table__cell">영업팀</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기</span>
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    25.11.01 12:03
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    <a
+                      class="btn btn--ghost"
+                      href="./src/html/bisMng/bisMemReqList.html"
+                      >검토</a
+                    >
+                    <button class="btn btn--secondary">반려</button>
+                    <button class="btn btn--primary">승인</button>
+                  </td>
+                </tr>
+
+                <!-- 메뉴 관리 -->
+                <tr
+                  class="data-table__row"
+                  data-type="메뉴검수"
+                >
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="행 선택"
+                    />
+                  </td>
+                  <th
+                    scope="row"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    메뉴검수
+                  </th>
+                  <td class="data-table__cell data-table__cell--truncate">
+                    신규 메뉴 &lt;매운치킨버거&gt; 이미지/알레르기 표기 확인
+                  </td>
+                  <td class="data-table__cell">콘텐츠팀</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기</span>
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    25.11.01 11:55
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    <a
+                      class="btn btn--ghost"
+                      href="./src/html/menuMng/menuList.html"
+                      >미리보기</a
+                    >
+                    <button class="btn btn--secondary">반려</button>
+                    <button class="btn btn--primary">승인</button>
+                  </td>
+                </tr>
+
+                <!-- 회원 관리 -->
+                <tr
+                  class="data-table__row"
+                  data-type="블랙리스트"
+                >
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="행 선택"
+                    />
+                  </td>
+                  <th
+                    scope="row"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    블랙리스트
+                  </th>
+                  <td class="data-table__cell data-table__cell--truncate">
+                    반복 환불 시도 계정 검토
+                  </td>
+                  <td class="data-table__cell">안전관리팀</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--info">검토중</span>
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    25.11.01 10:40
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    <a
+                      class="btn btn--ghost"
+                      href="./src/html/member/memList.html"
+                      >프로필</a
+                    >
+                    <button class="btn btn--secondary">해제</button>
+                    <button class="btn btn--approve">등록</button>
+                  </td>
+                </tr>
+
+                <!-- 신고 관리 -->
+                <tr
+                  class="data-table__row"
+                  data-type="신고"
+                >
+                  <td class="data-table__cell data-table__cell--select">
+                    <input
+                      type="checkbox"
+                      class="data-table__checkbox"
+                      aria-label="행 선택"
+                    />
+                  </td>
+                  <th
+                    scope="row"
+                    class="data-table__cell data-table__cell--row-header"
+                  >
+                    신고
+                  </th>
+                  <td class="data-table__cell data-table__cell--truncate">
+                    악성 리뷰 신고 – 욕설 포함
+                  </td>
+                  <td class="data-table__cell">모더레이션</td>
+                  <td class="data-table__cell">
+                    <span class="badge badge--pending">대기</span>
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    25.11.01 10:12
+                  </td>
+                  <td class="data-table__cell data-table__cell--nowrap">
+                    <a
+                      class="btn btn--ghost"
+                      href="./src/html/reportMng/reportReqList.html"
+                      >증빙</a
+                    >
+                    <button class="btn btn--secondary">반려</button>
+                    <button class="btn btn--approve">조치</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 페이지네이션 -->
+          <div
+            class="pagination"
+            role="navigation"
+            aria-label="인박스 페이지네이션"
+          >
+            <div class="pagination__status">총 256건 · 1 / 13 페이지</div>
+            <div
+              class="pagination"
+              role="region"
+              aria-label="목록 하단 페이지 정보 및 이동"
+            >
+              <nav
+                class="pagination__nav"
+                aria-label="페이지네이션"
+              >
+                <ul class="pagination__list list-reset">
+                  <!-- (6-1) 처음, 이전 : 첫 페이지에서는 비활성 -->
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=1"
+                      aria-label="첫 페이지"
+                      aria-disabled="true"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >«</span
+                      >
+                      <span class="sr-only">첫 페이지</span>
+                    </a>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=0"
+                      aria-label="이전 페이지"
+                      aria-disabled="true"
+                      tabindex="-1"
+                      rel="prev"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >‹</span
+                      >
+                      <span class="sr-only">이전 페이지</span>
+                    </a>
+                  </li>
+
+                  <!-- 숫자 페이지 -->
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link pagination__link--current"
+                      href="?page=1"
+                      aria-current="page"
+                      aria-label="현재 페이지 1"
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=2"
+                      aria-label="2페이지"
+                      >2</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=3"
+                      aria-label="3페이지"
+                      >3</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=4"
+                      aria-label="4페이지"
+                      >4</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=5"
+                      aria-label="5페이지"
+                      >5</a
+                    >
+                  </li>
+
+                  <!-- 필요 시 생략 부호 -->
+                  <!-- <li class="pagination__item" aria-hidden="true">
+                    <span class="pagination__ellipsis">…</span>
+                  </li> -->
+
+                  <!-- (6-1) 다음, 마지막 -->
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=2"
+                      aria-label="다음 페이지"
+                      rel="next"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >›</span
+                      >
+                      <span class="sr-only">다음 페이지</span>
+                    </a>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="?page=7"
+                      aria-label="마지막 페이지"
+                    >
+                      <span
+                        class="pagination__icon"
+                        aria-hidden="true"
+                        >»</span
+                      >
+                      <span class="sr-only">마지막 페이지</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+        <!-- ===== 운영 현황 보드(사이드바 매핑: 업체/메뉴/회원/신고) ===== -->
+        <section
+          class="pipeline"
+          aria-labelledby="ops-board-heading"
+        >
+          <h2 id="ops-board-heading">운영 현황 보드</h2>
+          <div class="pipeline__board">
+            <!-- 업체 운영 -->
+            <div
+              class="pipeline__column"
+              aria-label="업체 운영"
+            >
+              <div class="pipeline__header">
+                <span class="pipeline__title">업체 운영</span>
+                <span class="badge badge--approve">오픈 4,982</span>
+              </div>
+              <ul
+                class="pipeline__list list-reset"
+                role="list"
+              >
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">휴점</strong
+                  ><span class="pipeline__meta">450곳</span>
+                </li>
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">평균 조리</strong
+                  ><span class="pipeline__meta">16분</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 메뉴 콘텐츠 -->
+            <div
+              class="pipeline__column"
+              aria-label="메뉴 콘텐츠"
+            >
+              <div class="pipeline__header">
+                <span class="pipeline__title">메뉴 콘텐츠</span>
+                <span class="badge badge--info">검수 18</span>
+              </div>
+              <ul
+                class="pipeline__list list-reset"
+                role="list"
+              >
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">이미지 미흡</strong
+                  ><span class="pipeline__meta">5건</span>
+                </li>
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">알레르기 표기</strong
+                  ><span class="pipeline__meta">3건</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 회원 지표 -->
+            <div
+              class="pipeline__column"
+              aria-label="회원 지표"
+            >
+              <div class="pipeline__header">
+                <span class="pipeline__title">회원 지표</span>
+                <span class="badge badge--pending">신규 2,130</span>
+              </div>
+              <ul
+                class="pipeline__list list-reset"
+                role="list"
+              >
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">휴면 전환</strong
+                  ><span class="pipeline__meta">312명</span>
+                </li>
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">블랙리스트</strong
+                  ><span class="pipeline__meta">84명</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 신고/모더레이션 -->
+            <div
+              class="pipeline__column"
+              aria-label="신고/모더레이션"
+            >
+              <div class="pipeline__header">
+                <span class="pipeline__title">신고/모더레이션</span>
+                <span class="badge badge--pending">대기 12</span>
+              </div>
+              <ul
+                class="pipeline__list list-reset"
+                role="list"
+              >
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">리뷰 신고</strong
+                  ><span class="pipeline__meta">9건</span>
+                </li>
+                <li class="pipeline__card">
+                  <strong class="pipeline__order-id">사용자 신고</strong
+                  ><span class="pipeline__meta">3건</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 최근 리뷰(플랫폼 관점) ===== -->
+        <section
+          class="reviews"
+          aria-labelledby="reviews-heading"
+        >
+          <h2 id="reviews-heading">최근 리뷰 & 모니터링</h2>
+          <ol
+            class="reviews__timeline"
+            role="list"
+          >
+            <li class="reviews__item">
+              <div class="reviews__meta">
+                <span
+                  class="reviews__rating"
+                  aria-label="평점 5점"
+                >
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <time
+                  class="reviews__time"
+                  datetime=""
+                  >12분 전</time
+                >
+              </div>
+              <p class="reviews__text">
+                신규 입점 카테고리의 주문 만족도가 높습니다.
+              </p>
+              <div class="reviews__actions">
+                <button class="btn btn--ghost">상세</button>
+                <button class="btn btn--secondary">신고</button>
+              </div>
+            </li>
+            <li class="reviews__item">
+              <div class="reviews__meta">
+                <span
+                  class="reviews__rating"
+                  aria-label="평점 2점"
+                >
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i
+                  ><i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </span>
+                <time
+                  class="reviews__time"
+                  datetime=""
+                  >35분 전</time
+                >
+              </div>
+              <p class="reviews__text">
+                배달 지연 지역에서 온도 관련 불만이 증가했습니다.
+              </p>
+              <div class="reviews__actions">
+                <button class="btn btn--ghost">상세</button>
+                <button class="btn btn--secondary">신고</button>
+              </div>
+            </li>
+          </ol>
+        </section>
+      </main>
     </div>
   </body>
 </html>

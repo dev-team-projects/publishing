@@ -1,0 +1,565 @@
+<!-- <main
+        id="main-content"
+        class="main-container"
+      >
+        <h1 class="visually-hidden">관리자 대시보드</h1>
+
+        <section
+          class="dashboard content-wrapper"
+          aria-labelledby="dashboard-heading"
+        >
+          <h2
+            id="dashboard-heading"
+            class="visually-hidden"
+          >
+            요약/업무 현황
+          </h2>
+          <div
+            class="kpis grid grid--cols-4"
+            role="list"
+          >
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="오늘 주문수"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-receipt"></i
+                ></span>
+                <span class="kpis__label">오늘 주문</span>
+              </div>
+              <strong
+                class="kpis__value"
+                aria-live="polite"
+                >128건</strong
+              >
+              <p class="kpis__delta kpis__delta--up">
+                <i
+                  class="fa-solid fa-arrow-up"
+                  aria-hidden="true"
+                ></i>
+                +12%
+              </p>
+            </article>
+
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="오늘 매출"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-won-sign"></i
+                ></span>
+                <span class="kpis__label">오늘 매출</span>
+              </div>
+              <strong
+                class="kpis__value"
+                aria-live="polite"
+                >₩ 3,240,000</strong
+              >
+              <p class="kpis__delta kpis__delta--up">
+                <i
+                  class="fa-solid fa-arrow-up"
+                  aria-hidden="true"
+                ></i>
+                +7%
+              </p>
+            </article>
+
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="환불 대기"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-rotate-left"></i
+                ></span>
+                <span class="kpis__label">환불 대기</span>
+              </div>
+              <strong class="kpis__value">3건</strong>
+              <p class="kpis__delta kpis__delta--flat">
+                <i
+                  class="fa-solid fa-arrows-left-right"
+                  aria-hidden="true"
+                ></i>
+                0%
+              </p>
+            </article>
+
+            <article
+              class="kpis__card"
+              role="listitem"
+              aria-label="신규 회원"
+            >
+              <div class="kpis__top">
+                <span
+                  class="kpis__icon"
+                  aria-hidden="true"
+                  ><i class="fa-solid fa-user-plus"></i
+                ></span>
+                <span class="kpis__label">신규 회원</span>
+              </div>
+              <strong class="kpis__value">42명</strong>
+              <p class="kpis__delta kpis__delta--down">
+                <i
+                  class="fa-solid fa-arrow-down"
+                  aria-hidden="true"
+                ></i>
+                -3%
+              </p>
+            </article>
+          </div>
+          <section
+            class="inbox"
+            aria-labelledby="inbox-heading"
+          >
+            <div class="data-table__header">
+              <h3 id="inbox-heading">업무 인박스</h3>
+
+              <div class="data-table__search-wrapper">
+                <label
+                  for="inbox-search"
+                  class="sr-only"
+                  >검색</label
+                >
+                <input
+                  id="inbox-search"
+                  type="search"
+                  class="data-table__search-input u-search-clean"
+                  placeholder="요청자/주문번호/유형 검색"
+                  inputmode="search"
+                />
+              </div>
+
+              <div class="data-table__action-group">
+                <button
+                  class="btn btn--secondary u-focus-ring"
+                  type="button"
+                >
+                  선택 반려
+                </button>
+                <button
+                  class="btn btn--primary u-focus-ring"
+                  type="button"
+                >
+                  선택 승인
+                </button>
+              </div>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table
+                class="data-table__table"
+                aria-describedby="inbox-caption"
+              >
+                <caption
+                  id="inbox-caption"
+                  class="sr-only"
+                >
+                  승인/검토가 필요한 최신 요청 목록
+                </caption>
+                <thead class="data-table__head">
+                  <tr class="data-table__row">
+                    <th
+                      scope="col"
+                      class="data-table__cell data-table__cell--select"
+                    >
+                      <input
+                        type="checkbox"
+                        class="data-table__checkbox"
+                        aria-label="전체 선택"
+                      />
+                    </th>
+                    <th
+                      scope="col"
+                      class="data-table__cell"
+                    >
+                      <button
+                        class="data-table__sort u-focus-reset"
+                        data-sort="type"
+                        aria-sort="none"
+                      >
+                        유형
+                      </button>
+                    </th>
+                    <th
+                      scope="col"
+                      class="data-table__cell"
+                    >
+                      <button
+                        class="data-table__sort u-focus-reset"
+                        data-sort="title"
+                        aria-sort="none"
+                      >
+                        제목
+                      </button>
+                    </th>
+                    <th
+                      scope="col"
+                      class="data-table__cell"
+                    >
+                      요청자
+                    </th>
+                    <th
+                      scope="col"
+                      class="data-table__cell"
+                    >
+                      상태
+                    </th>
+                    <th
+                      scope="col"
+                      class="data-table__cell"
+                    >
+                      <button
+                        class="data-table__sort u-focus-reset"
+                        data-sort="date"
+                        aria-sort="descending"
+                      >
+                        요청일
+                      </button>
+                    </th>
+                    <th
+                      scope="col"
+                      class="data-table__cell"
+                    >
+                      액션
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="data-table__body">
+                  <tr class="data-table__row">
+                    <td class="data-table__cell data-table__cell--select">
+                      <input
+                        type="checkbox"
+                        class="data-table__checkbox"
+                        aria-label="행 선택"
+                      />
+                    </td>
+                    <th
+                      scope="row"
+                      class="data-table__cell data-table__cell--row-header"
+                    >
+                      메뉴
+                    </th>
+                    <td class="data-table__cell data-table__cell--truncate">
+                      신규 메뉴 &lt;매운치킨버거&gt; 등록
+                    </td>
+                    <td class="data-table__cell">한강치킨</td>
+                    <td class="data-table__cell">
+                      <span class="badge badge--pending">대기</span>
+                    </td>
+                    <td class="data-table__cell data-table__cell--nowrap">
+                      2025-11-01 12:03
+                    </td>
+                    <td class="data-table__cell data-table__cell--nowrap">
+                      <button class="btn btn--ghost">검토</button>
+                      <button class="btn btn--secondary">반려</button>
+                      <button class="btn btn--primary">승인</button>
+                    </td>
+                  </tr>
+
+                  <tr class="data-table__row">
+                    <td class="data-table__cell data-table__cell--select">
+                      <input
+                        type="checkbox"
+                        class="data-table__checkbox"
+                        aria-label="행 선택"
+                      />
+                    </td>
+                    <th
+                      scope="row"
+                      class="data-table__cell data-table__cell--row-header"
+                    >
+                      환불
+                    </th>
+                    <td class="data-table__cell data-table__cell--truncate">
+                      주문 #A12033 결제 오류
+                    </td>
+                    <td class="data-table__cell">김민수</td>
+                    <td class="data-table__cell">
+                      <span class="badge badge--pending">대기</span>
+                    </td>
+                    <td class="data-table__cell data-table__cell--nowrap">
+                      2025-11-01 11:40
+                    </td>
+                    <td class="data-table__cell data-table__cell--nowrap">
+                      <button class="btn btn--ghost">상세</button>
+                      <button class="btn btn--secondary">반려</button>
+                      <button class="btn btn--primary">승인</button>
+                    </td>
+                  </tr>
+
+                  <tr class="data-table__row">
+                    <td class="data-table__cell data-table__cell--select">
+                      <input
+                        type="checkbox"
+                        class="data-table__checkbox"
+                        aria-label="행 선택"
+                      />
+                    </td>
+                    <th
+                      scope="row"
+                      class="data-table__cell data-table__cell--row-header"
+                    >
+                      신고
+                    </th>
+                    <td class="data-table__cell data-table__cell--truncate">
+                      욕설 포함 리뷰 신고
+                    </td>
+                    <td class="data-table__cell">관리자</td>
+                    <td class="data-table__cell">
+                      <span class="badge badge--info">검토중</span>
+                    </td>
+                    <td class="data-table__cell data-table__cell--nowrap">
+                      2025-11-01 10:12
+                    </td>
+                    <td class="data-table__cell data-table__cell--nowrap">
+                      <button class="btn btn--ghost">증빙</button>
+                      <button class="btn btn--secondary">반려</button>
+                      <button class="btn btn--approve">조치</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="pagination"
+              role="navigation"
+              aria-label="인박스 페이지네이션"
+            >
+              <div class="pagination__status">총 128건 · 1 / 9 페이지</div>
+              <div class="pagination__nav">
+                <button
+                  class="pagination__link"
+                  aria-label="첫 페이지"
+                  aria-disabled="true"
+                >
+                  <span
+                    class="pagination__icon"
+                    aria-hidden="true"
+                    ><i class="fa-solid fa-angles-left"></i
+                  ></span>
+                </button>
+                <button
+                  class="pagination__link"
+                  aria-label="이전 페이지"
+                  aria-disabled="true"
+                >
+                  <span
+                    class="pagination__icon"
+                    aria-hidden="true"
+                    ><i class="fa-solid fa-angle-left"></i
+                  ></span>
+                </button>
+
+                <ol
+                  class="pagination__list"
+                  role="list"
+                >
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      aria-current="page"
+                      >1</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="#"
+                      >2</a
+                    >
+                  </li>
+                  <li class="pagination__item">
+                    <span class="pagination__ellipsis">…</span>
+                  </li>
+                  <li class="pagination__item">
+                    <a
+                      class="pagination__link"
+                      href="#"
+                      >9</a
+                    >
+                  </li>
+                </ol>
+
+                <button
+                  class="pagination__link"
+                  aria-label="다음 페이지"
+                >
+                  <span
+                    class="pagination__icon"
+                    aria-hidden="true"
+                    ><i class="fa-solid fa-angle-right"></i
+                  ></span>
+                </button>
+                <button
+                  class="pagination__link"
+                  aria-label="마지막 페이지"
+                >
+                  <span
+                    class="pagination__icon"
+                    aria-hidden="true"
+                    ><i class="fa-solid fa-angles-right"></i
+                  ></span>
+                </button>
+              </div>
+            </div>
+          </section>
+          <section
+            class="pipeline"
+            aria-labelledby="pipeline-heading"
+          >
+            <h3 id="pipeline-heading">주문 · 배달 파이프라인</h3>
+            <div class="pipeline__board">
+              <div
+                class="pipeline__column"
+                aria-label="조리중"
+              >
+                <div class="pipeline__header">
+                  <span class="pipeline__title">조리중</span>
+                  <span class="badge badge--info">8</span>
+                </div>
+                <ul
+                  class="pipeline__list list-reset"
+                  role="list"
+                >
+                  <li class="pipeline__card">
+                    <strong class="pipeline__order-id">#A12045</strong>
+                    <span class="pipeline__meta">경과 12분</span>
+                  </li>
+                  <li class="pipeline__card">
+                    <strong class="pipeline__order-id">#A12047</strong>
+                    <span class="pipeline__meta">경과 5분</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="pipeline__column"
+                aria-label="조리완료"
+              >
+                <div class="pipeline__header">
+                  <span class="pipeline__title">조리완료</span>
+                  <span class="badge badge--approve">3</span>
+                </div>
+                <ul
+                  class="pipeline__list list-reset"
+                  role="list"
+                >
+                  <li class="pipeline__card">
+                    <strong class="pipeline__order-id">#A12033</strong>
+                    <span class="pipeline__meta">픽업 대기 2분</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="pipeline__column"
+                aria-label="배달중"
+              >
+                <div class="pipeline__header">
+                  <span class="pipeline__title">배달중</span>
+                  <span class="badge badge--pending">5</span>
+                </div>
+                <ul
+                  class="pipeline__list list-reset"
+                  role="list"
+                >
+                  <li class="pipeline__card">
+                    <strong class="pipeline__order-id">#A12021</strong>
+                    <span class="pipeline__meta">ETA 7분</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="pipeline__column"
+                aria-label="배달완료"
+              >
+                <div class="pipeline__header">
+                  <span class="pipeline__title">배달완료</span>
+                  <span class="badge badge--approve">12</span>
+                </div>
+                <ul
+                  class="pipeline__list list-reset"
+                  role="list"
+                >
+                  <li class="pipeline__card">
+                    <strong class="pipeline__order-id">#A11998</strong>
+                    <span class="pipeline__meta">완료 3분</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section
+            class="reviews"
+            aria-labelledby="reviews-heading"
+          >
+            <h3 id="reviews-heading">최근 리뷰</h3>
+            <ol
+              class="reviews__timeline"
+              role="list"
+            >
+              <li class="reviews__item">
+                <div class="reviews__meta">
+                  <span
+                    class="reviews__rating"
+                    aria-label="평점 5점"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                  <time
+                    class="reviews__time"
+                    datetime=""
+                    >12분 전</time
+                  >
+                </div>
+                <p class="reviews__text">너무 맛있고 배달 빨랐어요!</p>
+                <div class="reviews__actions">
+                  <button class="btn btn--ghost">상세</button>
+                  <button class="btn btn--secondary">신고</button>
+                </div>
+              </li>
+
+              <li class="reviews__item">
+                <div class="reviews__meta">
+                  <span
+                    class="reviews__rating"
+                    aria-label="평점 2점"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <time
+                    class="reviews__time"
+                    datetime=""
+                    >35분 전</time
+                  >
+                </div>
+                <p class="reviews__text">조금 식어서 도착했어요.</p>
+                <div class="reviews__actions">
+                  <button class="btn btn--ghost">상세</button>
+                  <button class="btn btn--secondary">신고</button>
+                </div>
+              </li>
+            </ol>
+          </section>
+        </section>
+      </main> -->
